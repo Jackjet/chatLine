@@ -9,25 +9,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 
-import com.bupt.chatline.dao.ChatMesDao;
+import com.bupt.chatline.service.ChatMesDaoService;
 import com.bupt.chatline.entity.ChatMes;
 import com.bupt.chatline.mes.MesHolder;
 
 @Controller
 public class MesController {
 	@Autowired
-	ChatMesDao chatMesDao;
+	ChatMesDaoService chatMesDaoService;
 	@Autowired
 	private SimpMessagingTemplate template;
 	
-	
-	public ChatMesDao getChatMesDao() {
-		return chatMesDao;
+
+
+	public ChatMesDaoService getChatMesDaoService() {
+		return chatMesDaoService;
 	}
 
 
-	public void setChatMesDao(ChatMesDao chatMesDao) {
-		this.chatMesDao = chatMesDao;
+	public void setChatMesDaoService(ChatMesDaoService chatMesDaoService) {
+		this.chatMesDaoService = chatMesDaoService;
 	}
 
 
@@ -40,15 +41,15 @@ public class MesController {
 		this.template = template;
 	}
 
-
+	
 	@MessageMapping("/cMes")
     public void sendMes(@RequestBody Map<String,Object> map) throws Exception {
-		String content = (String) map.get("content");
-		int sid = Integer.parseInt((String)map.get("sid"));
-		int did = Integer.parseInt((String)map.get("did"));
+		String content = (String) map.get("content").toString();
+		int sid = Integer.parseInt(map.get("sid").toString());
+		int did = Integer.parseInt(map.get("did").toString());
 		ChatMes chatMes = new ChatMes(sid,did,content);
-		int id = chatMesDao.save(chatMes);
-		chatMes = chatMesDao.findById(id);
+		int id = chatMesDaoService.save(chatMes);
+		chatMes = chatMesDaoService.findById(id);
         template.convertAndSend(MesHolder.sendToUri + chatMes.getDid(), chatMes);
     }
 

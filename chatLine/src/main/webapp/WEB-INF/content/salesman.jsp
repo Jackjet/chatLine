@@ -10,6 +10,7 @@
     <script src="../assets/js/bootstrap.js"></script>
     <script src="../assets/js/util.js"></script>
     <script src="../assets/js/jQuery.md5.js"></script>
+    <script src="../assets/js/salesmanDisplay.js"></script>
 	<link href="../assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="../assets/css/salesman.css" rel="stylesheet" type="text/css" media="all" />
 </head>
