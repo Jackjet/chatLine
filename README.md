@@ -6,6 +6,7 @@
 		git init
 		git remote add origin git@github.com:SPM12/chatLine.git
 		git pull origin master
+		git merge origin/master
 
 ##第一次运行项目须知
 1. 创建mysql的schema,起名为chatline
