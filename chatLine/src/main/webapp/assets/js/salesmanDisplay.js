@@ -36,7 +36,7 @@ function changeSalesmanName(id){
 				"name":name
 			},
 			success:function(data){
-				if(data="true"){
+				if(data==true){
 					alert("修改成功");
 					$("#myModal").modal("hide");
 				}
@@ -51,7 +51,7 @@ function showChangeSalesmanNameDialog(id){
 	$("#myModal-body").html("<label>新昵称</label><input type='text' class='form-control' id='myModal-name'/>");
 	$("#myModal-comfirm-button").click(
 			function(){
-				changeSalesmanName(id);
+				changeSalesmanPassword(id);
 			}
 	);
 	$("#myModal-title").html("修改昵称");
@@ -71,7 +71,7 @@ function changeSalesmanPassword(id){
 				"password":password
 			},
 			success:function(data){
-				if(data=="true"){
+				if(data==true){
 					alert("修改成功");
 					$("#myModal").modal("hide");
 				}
