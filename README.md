@@ -9,6 +9,21 @@
 		git merge origin/master
 
 ##之后下载
+###首先需要保存工作
+####如果已经完成并测试好了一个功能
+
+		git add *
+		git commit -m "<做了什么>"
+
+####否则,若还没改动完BUGA
+		
+		git stash
+	
+等完成了需要做的事情,可以回去改动BUGA,
+
+		git stash pop
+
+###保存完工作后
 		
 		git pull origin master
 		git merge origin/master
