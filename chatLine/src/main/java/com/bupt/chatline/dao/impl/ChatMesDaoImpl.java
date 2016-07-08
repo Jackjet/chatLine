@@ -25,8 +25,8 @@ public class ChatMesDaoImpl extends GenericDaoImpl<ChatMes, Integer>implements C
 		return id;
 	}
 	@SuppressWarnings("unchecked")
-	public List<ChatMes> findBySidandDid(int sdid){
-		String str = "from ChatMes where sid = " + sdid + " or did = " + sdid + " ordered by time";
+	public List<ChatMes> findBySidOrDid(int sdid){
+		String str = "from ChatMes c where c.sid = " + sdid + " or c.did = " + sdid + " order by c.time asc";
 		return (List<ChatMes>)sessionFactory.openSession().createQuery(str).list();
 		
 	}

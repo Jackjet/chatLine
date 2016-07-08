@@ -51,7 +51,7 @@ function showChangeSalesmanNameDialog(id){
 	$("#myModal-body").html("<label>新昵称</label><input type='text' class='form-control' id='myModal-name'/>");
 	$("#myModal-comfirm-button").click(
 			function(){
-				changeSalesmanPassword(id);
+				changeSalesmanName(id);
 			}
 	);
 	$("#myModal-title").html("修改昵称");

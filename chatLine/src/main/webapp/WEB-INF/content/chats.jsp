@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>客服</title>
-<script type="text/javascript" src="../assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../assets/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="../assets/js/wysiwyg.js"></script>
 <script type="text/javascript" src=" ../assets/js/wysiwyg-editor.js"></script>
 <script type="text/javascript" src=" ../assets/js/wysiwyg-bind.js"></script>
@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
 <link rel="stylesheet" type="text/css" href=" ../assets/css/wysiwyg-editor.css" />
-<link rel="stylesheet" type="text/css" href=" ../assets/css/chats.css" />
+<link rel="stylesheet" type="text/css" href=" ../assets/css/wysiwyg-style.css" />
 <link rel="stylesheet" type="text/css" href=" ../assets/css/chat.css" />
 </head>
 <body class="keBody" onload="connect()">
