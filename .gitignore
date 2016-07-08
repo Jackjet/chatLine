@@ -1,0 +1,11 @@
+.metadata
+logs
+RemoteSystemsTempFiles
+Servers
+chatLine/.settings
+chatLine/.classpath
+chatLine/target
+chatLine/.project
+chatLine/.gitignore
+chatLine/.springBeans
+chatLine/.tern-project
