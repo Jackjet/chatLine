@@ -6,8 +6,8 @@ function message() {
 }
 $(document).ready(function() {
 		var a = 3,
-			b = "assets/img/head/1.png",
-			c = "assets/img/head/2.png",
+			b = "../assets/img/head/1.png",
+			c = "../assets/img/head/2.png",
 			d = "用户3";
 		$(".close_btn").click(function() {
 			$(".chatBox").hide()
@@ -17,7 +17,7 @@ $(document).ready(function() {
 			$(this).removeClass("hover").siblings().removeClass("hover")
 		}), $(".chat03_content li").dblclick(function() {
 			var b = $(this).index() + 1;
-			a = b, c = "img/head/2.png", d = $(this).find(".chat03_name").text(), $(".chat01_content").scrollTop(0), $(this).addClass("choosed").siblings().removeClass("choosed"), $(".talkTo a").text($(this).children(".chat03_name").text()), $(".mes" + b).show().siblings().hide()
+			a = b, c = "../assets/img/head/2.png", d = $(this).find(".chat03_name").text(), $(".chat01_content").scrollTop(0), $(this).addClass("choosed").siblings().removeClass("choosed"), $(".talkTo a").text($(this).children(".chat03_name").text()), $(".mes" + b).show().siblings().hide()
 		}), $(".ctb01").mouseover(function() {
 			$(".wl_faces_box").show()
 		}).mouseout(function() {

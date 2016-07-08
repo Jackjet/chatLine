@@ -4,25 +4,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>客服</title>
-<script type="text/javascript" src="assets/js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="assets/js/wysiwyg.js"></script>
-<script type="text/javascript" src=" assets/js/wysiwyg-editor.js"></script>
-<script type="text/javascript" src=" assets/js/wysiwyg-bind.js"></script>
+<script type="text/javascript" src="../assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../assets/js/wysiwyg.js"></script>
+<script type="text/javascript" src=" ../assets/js/wysiwyg-editor.js"></script>
+<script type="text/javascript" src=" ../assets/js/wysiwyg-bind.js"></script>
 
-<script type="text/javascript" src=" assets/js/sendDisplayMes.js"></script>
-<script type="text/javascript" src=" assets/js/chat.js"></script>
-<script type="text/javascript" src=" assets/js/util.js"></script>
+<script type="text/javascript" src=" ../assets/js/sendDisplayMes.js"></script>
+<script type="text/javascript" src=" ../assets/js/chat.js"></script>
+<script type="text/javascript" src=" ../assets/js/util.js"></script>
 <script src="http://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
-<script type="text/javascript" src=" assets/js/stomp.js"></script>
-<script type="text/javascript" src=" assets/js/communication.js"></script>
+<script type="text/javascript" src=" ../assets/js/stomp.js"></script>
+<script type="text/javascript" src=" ../assets/js/communication.js"></script>
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
-<link rel="stylesheet" type="text/css" href=" assets/css/wysiwyg-editor.css" />
-<link rel="stylesheet" type="text/css" href=" assets/css/chats.css" />
-<link rel="stylesheet" type="text/css" href=" assets/css/chat.css" />
+<link rel="stylesheet" type="text/css" href=" ../assets/css/wysiwyg-editor.css" />
+<link rel="stylesheet" type="text/css" href=" ../assets/css/chats.css" />
+<link rel="stylesheet" type="text/css" href=" ../assets/css/chat.css" />
 </head>
 <body class="keBody" onload="connect()">
-<h1 class="keTitle">欢迎您,客服杀老师</h1>
+<h1 class="keTitle">欢迎您,客服</h1>
 <div class="kePublic">
 <!--html-->
     <div class="content">
@@ -82,85 +82,85 @@
                                 <div class="wl_faces_main">
                                     <ul>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_01.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_02.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_03.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_01.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_02.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_03.gif" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_04.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_05.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_06.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_04.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_05.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_06.gif" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_07.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_08.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_09.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_07.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_08.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_09.gif" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_10.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_11.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_12.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_10.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_11.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_12.gif" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_13.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_14.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_15.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_13.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_14.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_15.gif" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_16.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_17.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_18.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_16.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_17.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_18.gif" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_19.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_20.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_21.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_19.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_20.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_21.gif" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_22.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_23.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_24.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_22.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_23.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_24.gif" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_25.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_26.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_27.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_25.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_26.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_27.gif" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_28.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_29.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_30.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_28.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_29.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_30.gif" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_31.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_32.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_33.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_31.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_32.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_33.gif" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_34.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_35.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_36.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_34.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_35.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_36.gif" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_37.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_38.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_39.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_37.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_38.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_39.gif" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_40.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_41.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_42.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_40.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_41.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_42.gif" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_43.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_44.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_45.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_43.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_44.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_45.gif" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_46.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_47.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_48.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_46.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_47.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_48.gif" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_49.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_50.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_51.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_49.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_50.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_51.gif" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_52.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_53.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_54.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_52.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_53.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_54.gif" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_55.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_56.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_57.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_55.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_56.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_57.gif" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src=" assets/images/img/emo_58.gif" /></a></li><li><a href="javascript:;">
-                                                <img src=" assets/images/img/emo_59.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src=" assets/images/img/emo_60.gif" /></a></li>
+                                            <img src=" ../assets/images/img/emo_58.gif" /></a></li><li><a href="javascript:;">
+                                                <img src=" ../assets/images/img/emo_59.gif" /></a></li><li><a href="javascript:;">
+                                                    <img src=" ../assets/images/img/emo_60.gif" /></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -184,7 +184,7 @@
                     <div class="chat02_bar">
                         <ul>
                             <li style="right: 5px; top: 5px;">
-                            <a href="javascript:;"><img src=" assets/images/img/send_btn.jpg"/></a></li>
+                            <a href="javascript:;"><img src=" ../assets/images/img/send_btn.jpg"/></a></li>
                         </ul>
                     </div>
                 </div>
@@ -200,19 +200,19 @@
                                 <label class="online">
                                 </label>
                                 <a href="javascript:;">
-                                    <img src=" assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户1 </a>
+                                    <img src=" ../assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户1 </a>
                             </li>
                             <li>
                                 <label class="offline">
                                 </label>
                                 <a href="javascript:;">
-                                    <img src=" assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户2</a>
+                                    <img src=" ../assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户2</a>
                             </li>
                             <li class="choosed">
                                 <label class="offline">
                                 </label>
                                 <a href="javascript:;">
-                                    <img src=" assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户3</a>
+                                    <img src=" ../assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户3</a>
                             </li>
                         </ul>
                     </div>

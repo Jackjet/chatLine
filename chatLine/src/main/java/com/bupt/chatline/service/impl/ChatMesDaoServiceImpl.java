@@ -95,4 +95,7 @@ public class ChatMesDaoServiceImpl implements ChatMesDaoService {
 	}
 	
 
+	public List<ChatMes> findBySidandDid(int sdid){
+		return chatMesDao.findBySidandDid(sdid);
+	}
 }

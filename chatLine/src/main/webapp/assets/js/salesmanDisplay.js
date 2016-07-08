@@ -93,8 +93,6 @@ function showChangeSalesmanPasswordDialog(id){
 }
 function deleteSalesman(id){
 	alert("操作正在进行,请稍后...");
-	$("#myModal-body").html("");
-	$("#myModal").modal("show");
 	$.ajax({
 		type:"post",
 		url:"delete",

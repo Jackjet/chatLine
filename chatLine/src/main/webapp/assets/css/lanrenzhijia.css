@@ -1,0 +1,180 @@
+@charset "utf-8";
+/* 代码整理：懒人之家 lanrenzhijia.com */
+body, div, h2 {
+	margin:0;
+	padding:0;
+}
+body {
+
+}
+
+
+#drag {
+	display: block;
+	position:absolute;
+	top:500px;
+	left:500px;
+	width:500px;
+	height:500px;
+	min-height: 550px;
+	min-width: 900px;
+	background:white;
+	border-radius:5px;
+	box-shadow:0 9px 3px 2px #666;
+	overflow: auto;
+	background-image: url(../images/bk1.jpg);
+	background-size: cover;
+}
+
+
+#drag .title {
+	background: wheat;
+	position:relative;
+	height:27px;
+}
+#drag .title h4{
+	font-size:14px;
+	height:27px;
+	line-height:24px;
+}
+#drag .title div {
+	position:absolute;
+	height:19px;
+	top:2px;
+	right:0;
+}
+#drag .title a, a.open {
+	float:left;
+	width:21px;
+	height:19px;
+	display:block;
+	margin-left:5px;
+	background:url(../images/tool.png) no-repeat;
+}
+a.open {
+	position:absolute;
+	top:10px;
+	left:50%;
+	margin-left:-10px;
+	background-position:0 0;
+}
+a.open:hover {
+	background-position:0 -29px;
+}
+#drag .title a.min {
+	background-position:-29px 0;
+}
+#drag .title a.min:hover {
+	background-position:-29px -29px;
+}
+#drag .title a.max {
+	background-position:-60px 0;
+}
+#drag .title a.max:hover {
+	background-position:-60px -29px;
+}
+#drag .title a.revert {
+	background-position:-149px 0;
+	display:none;
+}
+#drag .title a.revert:hover {
+	background-position:-149px -29px;
+}
+#drag .title a.close {
+	background-position:-89px 0;
+}
+#drag .title a.close:hover {
+	background-position:-89px -29px;
+}
+#drag .content {
+	overflow:auto;
+	margin:0 5px;
+	height: auto !important;
+	height: 100%;
+	min-height: 300px;
+	min-width: 300px;
+}
+
+#drag.content.row-fluid {
+	width: 100%;
+	*zoom: 1;
+	min-width: 300px;
+	min-height: 300px;
+}
+
+#drag.con-footer{
+	clear: both;
+	height: 5px;
+	overflow: auto;
+	padding: 14px 15px 15px;
+	margin-bottom: 0;
+	text-align: left;
+	background: wheat;
+	border-top: 1px solid #ddd;
+	-webkit-border-radius: 0 0 6px 6px;
+	-moz-border-radius: 0 0 6px 6px;
+	border-radius: 0 0 6px 6px;
+	*zoom: 1;
+	-webkit-box-shadow: inset 0 1px 0 #fff;
+	-moz-box-shadow: inset 0 1px 0 #fff;
+	box-shadow: inset 0 1px 0 #fff
+}
+
+
+#drag .resizeBR {
+	position:absolute;
+	width:14px;
+	height:14px;
+	right:0;
+	bottom:0;
+	overflow:hidden;
+	cursor:nw-resize;
+	background:url(../images/resize.png) no-repeat;
+}
+#drag .resizeL, #drag .resizeT, #drag .resizeR, #drag .resizeB, #drag .resizeLT, #drag .resizeTR, #drag .resizeLB {
+	position:absolute;
+	background:#000;
+	overflow:hidden;
+	opacity:0;
+	filter:alpha(opacity=0);
+}
+#drag .resizeL, #drag .resizeR {
+	top:0;
+	width:5px;
+	height:100%;
+	cursor:w-resize;
+}
+#drag .resizeR {
+	right:0;
+}
+#drag .resizeT, #drag .resizeB {
+	width:100%;
+	height:5px;
+	cursor:n-resize;
+}
+#drag .resizeT {
+	top:0;
+}
+#drag .resizeB {
+	bottom:0;
+}
+#drag .resizeLT, #drag .resizeTR, #drag .resizeLB {
+	width:8px;
+	height:8px;
+	background:#FF0;
+}
+#drag .resizeLT {
+	top:0;
+	left:0;
+	cursor:nw-resize;
+}
+#drag .resizeTR {
+	top:0;
+	right:0;
+	cursor:ne-resize;
+}
+#drag .resizeLB {
+	left:0;
+	bottom:0;
+	cursor:ne-resize;
+}
