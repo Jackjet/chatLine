@@ -49,13 +49,20 @@
 					<div class="span10">
 						<div class="responsive">
 							<div class="text-center">
-								<button class="demo btn btn-primary btn-large" id="showbtn" data-toggle="modal" href="#drag">询问客服</button>
+								<button class="demo btn btn-primary btn-large" onclick = "show()" id="showbtn" data-toggle="modal" href="#drag">询问客服</button>
 							</div>
 						</div>
 						<br />
 					</div>
 				</div>
 			</div>
+			<script>
+				function show()
+				{
+					var drag = document.getElementById('drag');
+					drag.style.visibility='visible';
+				}
+			</script>
 
 			<div id="drag" class="modal hide fade" tabindex="-1" data-width="760">
 				<div id="wrap">

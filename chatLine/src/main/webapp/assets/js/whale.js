@@ -66,7 +66,7 @@ defs = '<defs><linearGradient gradientTransform="matrix(0 -2038 1116.5 0 -157 26
   }
 
   function mousemove(e) {
-    mouse = {x: e.clientX, y: e.clientY}
+    mouse = {x: e.offsetX, y: e.offsetY}
   }
 
   function loop() {

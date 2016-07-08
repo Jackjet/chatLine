@@ -30,6 +30,7 @@ body {}
 
 #drag {
 	display: block;
+	visibility: hidden;
 	position: absolute;
 	top: 500px;
 	left: 500px;
