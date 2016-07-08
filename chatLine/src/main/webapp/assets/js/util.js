@@ -15,7 +15,7 @@ function getSecondURL(){
     var pathName = window.document.location.pathname;
     pathName = pathName.substring(1,pathName.length);
     var s = pathName.indexOf('/');
-    var e = pathName.substring(s+1,pathName.length).indexOf('/');
+    var e = pathName.substring(s+1,pathName.length).indexOf('/') + s + 1;
     if(e==-1)e=pathName.length;
-    return pathName.substring(s+1,pathName.length);
+    return pathName.substring(s+1,e);
 }

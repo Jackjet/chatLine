@@ -16,8 +16,8 @@ function  sendBySales() {
 		-1 != g.indexOf("*#emo_") && (g = g.replace("*#", "<img src='img/").replace("#*", ".gif'/>"), h())
 	}
 	var a = 3,
-		b = "../assetsimg/head/1.png",
-		c = "../assetsimg/head/2.png",
+		b = "../assets/images/img/head/1.png",
+		c = "../assets/images/img/head/2.png",
 		d = "用户3";
 	var e = new Date,
 		f = "";
@@ -35,8 +35,8 @@ function  showBySales(g){
 		-1 != g.indexOf("*#emo_") && (g = g.replace("*#", "<img src='img/").replace("#*", ".gif'/>"), h())
 	}
 	var a = 3,
-		b = "../assetsimg/head/1.png",
-		c = "../assetsimg/head/2.png",
+		b = "../assets/images/img/head/1.png",
+		c = "../assets/images/img/head/2.png",
 		d = "用户3";
 	var e = new Date,
 	f = "";
