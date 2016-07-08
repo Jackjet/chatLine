@@ -20,6 +20,18 @@ public class TestSalesmanDao {
 	@Transactional
 	@Test
 	public void test(){
+		List<Salesman> ls = salesmanDao.findAll();
+		for(Salesman m:ls){
+			System.out.println(m);
+			m.setName("D");
+			salesmanDao.update(m);
+			Salesman m2 = salesmanDao.findById(m.getId());
+			System.out.println(m2);
+			m2.setPassword("Changed!" + new Date());
+			m2 = salesmanDao.findById(m.getId());
+			System.out.println(m2);
+			salesmanDao.deleteById(m2.getId());
+		}
 		Salesman mes = new Salesman("A","hello!!");
 		int a = salesmanDao.save(mes);
 		mes = salesmanDao.findById(a);
@@ -34,15 +46,12 @@ public class TestSalesmanDao {
 		salesmanDao.evict(mes);
 		System.out.println(mes);
 		salesmanDao.flush();
-		List<Salesman> ls = salesmanDao.findAll();
+		ls = salesmanDao.findAll();
 		for(Salesman m:ls){
 			System.out.println(m);
-			m.setName("D");
+			m.setPassword("Changed!" + new Date());
 			salesmanDao.update(m);
 			Salesman m2 = salesmanDao.findById(m.getId());
-			System.out.println(m2);
-			m2.setPassword("Changed!" + new Date());
-			m2 = salesmanDao.findById(m.getId());
 			System.out.println(m2);
 			salesmanDao.deleteById(m2.getId());
 		}
