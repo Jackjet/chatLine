@@ -9,6 +9,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.messaging.simp.annotation.SubscribeMapping;
 
 import com.bupt.chatline.service.ChatMesDaoService;
 import com.bupt.chatline.entity.ChatMes;
@@ -43,7 +44,7 @@ public class MesController {
 	}
 
 	
-	@MessageMapping("/cMes")
+	@SubscribeMapping("/cMes")
     public void sendMes(@RequestBody Map<String,Object> map) throws Exception {
 		String content = (String) map.get("content").toString();
 		int sid = Integer.parseInt(map.get("sid").toString());

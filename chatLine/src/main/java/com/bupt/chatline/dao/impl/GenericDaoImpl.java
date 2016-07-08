@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.lang.reflect.ParameterizedType;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,11 +14,14 @@ public class GenericDaoImpl<T,PK extends Serializable> implements GenericDao<T,P
 	@Autowired
 	protected SessionFactory sessionFactory;
 	protected Class<?> entity;
+	protected Class<?> key;
 	
 	public GenericDaoImpl() {
 		super();
 		this.entity = (Class<?>) ((ParameterizedType) getClass()
                 .getGenericSuperclass()).getActualTypeArguments()[0];
+		this.key = (Class<?>) ((ParameterizedType) getClass()
+                .getGenericSuperclass()).getActualTypeArguments()[1];
 	}
 
 	public SessionFactory getSessionFactory() {
@@ -66,13 +70,12 @@ public class GenericDaoImpl<T,PK extends Serializable> implements GenericDao<T,P
 	@Override
 	public void delete(T o) {
 		sessionFactory.getCurrentSession().delete(o);
+		sessionFactory.getCurrentSession().flush();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public void deleteById(Serializable id) {
-		T o = (T) sessionFactory.getCurrentSession().get(entity,id);
-		sessionFactory.getCurrentSession().delete(o);
+		sessionFactory.getCurrentSession().delete(this.findById(id));
 		sessionFactory.getCurrentSession().flush();
 	}
 

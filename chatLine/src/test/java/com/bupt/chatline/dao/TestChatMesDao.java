@@ -20,22 +20,38 @@ public class TestChatMesDao {
 	@Transactional
 	@Test
 	public void test(){
+
+		List<ChatMes> ls = chatMesDao.findAll();
+		for(ChatMes m:ls){
+			chatMesDao.evict(m);
+			chatMesDao.deleteById(m.getId());
+		}
+		ls = chatMesDao.findAll();
+		for(ChatMes m:ls){
+			System.out.println(m);
+		}
 		ChatMes mes = new ChatMes(1,232,"hello!!");
 		chatMesDao.save(mes);
 		mes = new ChatMes(232,1,"hi!!");
 		chatMesDao.saveOrUpdate(mes);
-		mes = new ChatMes(1,232,"how are you?");
+		mes = new ChatMes(2,232,"how are you?");
 		mes = chatMesDao.merge(mes);
 		System.out.println(mes);
-		chatMesDao.evict(mes);
-		System.out.println(mes);
-		List<ChatMes> ls = chatMesDao.findAll();
+		
+		ls = chatMesDao.findBySidOrDid(1);
+		
 		for(ChatMes m:ls){
-			System.out.println(m);
-			m.setContent("Changed!"+new Date());
+			System.out.println("findBySidOrDid" + m);
+		}
+		
+		ls = chatMesDao.findAll();
+		
+		for(ChatMes m:ls){
+			m.setContent("END!"+new Date());
 			chatMesDao.update(m);
 			m = chatMesDao.findById(m.getId());
 			System.out.println(m);
+			chatMesDao.evict(m);
 			chatMesDao.deleteById(m.getId());
 		}
 		chatMesDao.flush();
