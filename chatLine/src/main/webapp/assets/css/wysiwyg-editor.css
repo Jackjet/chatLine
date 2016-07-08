@@ -27,10 +27,11 @@
 }
 .wysiwyg-editor {
     position: relative;
-    min-height: 91px;
+    min-height: 5em;
     /*max-height: 25em;*/
     padding: 10px;
-    overflow: auto;
+    overflow-y:scroll;
+    height:50px;
     outline: none;
     -ms-word-wrap: break-word;
     word-wrap: break-word;
