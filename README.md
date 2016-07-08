@@ -1,4 +1,4 @@
-﻿##第一次使用git下载项目
+##第一次使用git下载项目
 1. 新建一个文件夹作为workspace
 2. 在这个文件夹中,右键打开git bash
 3. 输入以下指令
@@ -28,3 +28,6 @@
 ##第一次运行项目须知
 1. 创建mysql的schema,起名为chatline
 2. 检查src/main/resources下的config.properties文件和你的数据库设置差别,如用户名,密码,url等
+
+##重要:版本rm .project
+为了防止覆盖设置,版本rm .project删除了.project等配置文件,如果需要重新拷贝,需要联系有还能正常运行的最新版的组员
