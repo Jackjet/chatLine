@@ -51,14 +51,21 @@
 					<div class="span10">
 						<div class="responsive">
 							<div class="text-center">
+<<<<<<< HEAD
 								<button class="demo btn btn-primary btn-large" onclick="show()" data-toggle="modal" href="#drag">询问客服</button>
+=======
+								<button class="demo btn btn-primary btn-large" onclick = "show()" id="showbtn" data-toggle="modal" href="#drag">询问客服</button>
+>>>>>>> f04fec3bde17c294711f0233c7906dc54975e7cf
 							</div>
 						</div>
 						<br />
 					</div>
 				</div>
 			</div>
+<<<<<<< HEAD
 			
+=======
+>>>>>>> f04fec3bde17c294711f0233c7906dc54975e7cf
 			<script>
 				function show()
 				{
@@ -66,6 +73,7 @@
 					drag.style.visibility='visible';
 				}
 			</script>
+<<<<<<< HEAD
 			
 			<script>
 				function hide()
@@ -74,6 +82,8 @@
 					drag.style.visibility='hidden';
 				}
 			</script>
+=======
+>>>>>>> f04fec3bde17c294711f0233c7906dc54975e7cf
 
 			<div id="drag" class="modal hide fade" tabindex="-1" data-width="760">
 				<div id="wrap">
