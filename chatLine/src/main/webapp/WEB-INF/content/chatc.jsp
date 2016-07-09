@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<head>
+	
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -35,6 +36,7 @@
 
 		<!-- github.io delivers wrong content-type - but you may want to include FontAwesome in 'wysiwyg-editor.css' -->
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
+		
 	</head>
 
 	<body onload="connect()">
@@ -49,13 +51,29 @@
 					<div class="span10">
 						<div class="responsive">
 							<div class="text-center">
-								<button class="demo btn btn-primary btn-large" id="showbtn" data-toggle="modal" href="#drag">询问客服</button>
+								<button class="demo btn btn-primary btn-large" onclick="show()" data-toggle="modal" href="#drag">询问客服</button>
 							</div>
 						</div>
 						<br />
 					</div>
 				</div>
 			</div>
+			
+			<script>
+				function show()
+				{
+					var drag = document.getElementById('drag');
+					drag.style.visibility='visible';
+				}
+			</script>
+			
+			<script>
+				function hide()
+				{
+					var drag = document.getElementById('drag');
+					drag.style.visibility='hidden';
+				}
+			</script>
 
 			<div id="drag" class="modal hide fade" tabindex="-1" data-width="760">
 				<div id="wrap">
@@ -113,16 +131,23 @@
 					</div>
 				</div>
 				<div class="row-fluid">
-					<div class="footer" style="position: absolute;bottom:0;left:0;width:100%;">
-						<div style="width:860px; margin: 30px auto;">
+					<div class="footer" style="position: absolute;left:0;width:100%;margin:42px 0 0 0">
+					<div class="span8">
+						<div style="width:90%; margin: 0 30px 0;">
 							<textarea id="editor1" name="editor" placeholder="Type your text here..."></textarea>
 							<p>
-								<button type="button" data-dismiss="modal" class="btn">关闭</button>
-								<button id="btn" type="button" onclick= "send()" class="btn btn-primary">发送</button>
+								<button type="button" onclick="hide()"
+								 style="background-image: url(../assets/images/bt1.jpg);background-size: 100% 100%;width:54px;height:30px"></button>
+								<button id="btn" type="button" onclick= "send()" 
+								style="background-image: url(../assets/images/bt2.jpg);background-size: 100% 100%;width:54px;height:30px" ></button>
 							</p>
 							<script type="text/javascript">
 							</script>
 						</div>
+					</div>
+					<div class="span4">
+					<img src="../assets/images/真广_副本_副本.png" style="width: 25%; position: absolute;height: 150px;  margin: 0 auto 0 auto;padding: 0 20px 0 0;" />
+					</div>
 					</div>
 				</div>
 

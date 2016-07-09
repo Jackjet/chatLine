@@ -22,7 +22,7 @@ body {
 
 .chat-all{
   margin: 24px auto 0 auto;
-  padding: 0 20px 0 0;
+  padding: 0 5px 0 5px;
   list-style: none;
   overflow-y: scroll;
   height :300px;
@@ -30,7 +30,7 @@ body {
 
 .chat-alll{
   margin: 24px auto 0 auto;
-  padding: 0 20px 0 0;
+  padding: 0 5px 0 5px;
   list-style: none;
 }
 
@@ -45,7 +45,7 @@ body {
   position: relative;
   clear: both;
   display: inline-block;
-  padding: 16px 40px 16px 20px;
+  padding: 16px 20px 16px 20px;
   margin: 0 0 20px 0;
   font: 16px/20px 'Noto Sans', sans-serif;
   border-radius: 10px;
@@ -83,7 +83,7 @@ body {
   position: relative;
   clear: both;
   display: inline-block;
-  padding: 16px 40px 16px 20px;
+  padding: 16px 20px 16px 20px;
   margin: 0 0 20px 0;
   font: 16px/20px 'Noto Sans', sans-serif;
   border-radius: 10px;
