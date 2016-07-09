@@ -120,8 +120,10 @@
 					</div>
 				</div>
 				<div class="row-fluid">
-					<div class="footer" style="position: absolute;bottom:0;left:0;width:100%;">
-						<div style="width:860px; margin: 30px auto;">
+
+					<div class="footer" style="position: absolute;left:0;width:100%;margin: 42px 0 0 0;">
+						<div class="span8">
+						<div style="width:90%; margin: 0 30px 0;">
 							<textarea id="editor1" name="editor" placeholder="Type your text here..."></textarea>
 							<p>
 								<button type="button" data-dismiss="modal" class="btn">关闭</button>
@@ -129,6 +131,7 @@
 							</p>
 							<script type="text/javascript">
 							</script>
+						</div>
 						</div>
 					</div>
 				</div>
