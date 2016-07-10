@@ -104,8 +104,8 @@
 				<div class="content">
 
 					<div class="row-fluid">
-						<div class="span8">
-							<div class="chat-all" id="chat">
+						<div class="span8" >
+							<div class="chat-all" id="chat" style="margin:10px 10px 0 10px;">
 								<div class="chat-alll">
 									<div id="convo " data-from="Sonu Joshi ">
 									</div>
@@ -124,7 +124,7 @@
 					<div class="footer" style="position: absolute;left:0;width:100%;margin: 42px 0 0 0;">
 						<div class="span8">
 						<div style="width:90%; margin: 0 30px 0;">
-							<textarea id="editor1" name="editor" placeholder="Type your text here..."></textarea>
+							<textarea id="editor1" name="editor" style="height: 50px;" placeholder="Type your text here..."></textarea>
 							<p>
 								<button type="button" data-dismiss="modal" class="btn">关闭</button>
 								<button id="btn" type="button" onclick= "send()" class="btn btn-primary">发送</button>
@@ -133,6 +133,11 @@
 							</script>
 						</div>
 						</div>
+												<div class="span4">
+							<img src="../assets/images/真广_副本_副本.png" style="width: 25%; position: absolute;height: 150px;  margin: 0 auto 0 auto;
+  padding: 0 20px 0 0;" />
+						</div>
+						
 					</div>
 				</div>
 

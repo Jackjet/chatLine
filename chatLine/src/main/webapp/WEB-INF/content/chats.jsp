@@ -171,7 +171,7 @@
                     <div class="chat02_content">
                         <!--<textarea id="textarea"></textarea>-->
                         <div style="width:560px; margin: 0px auto;">
-  							<textarea id="editor1" name="editor" placeholder="Type your text here...">
+  							<textarea id="editor1" style="height:93px;background-color:white" name="editor" placeholder="Type your text here...">
   								  
   							</textarea>
 						</div>

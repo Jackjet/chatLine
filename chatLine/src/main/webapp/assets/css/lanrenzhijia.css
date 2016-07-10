@@ -12,6 +12,7 @@ h2 {
 body {}
 
 #wrap {
+
 	display: block;
 	z-index: 999;
 	bottom: 0px;
@@ -29,6 +30,7 @@ body {}
 
 
 #drag {
+	visibility:hidden;
 	display: block;
 	visibility: hidden;
 	position: absolute;
