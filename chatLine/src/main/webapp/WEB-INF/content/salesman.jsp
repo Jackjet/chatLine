@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,11 +33,11 @@
 			<div class="modal-body" id="myModal-body"></div>
 			
 			<div class="modal-footer">
-            <button type="button" class="btn btn-default" 
-               data-dismiss="modal">关闭
-            </button>
-            <button type="button" class="btn btn-primary" id="myModal-comfirm-button">确定</button>
-         </div>
+	            <button type="button" class="btn btn-default" 
+	               data-dismiss="modal">关闭
+	            </button>
+            	<button type="button" class="btn btn-primary" id="myModal-comfirm-button">确定</button>
+         	</div>
       </div>
 		</div>
 		<table id="showAllSalesmen" class="table table-striped table-bordered table-hover table-condensed">

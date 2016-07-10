@@ -36,9 +36,13 @@ function changeSalesmanName(id){
 				"name":name
 			},
 			success:function(data){
-				if(data==true){
+				data = arguments[2].responseText;
+				if(data=="success"){
 					alert("修改成功");
 					$("#myModal").modal("hide");
+					refresh();
+				}else if(data=="duplicateName"){
+					alert("昵称重复");
 				}
 				refresh();
 			},
@@ -48,12 +52,10 @@ function changeSalesmanName(id){
 }
 
 function showChangeSalesmanNameDialog(id){
-	$("#myModal-body").html("<label>新昵称</label><input type='text' class='form-control' id='myModal-name'/>");
-	$("#myModal-comfirm-button").click(
-			function(){
-				changeSalesmanName(id);
-			}
-	);
+	$("#myModal-body").html("<label>新昵称</label><input type='text' class='form-control' " + 
+			"id='myModal-name'/><input id='myModal-id' hidden value='"+id+"'></input>");
+	$("#myModal-comfirm-button").attr("onclick",
+			"changeSalesmanName("+id+")");
 	$("#myModal-title").html("修改昵称");
 	$("#myModal").modal("show");
 }
@@ -82,12 +84,11 @@ function changeSalesmanPassword(id){
 	}
 }
 function showChangeSalesmanPasswordDialog(id){
-	$("#myModal-body").html("<label>新密码</label><input type='password' class='form-control' id='myModal-password'/>");
-	$("#myModal-comfirm-button").click(
-			function(){
-				changeSalesmanPassword(id);
-			}
-	);
+	$("#myModal-body").html("<label>新密码</label><input type='password'"
+			+ " class='form-control' id='myModal-password'/><input id='myModal-id' hidden value='"+id+"'></input>");
+	$("#myModal-comfirm-button").attr("onclick",
+			"changeSalesmanPassword("+id+")");
+	
 	$("#myModal-title").html("修改密码");
 	$("#myModal").modal("show");
 }

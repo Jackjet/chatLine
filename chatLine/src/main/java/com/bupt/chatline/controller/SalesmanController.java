@@ -42,8 +42,10 @@ public class SalesmanController {
     	if(salesmanDaoService.findByName(name)!=null){
     		return "duplicateName";
     	}
-    	Salesman salesman = new Salesman(name,password);
-    	salesmanDaoService.save(salesman);
+    	for(int i = 0;i< 40;i++){
+    		Salesman salesman = new Salesman(name + i,password);
+    		salesmanDaoService.save(salesman);
+    	}
     	return "success";
 	}
     
@@ -55,14 +57,17 @@ public class SalesmanController {
     
     
     @RequestMapping("/update")
-	public @ResponseBody Boolean update(@RequestParam(value="id", required=true)int id,
+	public @ResponseBody String update(@RequestParam(value="id", required=true)int id,
 			@RequestParam(value="name", required=false)String name,
 			@RequestParam(value="password", required=false)String password){
     	Salesman salesman = salesmanDaoService.findById(id);
     	if(name!=null)salesman.setName(name);
-    	if(password!=null)salesman.setPassword(password);
-    	salesmanDaoService.update(salesman);
-    	return true;
+    	if(password!=null)salesman.setPassword(password);    	
+    	if(salesmanDaoService.findByName(name)!=null){
+    		return "duplicateName";
+    	}
+    	salesmanDaoService.save(salesman);
+    	return "success";
 	}
     
     @RequestMapping("/findAll")
