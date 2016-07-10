@@ -72,8 +72,9 @@ function changeSalesmanPassword(id){
 				"id":id,
 				"password":password
 			},
-			success:function(data){
-				if(data==true){
+			success:function(){
+				var data = arguments[2].responseText;
+				if(data=="success"){
 					alert("修改成功");
 					$("#myModal").modal("hide");
 				}
@@ -100,8 +101,9 @@ function deleteSalesman(id){
 		data:{
 			"id":id,
 		},
-		success:function(data){
-			if(data=="true"){
+		success:function(){
+			var data = arguments[2].responseText;
+			if(data=="success"){
 				alert("删除成功");
 			}
 			refresh();
@@ -123,8 +125,8 @@ function addNewSalesman(){
 				"name":name,
 				"password":password,
 			},
-			success:function(data){
-				data = arguments[2].responseText;
+			success:function(){
+				var data = arguments[2].responseText;
 				if(data=="success"){
 					alert("添加成功");
 					refresh();

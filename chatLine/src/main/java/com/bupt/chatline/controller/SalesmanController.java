@@ -42,17 +42,13 @@ public class SalesmanController {
     	if(salesmanDaoService.findByName(name)!=null){
     		return "duplicateName";
     	}
-    	for(int i = 0;i< 40;i++){
-    		Salesman salesman = new Salesman(name + i,password);
-    		salesmanDaoService.save(salesman);
-    	}
     	return "success";
 	}
     
     @RequestMapping("/delete")
-	public @ResponseBody Boolean delete(@RequestParam(value="id", required=true)int id){
+	public @ResponseBody String delete(@RequestParam(value="id", required=true)int id){
     	salesmanDaoService.deleteById(id);
-    	return true;
+    	return "success";
 	}
     
     
