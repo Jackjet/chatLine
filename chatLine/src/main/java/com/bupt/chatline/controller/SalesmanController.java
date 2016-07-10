@@ -30,9 +30,14 @@ public class SalesmanController {
 		return "salesman";
 	}
     
-    @RequestMapping("/login")
-	public @ResponseBody Boolean login(@RequestParam(value="id", required=true)String id,@RequestParam(value="password", required=true)String psw){
-		return salesmanDaoService.authenticate(id, psw);
+    @RequestMapping("/logins")
+	public String loginIndex(){
+		return "logins";
+	}
+    
+    @RequestMapping("/logins/authenticate")
+	public @ResponseBody Boolean authenticate(@RequestParam(value="name", required=true)String name,@RequestParam(value="password", required=true)String psw){
+		return salesmanDaoService.authenticate(name, psw);
 	}
 
     @RequestMapping("/add")
@@ -75,3 +80,4 @@ public class SalesmanController {
     	return ls;
 	}    
 }
+

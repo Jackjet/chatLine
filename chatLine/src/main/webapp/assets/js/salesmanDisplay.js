@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * 
  */
@@ -135,6 +136,35 @@ function addNewSalesman(){
 				}
 			},
 			error:function(){alert("添加失败");}
+		});
+	}
+}
+
+function salesmanLogin(){
+	var psw =$("#salesmanPassword").val(); 
+	var name = $("#salesmanName").val();
+	if(name.length==0||psw.length==0){
+		alert("输入不能为空！");
+	}else{
+	$.ajax({
+		type:"post",
+		url:"authenticate",
+		data:{
+			"name":name,
+			"password":psw
+		},
+		success:function(data){
+			data = arguments[2].responseText;
+			if(data=="true"){
+				alert("登录成功");
+				window.location.href="../../chats/"
+			}
+			else if(data=="false"){
+				alert("用户名或密码错误");
+			}
+			
+		},
+		error:function(){alert("登录失败");}
 		});
 	}
 }

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -18,7 +17,7 @@
 <script type="text/javascript" src=" ../assets/js/communication.js"></script>
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
-<link rel="stylesheet" type="text/css" href=" ../assets/css/wysiwyg-editor.css" />
+<link rel="stylesheet" type="text/css" href=" ../assets/css/wysiwyg-editor-s.css" />
 <link rel="stylesheet" type="text/css" href=" ../assets/css/wysiwyg-style.css" />
 <link rel="stylesheet" type="text/css" href=" ../assets/css/chat.css" />
 </head>
@@ -172,7 +171,7 @@
                     <div class="chat02_content">
                         <!--<textarea id="textarea"></textarea>-->
                         <div style="width:560px; margin: 0px auto;">
-  							<textarea id="editor1" name="editor" placeholder="Type your text here...">
+  							<textarea id="editor1" style="height:93px;background-color:white" name="editor" placeholder="Type your text here...">
   								  
   							</textarea>
 						</div>

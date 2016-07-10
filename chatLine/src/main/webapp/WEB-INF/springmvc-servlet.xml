@@ -26,5 +26,5 @@
 	<mvc:resources mapping="/assets/images/img/**" location="/assets/images/img/" />
 	<mvc:resources mapping="/assets/images/icon/**" location="/assets/images/icon/" />
 	<mvc:resources mapping="/assets/smiley/**" location="/assets/smiley/" />
-
+	<mvc:resources mapping="/assets/media/**" location="/assets/media/" />
 </beans>

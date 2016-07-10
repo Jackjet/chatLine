@@ -1,3 +1,4 @@
+var a = 3;
 function message() {
 	var a = $.blinkTitle.show();
 	setTimeout(function() {
@@ -5,17 +6,18 @@ function message() {
 	}, 8e3)
 }
 $(document).ready(function() {
-		var a = 3,
+
+		var 
 			b = "../assets/img/head/1.png",
 			c = "../assets/img/head/2.png",
 			d = "用户3";
 		$(".close_btn").click(function() {
-			$(".chatBox").hide()
+			$(".chatBox").hide()		 
 		}), $(".chat03_content li").mouseover(function() {
 			$(this).addClass("hover").siblings().removeClass("hover")
 		}).mouseout(function() {
 			$(this).removeClass("hover").siblings().removeClass("hover")
-		}), $(".chat03_content li").dblclick(function() {
+		}), $(".chat03_content li").click(function() {
 			var b = $(this).index() + 1;
 			a = b, c = "../assets/img/head/2.png", d = $(this).find(".chat03_name").text(), $(".chat01_content").scrollTop(0), $(this).addClass("choosed").siblings().removeClass("choosed"), $(".talkTo a").text($(this).children(".chat03_name").text()), $(".mes" + b).show().siblings().hide()
 		}), $(".ctb01").mouseover(function() {
@@ -36,7 +38,7 @@ $(document).ready(function() {
 			
 		}), document.onkeydown = function(a) {
 			var b = document.all ? window.event : a;
-			return 13 == b.keyCode ? (e(), !1) : void 0
+			return 13 == b.keyCode ? (send(), !1) : void 0
 		}, $.fn.setCursorPosition = function(a) {
 			return 0 == this.lengh ? this : $(this).setSelection(a, a)
 		}, $.fn.setSelection = function(a, b) {
