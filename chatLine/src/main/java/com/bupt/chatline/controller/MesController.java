@@ -44,7 +44,7 @@ public class MesController {
 	}
 
 	
-	@SubscribeMapping("/cMes")
+	@MessageMapping("/cMes")
     public void sendMes(@RequestBody Map<String,Object> map) throws Exception {
 		String content = (String) map.get("content").toString();
 		int sid = Integer.parseInt(map.get("sid").toString());
@@ -54,7 +54,7 @@ public class MesController {
 		chatMes = chatMesDaoService.findById(id);
         template.convertAndSend(MesHolder.sendToUri + chatMes.getDid(), chatMes);
     }
-	@MessageMapping("/init")
+	@SubscribeMapping("/init")
     public void sendInitMes(@RequestBody Map<String,Object> map) throws Exception {
 		int sid = Integer.parseInt(map.get("sid").toString());
 		List<ChatMes> ls = chatMesDaoService.findBySidOrDid(sid); 
