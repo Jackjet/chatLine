@@ -17,7 +17,7 @@
 <script type="text/javascript" src=" ../assets/js/communication.js"></script>
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
-<link rel="stylesheet" type="text/css" href=" ../assets/css/wysiwyg-editor.css" />
+<link rel="stylesheet" type="text/css" href=" ../assets/css/wysiwyg-editor-s.css" />
 <link rel="stylesheet" type="text/css" href=" ../assets/css/wysiwyg-style.css" />
 <link rel="stylesheet" type="text/css" href=" ../assets/css/chat.css" />
 </head>

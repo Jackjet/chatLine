@@ -295,6 +295,8 @@ a:hover {
 
 .chat02_content {
 	height: 150px;
+	z-index:500;
+	background-color:white;
 }
 
 .chat03_content {

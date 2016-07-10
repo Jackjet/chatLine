@@ -153,7 +153,7 @@ function salesmanLogin(){
 			data = arguments[2].responseText;
 			if(data=="true"){
 				alert("登录成功");
-				window.location.href="../chats/"
+				window.location.href="../../chats/"
 			}
 			else if(data=="false"){
 				alert("用户名或密码错误");
