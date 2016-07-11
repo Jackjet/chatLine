@@ -42,8 +42,10 @@ public class MesController {
 	public void setTemplate(SimpMessagingTemplate template) {
 		this.template = template;
 	}
-
 	
+	
+	
+
 	@SubscribeMapping("/cMes")
     public void sendMes(@RequestBody Map<String,Object> map) throws Exception {
 		String content = (String) map.get("content").toString();

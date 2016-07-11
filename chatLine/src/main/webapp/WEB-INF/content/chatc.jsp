@@ -17,7 +17,7 @@
 		<script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../assets/js/lanrenzhijia.js"></script>
 		
-		
+		<script type="text/javascript" src="../assets/js/changetheme.js"></script>
 		<script type="text/javascript" src=" ../assets/js/sendDisplayMes.js"></script>
 		<script type="text/javascript" src=" ../assets/js/chat.js"></script>
 		<script type="text/javascript" src=" ../assets/js/util.js"></script>
@@ -51,21 +51,14 @@
 					<div class="span10">
 						<div class="responsive">
 							<div class="text-center">
-<<<<<<< HEAD
 								<button class="demo btn btn-primary btn-large" onclick="show()" data-toggle="modal" href="#drag">询问客服</button>
-=======
-								<button class="demo btn btn-primary btn-large" onclick = "show()" id="showbtn" data-toggle="modal" href="#drag">询问客服</button>
->>>>>>> f04fec3bde17c294711f0233c7906dc54975e7cf
 							</div>
 						</div>
 						<br />
 					</div>
 				</div>
 			</div>
-<<<<<<< HEAD
-			
-=======
->>>>>>> f04fec3bde17c294711f0233c7906dc54975e7cf
+
 			<script>
 				function show()
 				{
@@ -73,7 +66,7 @@
 					drag.style.visibility='visible';
 				}
 			</script>
-<<<<<<< HEAD
+
 			
 			<script>
 				function hide()
@@ -82,10 +75,35 @@
 					drag.style.visibility='hidden';
 				}
 			</script>
-=======
->>>>>>> f04fec3bde17c294711f0233c7906dc54975e7cf
+			
+			<script type="text/javascript">
+            function changef(){
+            	var backtheme=document.getElementById("backtheme");
+            	backtheme.style.visibility="hidden";
+            }
+            </script>
+
 
 			<div id="drag" class="modal hide fade" tabindex="-1" data-width="760">
+			<div id="backtheme">
+				<div class="row-fluid">
+					<div style="position:absolute;right: 0;margin: 0 5px 5px 0px;">
+						<h4 onclick="changef()">x</h4>
+					</div>
+				    <div style="position: absolute;left: 0;right: auto;margin: 20px 20px 20px 20px;">
+				    <p>
+				    	<img src="../assets/images/bk1.jpg" style="width: 100px;height: 100px;" onclick="changetheme1()">
+				    	<img src="../assets/images/11664993_132425122104_2.jpg" style="width: 100px;height: 100px;" onclick="changetheme2()">
+				    	<img src="../assets/images/bk2-1.jpg" style="width: 100px;height: 100px;" onclick="changetheme3()">
+				    </p>
+				    <p>
+				    	<img src="../assets/images/bk5.jpg" style="width: 100px;height: 100px;" onclick="changetheme4()">
+				    	<img src="../assets/images/bk6-1.jpg" style="width: 100px;height: 100px;" onclick="changetheme5()">
+				    	<img src="../assets/images/bk7-1.jpg" style="width: 100px;height: 100px;" onclick="changetheme6()">
+				    </p>
+				    </div>
+				</div>			
+			</div>
 				<div id="wrap">
 					<div style="clear:both">
 						<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
@@ -147,12 +165,19 @@
 							<textarea id="editor1" name="editor" placeholder="Type your text here..."></textarea>
 							<p>
 								<button type="button" onclick="hide()"
-								 style="background-image: url(../assets/images/bt1.jpg);background-size: 100% 100%;width:54px;height:30px"></button>
+								 style="background-image: url(../assets/images/bt_1_关闭红.png);background-size: 100% 100%;width:54px;height:30px"></button>
 								<button id="btn" type="button" onclick= "send()" 
-								style="background-image: url(../assets/images/bt2.jpg);background-size: 100% 100%;width:54px;height:30px" ></button>
+								style="background-image: url(../assets/images/bt_2_黑.png);background-size: 100% 100%;width:54px;height:30px" ></button>
+								<span8>
+								<button id="themebtn" type="button" 
+									style="position:relative;right:0;background-image: url(../assets/images/bt_3_紫.png);background-size: 100% 100%;width:82px;height:30px"></button>
+								</span8>
 							</p>
-							<script type="text/javascript">
-							</script>
+							<script type="text/javascript">var themebtn = document.getElementById("themebtn");
+themebtn.onclick = function() {
+	var backtheme = document.getElementById("backtheme");
+	backtheme.style.visibility = 'visible';
+}</script>
 						</div>
 					</div>
 					<div class="span4">
@@ -165,7 +190,7 @@
 
 		</div>
 		
-						<div style="text-align:center;clear:both">
+		<div style="text-align:center;clear:both">
 			<script src="gg_bd_ad_720x90.js" type="text/javascript"></script>
 			<script src="follow.js" type="text/javascript"></script>
 		</div>

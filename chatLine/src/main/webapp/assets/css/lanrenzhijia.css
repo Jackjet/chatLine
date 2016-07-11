@@ -12,7 +12,6 @@ h2 {
 body {}
 
 #wrap {
-
 	display: block;
 	z-index: 999;
 	bottom: 0px;
@@ -27,12 +26,22 @@ body {}
 	background:darkblue;
 }
 
-
+#backtheme {
+	z-index: 999;
+	display: block;
+	width: 350px;
+	height: 300px;
+	top: 300px;
+	left: 300px;
+	position: absolute;
+	border: 1px solid darkblue;
+	visibility: hidden;
+	background: white;
+}
 
 #drag {
-	visibility:hidden;
-	display: block;
 	visibility: hidden;
+	display: block;
 	position: absolute;
 	top: 500px;
 	left: 500px;
@@ -43,12 +52,13 @@ body {}
 	background: white;
 	border-radius: 5px;
 	box-shadow: 0 9px 3px 2px #666;
+	overflow: auto;
 	background-image: url(../images/bk1.jpg);
-	background-size: 100% 100%;
+	background-size: cover;
 }
 
 #drag .title {
-	background: #C1FFC1;
+	background: cornsilk;
 	position: relative;
 	height: 27px;
 }
