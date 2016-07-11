@@ -1,15 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 	<head>
+
 	
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+		
+
 		<title>客户</title>
+		
 		<script type="text/javascript" src="../assets/js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="../assets/js/wysiwyg.js"></script>
 		<script type="text/javascript" src=" ../assets/js/wysiwyg-editor.js"></script>
@@ -93,7 +95,7 @@
 				    <div style="position: absolute;left: 0;right: auto;margin: 20px 20px 20px 20px;">
 				    <p>
 				    	<img src="../assets/images/bk1.jpg" style="width: 100px;height: 100px;" onclick="changetheme1()">
-				    	<img src="../assets/images/11664993_132425122104_2.jpg" style="width: 100px;height: 100px;" onclick="changetheme2()">
+				    	<img src="../assets/images/bk2.jpg" style="width: 100px;height: 100px;" onclick="changetheme2()">
 				    	<img src="../assets/images/bk2-1.jpg" style="width: 100px;height: 100px;" onclick="changetheme3()">
 				    </p>
 				    <p>
@@ -143,8 +145,8 @@
 				<div class="content">
 
 					<div class="row-fluid">
-						<div class="span8">
-							<div class="chat-all" id="chat">
+						<div class="span8" >
+							<div class="chat-all" id="chat" style="margin:10px 10px 0 10px;">
 								<div class="chat-alll">
 									<div id="convo " data-from="Sonu Joshi ">
 									</div>
@@ -159,10 +161,11 @@
 					</div>
 				</div>
 				<div class="row-fluid">
-					<div class="footer" style="position: absolute;left:0;width:100%;margin:42px 0 0 0">
-					<div class="span8">
+					<div class="footer" style="position: absolute;left:0;width:100%;margin: 42px 0 0 0;">
+						<div class="span8">
 						<div style="width:90%; margin: 0 30px 0;">
-							<textarea id="editor1" name="editor" placeholder="Type your text here..."></textarea>
+							<textarea id="editor1" name="editor" style="height: 50px;" placeholder="Type your text here..."></textarea>
+
 							<p>
 								<button type="button" onclick="hide()"
 								 style="background-image: url(../assets/images/bt_1_关闭红.png);background-size: 100% 100%;width:54px;height:30px"></button>
@@ -179,9 +182,12 @@ themebtn.onclick = function() {
 	backtheme.style.visibility = 'visible';
 }</script>
 						</div>
-					</div>
-					<div class="span4">
-					<img src="../assets/images/真广_副本_副本.png" style="width: 25%; position: absolute;height: 150px;  margin: 0 auto 0 auto;padding: 0 20px 0 0;" />
+						</div>
+												<div class="span4">
+							<img src="../assets/images/真广_副本_副本.png" style="width: 25%; position: absolute;height: 150px;  margin: 0 auto 0 auto;
+  padding: 0 20px 0 0;" />
+						</div>
+						
 					</div>
 					</div>
 				</div>

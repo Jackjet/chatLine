@@ -12,7 +12,7 @@ function changetheme2() {
 
 function changetheme3() {
 	var drag = document.getElementById("drag");
-	drag.style.backgroundImage = "url(../assets/images/bk2.jpg)";
+	drag.style.backgroundImage = "url(../assets/images/bk2-1.jpg)";
 	drag.style.backgroundSize = "100% 100%";
 }
 
