@@ -30,9 +30,14 @@ public class SalesmanController {
 		return "salesman";
 	}
     
-    @RequestMapping("/login")
-	public @ResponseBody Boolean login(@RequestParam(value="id", required=true)String id,@RequestParam(value="password", required=true)String psw){
-		return salesmanDaoService.authenticate(id, psw);
+    @RequestMapping("/logins")
+	public String loginIndex(){
+		return "logins";
+	}
+    
+    @RequestMapping("/logins/authenticate")
+	public @ResponseBody Boolean authenticate(@RequestParam(value="name", required=true)String name,@RequestParam(value="password", required=true)String psw){
+		return salesmanDaoService.authenticate(name, psw);
 	}
 
     @RequestMapping("/add")
@@ -42,27 +47,28 @@ public class SalesmanController {
     	if(salesmanDaoService.findByName(name)!=null){
     		return "duplicateName";
     	}
-    	Salesman salesman = new Salesman(name,password);
-    	salesmanDaoService.save(salesman);
     	return "success";
 	}
     
     @RequestMapping("/delete")
-	public @ResponseBody Boolean delete(@RequestParam(value="id", required=true)int id){
+	public @ResponseBody String delete(@RequestParam(value="id", required=true)int id){
     	salesmanDaoService.deleteById(id);
-    	return true;
+    	return "success";
 	}
     
     
     @RequestMapping("/update")
-	public @ResponseBody Boolean update(@RequestParam(value="id", required=true)int id,
+	public @ResponseBody String update(@RequestParam(value="id", required=true)int id,
 			@RequestParam(value="name", required=false)String name,
 			@RequestParam(value="password", required=false)String password){
     	Salesman salesman = salesmanDaoService.findById(id);
     	if(name!=null)salesman.setName(name);
-    	if(password!=null)salesman.setPassword(password);
-    	salesmanDaoService.update(salesman);
-    	return true;
+    	if(password!=null)salesman.setPassword(password);    	
+    	if(salesmanDaoService.findByName(name)!=null){
+    		return "duplicateName";
+    	}
+    	salesmanDaoService.save(salesman);
+    	return "success";
 	}
     
     @RequestMapping("/findAll")
@@ -74,3 +80,4 @@ public class SalesmanController {
     	return ls;
 	}    
 }
+

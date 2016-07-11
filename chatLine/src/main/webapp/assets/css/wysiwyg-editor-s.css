@@ -27,15 +27,15 @@
 }
 .wysiwyg-editor {
     position: relative;
-    min-height: 5em;
     /*max-height: 25em;*/
     padding: 10px;
     overflow-y:scroll;
+    height:93px;
     outline: none;
     -ms-word-wrap: break-word;
     word-wrap: break-word;
+    background-color:white;
 }
-
 .wysiwyg-placeholder {
     position: absolute;
     top: 10px;  /* same as padding in .wysiwyg-editor */
@@ -50,6 +50,7 @@
 .wysiwyg-toolbar-top {
     border-bottom: 1px solid #aaaaaa;
     padding: 0;
+    background-color:white;
 }
 .wysiwyg-toolbar-bottom {
     border-top: 1px solid #aaaaaa;

@@ -1,101 +1,60 @@
 package com.bupt.chatline.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bupt.chatline.dao.ChatMesDao;
+import com.bupt.chatline.dao.ChatMesRepository;
 import com.bupt.chatline.entity.ChatMes;
 import com.bupt.chatline.service.ChatMesDaoService;
 
 @Service("chatMesDaoService")
 public class ChatMesDaoServiceImpl implements ChatMesDaoService {
 	@Autowired
-	private ChatMesDao chatMesDao;
+	private ChatMesRepository chatMesRepository;
 
-	public ChatMesDao getChatMesDao() {
-		return chatMesDao;
+	public ChatMesRepository getChatMesRepository() {
+		return chatMesRepository;
 	}
 
-	public void setChatMesDao(ChatMesDao chatMesDao) {
-		this.chatMesDao = chatMesDao;
+	public void setChatMesRepository(ChatMesRepository chatMesRepository) {
+		this.chatMesRepository = chatMesRepository;
 	}
 
 	@Override
 	public Integer save(ChatMes o) {
 		// TODO Auto-generated method stub
-		return chatMesDao.save(o);
-	}
-
-	@Override
-	public void update(ChatMes o) {
-		// TODO Auto-generated method stub
-		chatMesDao.update(o);
-	}
-
-	@Override
-	public void saveOrUpdate(ChatMes o) {
-		// TODO Auto-generated method stub
-		chatMesDao.saveOrUpdate(o);
-	}
-
-	@Override
-	public ChatMes merge(ChatMes o) {
-		// TODO Auto-generated method stub
-		return chatMesDao.merge(o);
-	}
-
-	@Override
-	public void delete(ChatMes o) {
-		// TODO Auto-generated method stub
-		chatMesDao.delete(o);
+		return chatMesRepository.save(o).getId();
 	}
 
 	@Override
 	public void deleteById(Integer id) {
 		// TODO Auto-generated method stub
-		chatMesDao.deleteById(id);
+		chatMesRepository.delete(id);
 	}
 
 	@Override
 	public ChatMes findById(Integer id) {
 		// TODO Auto-generated method stub
-		return chatMesDao.findById(id);
+		return chatMesRepository.findOne(id);
 	}
 
 	@Override
 	public List<ChatMes> findAll() {
 		// TODO Auto-generated method stub
-		return chatMesDao.findAll();
+		Iterable<ChatMes> itr = chatMesRepository.findAll();
+		List<ChatMes> ans= new ArrayList<ChatMes>();
+		for(ChatMes c:itr){
+			ans.add(c);
+		}
+		return ans;
 	}
 
-	@Override
-	public void flush() {
-		// TODO Auto-generated method stub
-		chatMesDao.flush();
-	}
-
-	@Override
-	public void evict(ChatMes o) {
-		// TODO Auto-generated method stub
-		chatMesDao.evict(o);
-	}
-
-	@Override
-	public Integer findNearestChatMesID(int sid, int did) {
-		// TODO Auto-generated method stub
-		return chatMesDao.findNearestChatMesID(sid, did);
-	}
-
-	@Override
-	public int updateContent(int sid, int did, String content) {
-		// TODO Auto-generated method stub
-		return chatMesDao.updateContent(sid, did, content);
-	}
 	
 
 	public List<ChatMes> findBySidOrDid(int sdid){
-		return chatMesDao.findBySidOrDid(sdid);
+		return chatMesRepository.findBySidOrDidOrderByTimeAsc(sdid, sdid);
 	}
 }

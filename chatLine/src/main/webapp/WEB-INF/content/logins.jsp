@@ -7,16 +7,16 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>登录客服系统</title>
-	<link rel="stylesheet" type="text/css" href="../assets/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" href="../assets/css/htmleaf-demo.css">
-	<link rel="stylesheet" href="../assets/css/loginStyle.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="../../assets/css/htmleaf-demo.css">
+	<link rel="stylesheet" href="../../assets/css/loginStyle.css">
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
 	
 </head>
 <body>
 <div class="htmleaf-container">
 		<header class="htmleaf-header">
-			<h1>软妹心仪客服系统在线登录 <span>登录您的账号</span></h1>
+			<h1>客服系统在线登录 <span>登录您的账号</span></h1>
 		</header>
 		<svg id="svg-source" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" style="position:absolute; margin-left: -100%" xmlns:xlink="http://www.w3.org/1999/xlink">
 
@@ -83,7 +83,7 @@
           </svg>
         </div>
       </div>
-      <form1 action="" id="js-modal" class="modal">
+      <form1 action="login.action" id="js-modal" class="modal">
         <div id="js-close-button" class="modal__close">
           <div id="" title="" class="icon ">
             <svg viewBox="0 0 32 32">
@@ -95,7 +95,7 @@
         <div class="modal__description">输入您的账号和密码</div>
         <div class="modal__section">
             <div class="input-with-label">
-              <input id="name" type="text" class="input-with-label__input">
+              <input id="salesmanName" type="text" class="input-with-label__input">
               <label for="name" class="input-with-label__label">请输入用户名
                 <div class="input-with-label__label__corner"></div>
               </label>
@@ -103,7 +103,7 @@
         </div>
         <div class="modal__section">
             <div class="input-with-label">
-              <input id="password" type="password" class="input-with-label__input">
+              <input id="salesmanPassword" type="password" class="input-with-label__input">
               <label for="password" class="input-with-label__label">请输入密码
                 <div class="input-with-label__label__corner"></div>
               </label>
@@ -111,10 +111,10 @@
         </div>
         <div class="modal__section grid grid--sliced grid--gutter-x2">
           <div class="grid-bit grid-bit--14-20">
-            <a href="#"><button type="submit">登录</button></a>
+            <a href="javascript:;"><button type="button" onclick="salesmanLogin()">登录</button></a>
           </div>
           <div class="grid-bit grid-bit--6-20">
-            <a href="#"><button class="button--grey">取消</button></a>
+            <a href="javascript:;"><button class="button--grey">取消</button></a>
           </div>
         </div>
       </form1>
@@ -160,9 +160,10 @@
 	
 	<script src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
 	<script>window.jQuery || document.write('<script src="js/jquery-2.1.1.min.js"><\/script>')</script>
-	<script type="text/javascript" src='../assets/js/howler.min.js'></script>
-	<script type="text/javascript" src='../assets/js/tween.min_1.js'></script>
-	<script type="text/javascript" src='../assets/js/html2canvas.js'></script>
-	<script type="text/javascript" src="../assets/js/index.js"></script>
+	<script type="text/javascript" src='../../assets/js/howler.min.js'></script>
+	<script type="text/javascript" src='../../assets/js/tween.min_1.js'></script>
+	<script type="text/javascript" src='../../assets/js/html2canvas.js'></script>
+	<script type="text/javascript" src="../../assets/js/index.js"></script>
+	<script src="../../assets/js/salesmanDisplay.js"></script>
 </body>
 </html>

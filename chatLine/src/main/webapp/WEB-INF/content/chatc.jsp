@@ -1,14 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+		
 		<title>客户</title>
+		
 		<script type="text/javascript" src="../assets/js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="../assets/js/wysiwyg.js"></script>
 		<script type="text/javascript" src=" ../assets/js/wysiwyg-editor.js"></script>
@@ -44,18 +42,26 @@
 			<div class="container" style="position: relative">
 				<div class="marketing">
 				</div>
+				
 				<br />
 				<div class="row">
 					<div class="span10">
 						<div class="responsive">
 							<div class="text-center">
-								<button class="demo btn btn-primary btn-large" id="showbtn" data-toggle="modal" href="#drag">询问客服</button>
+								<button class="demo btn btn-primary btn-large" onclick = "show()" id="showbtn" data-toggle="modal" href="#drag">询问客服</button>
 							</div>
 						</div>
 						<br />
 					</div>
 				</div>
 			</div>
+			<script>
+				function show()
+				{
+					var drag = document.getElementById('drag');
+					drag.style.visibility='visible';
+				}
+			</script>
 
 			<div id="drag" class="modal hide fade" tabindex="-1" data-width="760">
 				<div id="wrap">
@@ -66,6 +72,7 @@
 					<div id="whale"></div>
 					<script src="../assets/js/whale.js"></script>
 				</div>
+				<div id="meslog"></div>
 				<div class="title">
 					<h4>与客服‘杀老师’对话中</h4>
 					<div>
@@ -97,8 +104,8 @@
 				<div class="content">
 
 					<div class="row-fluid">
-						<div class="span8">
-							<div class="chat-all" id="chat">
+						<div class="span8" >
+							<div class="chat-all" id="chat" style="margin:10px 10px 0 10px;">
 								<div class="chat-alll">
 									<div id="convo " data-from="Sonu Joshi ">
 									</div>
@@ -113,16 +120,31 @@
 					</div>
 				</div>
 				<div class="row-fluid">
-					<div class="footer" style="position: absolute;bottom:0;left:0;width:100%;">
-						<div style="width:860px; margin: 30px auto;">
-							<textarea id="editor1" name="editor" placeholder="Type your text here..."></textarea>
+
+					<div class="footer" style="position: absolute;left:0;width:100%;margin: 42px 0 0 0;">
+						<div class="span8">
+						<div style="width:90%; margin: 0 30px 0;">
+							<textarea id="editor1" name="editor" style="height: 50px;" placeholder="Type your text here..."></textarea>
 							<p>
 								<button type="button" data-dismiss="modal" class="btn">关闭</button>
 								<button id="btn" type="button" onclick= "send()" class="btn btn-primary">发送</button>
+								<button type="button"  onclick="display()">聊天记录</button>
 							</p>
 							<script type="text/javascript">
+							function display()
+							{
+								var mes= document.getElementById('meslog');
+								mes.style.visibility='visible';
+								this.onload = "loadChatMesLog()";
+								}
 							</script>
 						</div>
+						</div>
+												<div class="span4">
+							<img src="../assets/images/真广_副本_副本.png" style="width: 25%; position: absolute;height: 150px;  margin: 0 auto 0 auto;
+  padding: 0 20px 0 0;" />
+						</div>
+						
 					</div>
 				</div>
 

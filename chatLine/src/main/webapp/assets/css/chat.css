@@ -141,6 +141,8 @@ a:hover {
 .kePublic {
 	background: #FFF;
 	padding: 50px;
+	background-image: url(../../assets/images/bg.jpg);
+	background-size: cover;
 }
 
 .keBottom {
@@ -203,9 +205,10 @@ a:hover {
 
 .chatRight {
 	width: 166px;
-	height: 500px;
+	height: 539px;
 	float: right;
 	overflow-y: scroll;
+	background-color:white;
 }
 
 .chat01_title,
@@ -287,10 +290,13 @@ a:hover {
 	overflow-x: none;
 	overflow-y: auto;
 	resize: vertical;
+	background-color:white;
 }
 
 .chat02_content {
 	height: 150px;
+	z-index:500;
+	background-color:white;
 }
 
 .chat03_content {

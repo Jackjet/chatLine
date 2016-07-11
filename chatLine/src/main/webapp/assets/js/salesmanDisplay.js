@@ -16,9 +16,21 @@ function showAllSalesmen(data){
 	content += "</tbody>";
 	$("#showAllSalesmen").html(content);
 }
-
+function showChatMesLog(data){
+	var content="<thead><tr><th>ID</th><th>时间</th><th>内容</th></tr></thead><tbody>";
+	for(var i = 0;i < data.length;i++){
+		var str = "<td>"+data[i].id+"</td><td>"+data[i].time+"</td><td>"+data[i].content+"</td>";
+		content = content+"<tr>"+str+"</tr>";
+	}
+	content+="</tbody>";
+	$("#showChatMesLoa").html(content);
+	
+}
 function loadAllSalesmen(){
 	$.ajax({url:"findAll",success:function(data){showAllSalesmen(data);},error:function(){alert("无法获取客服列表");}});
+}
+function loadChatMesLog(){
+	$.ajax({url:"findBySidOrDid",success:function(data){showChatMesLog(data);},error:function(){alert("无法获取聊天记录");}});
 }
 function refresh(){
 	loadAllSalesmen();
@@ -36,9 +48,13 @@ function changeSalesmanName(id){
 				"name":name
 			},
 			success:function(data){
-				if(data==true){
+				data = arguments[2].responseText;
+				if(data=="success"){
 					alert("修改成功");
 					$("#myModal").modal("hide");
+					refresh();
+				}else if(data=="duplicateName"){
+					alert("昵称重复");
 				}
 				refresh();
 			},
@@ -48,12 +64,10 @@ function changeSalesmanName(id){
 }
 
 function showChangeSalesmanNameDialog(id){
-	$("#myModal-body").html("<label>新昵称</label><input type='text' class='form-control' id='myModal-name'/>");
-	$("#myModal-comfirm-button").click(
-			function(){
-				changeSalesmanName(id);
-			}
-	);
+	$("#myModal-body").html("<label>新昵称</label><input type='text' class='form-control' " + 
+			"id='myModal-name'/><input id='myModal-id' hidden value='"+id+"'></input>");
+	$("#myModal-comfirm-button").attr("onclick",
+			"changeSalesmanName("+id+")");
 	$("#myModal-title").html("修改昵称");
 	$("#myModal").modal("show");
 }
@@ -70,8 +84,9 @@ function changeSalesmanPassword(id){
 				"id":id,
 				"password":password
 			},
-			success:function(data){
-				if(data==true){
+			success:function(){
+				var data = arguments[2].responseText;
+				if(data=="success"){
 					alert("修改成功");
 					$("#myModal").modal("hide");
 				}
@@ -82,12 +97,11 @@ function changeSalesmanPassword(id){
 	}
 }
 function showChangeSalesmanPasswordDialog(id){
-	$("#myModal-body").html("<label>新密码</label><input type='password' class='form-control' id='myModal-password'/>");
-	$("#myModal-comfirm-button").click(
-			function(){
-				changeSalesmanPassword(id);
-			}
-	);
+	$("#myModal-body").html("<label>新密码</label><input type='password'"
+			+ " class='form-control' id='myModal-password'/><input id='myModal-id' hidden value='"+id+"'></input>");
+	$("#myModal-comfirm-button").attr("onclick",
+			"changeSalesmanPassword("+id+")");
+	
 	$("#myModal-title").html("修改密码");
 	$("#myModal").modal("show");
 }
@@ -99,8 +113,9 @@ function deleteSalesman(id){
 		data:{
 			"id":id,
 		},
-		success:function(data){
-			if(data=="true"){
+		success:function(){
+			var data = arguments[2].responseText;
+			if(data=="success"){
 				alert("删除成功");
 			}
 			refresh();
@@ -122,8 +137,8 @@ function addNewSalesman(){
 				"name":name,
 				"password":password,
 			},
-			success:function(data){
-				data = arguments[2].responseText;
+			success:function(){
+				var data = arguments[2].responseText;
 				if(data=="success"){
 					alert("添加成功");
 					refresh();
@@ -132,6 +147,35 @@ function addNewSalesman(){
 				}
 			},
 			error:function(){alert("添加失败");}
+		});
+	}
+}
+
+function salesmanLogin(){
+	var psw =$("#salesmanPassword").val(); 
+	var name = $("#salesmanName").val();
+	if(name.length==0||psw.length==0){
+		alert("输入不能为空！");
+	}else{
+	$.ajax({
+		type:"post",
+		url:"authenticate",
+		data:{
+			"name":name,
+			"password":psw
+		},
+		success:function(data){
+			data = arguments[2].responseText;
+			if(data=="true"){
+				alert("登录成功");
+				window.location.href="../../chats/"
+			}
+			else if(data=="false"){
+				alert("用户名或密码错误");
+			}
+			
+		},
+		error:function(){alert("登录失败");}
 		});
 	}
 }
