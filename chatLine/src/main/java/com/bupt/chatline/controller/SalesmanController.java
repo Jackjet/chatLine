@@ -47,6 +47,8 @@ public class SalesmanController {
     	if(salesmanDaoService.findByName(name)!=null){
     		return "duplicateName";
     	}
+    	Salesman s = new Salesman(name,password);
+    	salesmanDaoService.save(s);
     	return "success";
 	}
     

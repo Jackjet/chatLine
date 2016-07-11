@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="chrome=1"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-		
 		<title>客户</title>
-		
 		<script type="text/javascript" src="../assets/js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="../assets/js/wysiwyg.js"></script>
 		<script type="text/javascript" src=" ../assets/js/wysiwyg-editor.js"></script>
@@ -143,7 +143,7 @@
 
 		</div>
 		
-						<div style="text-align:center;clear:both">
+		<div style="text-align:center;clear:both">
 			<script src="gg_bd_ad_720x90.js" type="text/javascript"></script>
 			<script src="follow.js" type="text/javascript"></script>
 		</div>
@@ -154,9 +154,5 @@
 			<div id="editor0" style="padding:5px;border:1px dashed black">
 			</div>
 		</div>
-		
-
-
 	</body>
-
 </html>

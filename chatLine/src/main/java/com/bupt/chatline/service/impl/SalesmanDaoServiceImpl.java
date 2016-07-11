@@ -49,7 +49,7 @@ public class SalesmanDaoServiceImpl implements SalesmanDaoService {
 	@Override
 	public boolean authenticate(String name, String psw) {
 		Salesman s = this.findByName(name);
-		return s.getName().equals(psw);
+		return s.getPassword().equals(psw);
 	}
 
 	@Override
