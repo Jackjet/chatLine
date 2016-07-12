@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+@charset "utf-8";
+
+/* 代码整理：懒人之家 lanrenzhijia.com */
+>>>>>>> a55ceac4f7ad541d821b46acabb589545de8e3e1
 
 body,
 div,
@@ -9,6 +15,10 @@ h2 {
 body {}
 
 #wrap {
+<<<<<<< HEAD
+=======
+
+>>>>>>> a55ceac4f7ad541d821b46acabb589545de8e3e1
 	display: block;
 	z-index: 999;
 	bottom: 0px;
@@ -17,6 +27,7 @@ body {}
 	width: 200px;
 	line-height: 30px;
 	position: fixed;
+<<<<<<< HEAD
 	text-align: center;
 	color: darkblue;
 	background-image:url(../images/sea_move.gif);
@@ -40,6 +51,20 @@ body {}
 #drag {
 	visibility: hidden;
 	display: block;
+=======
+	border: 1px solid darkblue;
+	text-align: center;
+	color: darkblue;
+	background:darkblue;
+}
+
+
+
+#drag {
+	visibility:hidden;
+	display: block;
+	visibility: hidden;
+>>>>>>> a55ceac4f7ad541d821b46acabb589545de8e3e1
 	position: absolute;
 	top: 500px;
 	left: 500px;
@@ -50,6 +75,7 @@ body {}
 	background: white;
 	border-radius: 5px;
 	box-shadow: 0 9px 3px 2px #666;
+<<<<<<< HEAD
 	overflow: auto;
 	background-image: url(../images/bk1.jpg);
 	background-size: cover;
@@ -57,6 +83,14 @@ body {}
 
 #drag .title {
 	background: cornsilk;
+=======
+	background-image: url(../images/bk1.jpg);
+	background-size: 100% 100%;
+}
+
+#drag .title {
+	background: #C1FFC1;
+>>>>>>> a55ceac4f7ad541d821b46acabb589545de8e3e1
 	position: relative;
 	height: 27px;
 }
@@ -239,4 +273,8 @@ a.open:hover {
 	left: 0;
 	bottom: 0;
 	cursor: ne-resize;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a55ceac4f7ad541d821b46acabb589545de8e3e1

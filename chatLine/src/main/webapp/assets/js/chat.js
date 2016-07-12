@@ -1,4 +1,5 @@
 var a = 3;
+var newM = 0;
 function message() {
 	var a = $.blinkTitle.show();
 	setTimeout(function() {
@@ -19,7 +20,8 @@ $(document).ready(function() {
 			$(this).removeClass("hover").siblings().removeClass("hover")
 		}), $(".chat03_content li").click(function() {
 			var b = $(this).index() + 1;
-			a = b, c = "../assets/img/head/2.png", d = $(this).find(".chat03_name").text(), $(".chat01_content").scrollTop(0), $(this).addClass("choosed").siblings().removeClass("choosed"), $(".talkTo a").text($(this).children(".chat03_name").text()), $(".mes" + b).show().siblings().hide()
+			newM = 0;
+			a = b, c = "../assets/img/head/2.png", d = $(this).find(".chat03_name").text(), $(".chat01_content").scrollTop(0), $(this).addClass("choosed").siblings().removeClass("choosed"), $(".talkTo a").text($(this).children(".chat03_name").text()), $(".mes" + b).show().siblings().hide(),$("#newmes"+b).hide()
 		}), $(".ctb01").mouseover(function() {
 			$(".wl_faces_box").show()
 		}).mouseout(function() {

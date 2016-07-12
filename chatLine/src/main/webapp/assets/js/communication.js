@@ -3,7 +3,7 @@
  */
 var id = 1;
 var eid = -1;
-var did = 1;
+var did=1;
 var stompClient = null;
 function connect() {
     var rootUrl = getRootURL();
@@ -18,9 +18,9 @@ function connect() {
             greeting.ack();
             var secondURL = getSecondURL();
 			if(secondURL=='chats'){
-				showBySales(mes.content);
+				showBySales(mes);
 			}else if (secondURL=='chatc'){
-				showByCustomers(mes.content);
+				showByCustomers(mes);
 			}
         });
     },function(){alert("已断线");});
