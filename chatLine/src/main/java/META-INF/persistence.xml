@@ -3,5 +3,6 @@
 	<persistence-unit name="chatline">
 		<class>com.bupt.chatline.entity.ChatMes</class>
 		<class>com.bupt.chatline.entity.Salesman</class>
+		<class>com.bupt.chatline.entity.User</class>
 	</persistence-unit>
 </persistence>

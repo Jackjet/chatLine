@@ -2,6 +2,9 @@ package com.bupt.chatline.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Map;
@@ -43,14 +46,27 @@ public class MesController {
 		this.template = template;
 	}
 	
+    @RequestMapping("/findLog")
+	public @ResponseBody List<ChatMes> findLog(@RequestParam(value="sid",required=true)int sid) throws Exception
+	{
+		System.out.println(1);
+		List<ChatMes> chatMesList = chatMesDaoService.findBySidOrDid(sid);
+		return chatMesList;
+		
+	}
+    
+    @RequestMapping("/meslog")
+	public String indexOfMeslogr(){
+		return "meslog";
+	}
 
-
+	
 	@MessageMapping("/cMes")
     public void sendMes(@RequestBody Map<String,Object> map) throws Exception {
 		String content = (String) map.get("content").toString();
 		int sid = Integer.parseInt(map.get("sid").toString());
 		int did = Integer.parseInt(map.get("did").toString());
-		ChatMes chatMes = new ChatMes(sid,did,content);
+		ChatMes chatMes = new ChatMes(sid,did,content, false);
 		int id = chatMesDaoService.save(chatMes);
 		chatMes = chatMesDaoService.findById(id);
         template.convertAndSend(MesHolder.sendToUri + chatMes.getDid(), chatMes);

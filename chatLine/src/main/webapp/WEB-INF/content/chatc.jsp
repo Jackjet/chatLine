@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-
 	
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-		
-
+		<meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 		<title>客户</title>
-		
 		<script type="text/javascript" src="../assets/js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="../assets/js/wysiwyg.js"></script>
 		<script type="text/javascript" src=" ../assets/js/wysiwyg-editor.js"></script>
@@ -174,6 +174,7 @@
 								<span8>
 								<button id="themebtn" type="button" 
 									style="position:relative;right:0;background-image: url(../assets/images/bt_3_紫.png);background-size: 100% 100%;width:82px;height:30px"></button>
+								<button type="button" style="background-image:url(../assets/images/bt_1_1.jpg);background-size:100% 100%;width:82px;height:30px;" onclick="window.open('../meslog/')"></button>	
 								</span8>
 							</p>
 							<script type="text/javascript">var themebtn = document.getElementById("themebtn");
@@ -207,9 +208,5 @@ themebtn.onclick = function() {
 			<div id="editor0" style="padding:5px;border:1px dashed black">
 			</div>
 		</div>
-		
-
-
 	</body>
-
 </html>

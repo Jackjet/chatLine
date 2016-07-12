@@ -31,6 +31,7 @@ public class ChatMes implements Serializable{
 	private String content;
 
 
+
 	public int getId() {
 		return id;
 	}
@@ -79,6 +80,8 @@ public class ChatMes implements Serializable{
 		this.content = content;
 	}
 
+	
+
 
 	public ChatMes() {
 		super();
@@ -86,7 +89,7 @@ public class ChatMes implements Serializable{
 	}
 
 
-	public ChatMes(int sid, int did, String content) {
+	public ChatMes(int sid, int did, String content,boolean flag) {
 		super();
 		this.sid = sid;
 		this.did = did;

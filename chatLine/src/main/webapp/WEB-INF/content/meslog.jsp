@@ -11,15 +11,19 @@
     <script src="../assets/js/util.js"></script>
     <script src="../assets/js/jQuery.md5.js"></script>
     <script src="../assets/js/salesmanDisplay.js"></script>
-    <script src="../assets/js/Meslog.js"></script>
+    <script src="../assets/js/communication.js"></script>
 	<link href="../assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="../assets/css/salesman.css" rel="stylesheet" type="text/css" media="all" />
-	
 
 </head>
 
-<body >
+<body  onload="loadChatMesLog()" background="../assets/images/bk.jpg">
 
- 
+	 <div class="container" style="position:absolute;left:200px;top:200px">
+		<h1 ><img src=" ../assets/images/log.png" style="height: 65px" alt="聊天记录"/></h1>
+		<table id="showChatMesLog" class="table  table-bordered table-hover table-condensed">
+		
+		</table>
+	</div> 
 </body>
 </html>

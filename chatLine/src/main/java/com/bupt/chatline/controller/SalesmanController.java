@@ -2,20 +2,26 @@ package com.bupt.chatline.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bupt.chatline.service.ChatMesDaoService;
 import com.bupt.chatline.service.SalesmanDaoService;
+import com.bupt.chatline.entity.ChatMes;
 import com.bupt.chatline.entity.Salesman;
+
 
 @Controller
 @RequestMapping("salesman")
 public class SalesmanController {
 	@Autowired
 	private SalesmanDaoService salesmanDaoService;
+	@Autowired
+	private ChatMesDaoService chatMesDaoService;
 
 	public SalesmanDaoService getSalesmanDaoService() {
 		return salesmanDaoService;
@@ -30,10 +36,12 @@ public class SalesmanController {
 		return "salesman";
 	}
     
+    
     @RequestMapping("/logins")
 	public String loginIndex(){
 		return "logins";
 	}
+    
     
     @RequestMapping("/logins/authenticate")
 	public @ResponseBody Boolean authenticate(@RequestParam(value="name", required=true)String name,@RequestParam(value="password", required=true)String psw){
@@ -47,6 +55,8 @@ public class SalesmanController {
     	if(salesmanDaoService.findByName(name)!=null){
     		return "duplicateName";
     	}
+    	Salesman s = new Salesman(name,password);
+    	salesmanDaoService.save(s);
     	return "success";
 	}
     
@@ -78,6 +88,8 @@ public class SalesmanController {
     		s.setPassword(null);
     	}
     	return ls;
-	}    
+	}   
+    
+  
 }
 

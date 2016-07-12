@@ -13,4 +13,5 @@ public class UserController {
 	public String indexOfCustomer(){
 		return "chatc";
 	}
+
 }
