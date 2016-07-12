@@ -1,2 +1,14 @@
-/target/
-/bin/
+logs/
+Servers/
+.metadata/
+.recommenders/
+logs/
+Class/
+RemoteSystemsTempFiles/
+chatLine/target/
+chatLine/.settings/
+chatLine/.classpath
+chatLine/.project
+chatLine/.springBeans
+chatLine/.tern-project
+chatLine/src/main/resources/hibernate.properties
