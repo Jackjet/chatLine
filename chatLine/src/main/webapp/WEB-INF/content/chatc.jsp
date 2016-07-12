@@ -168,12 +168,12 @@
 
 							<p>
 								<button type="button" onclick="hide()"
-								 style="background-image: url(../assets/images/bt_1_关闭红.png);background-size: 100% 100%;width:54px;height:30px"></button>
+								 style="background-image: url(../assets/images/bt_1_close.png);background-size: 100% 100%;width:54px;height:30px"></button>
 								<button id="btn" type="button" onclick= "send()" 
-								style="background-image: url(../assets/images/bt_2_黑.png);background-size: 100% 100%;width:54px;height:30px" ></button>
+								style="background-image: url(../assets/images/bt_2_send.png);background-size: 100% 100%;width:54px;height:30px" ></button>
 								<span8>
 								<button id="themebtn" type="button" 
-									style="position:relative;right:0;background-image: url(../assets/images/bt_3_紫.png);background-size: 100% 100%;width:82px;height:30px"></button>
+									style="position:relative;right:0;background-image: url(../assets/images/bt_3_purple.png);background-size: 100% 100%;width:82px;height:30px"></button>
 								<button type="button" style="background-image:url(../assets/images/bt_1_1.jpg);background-size:100% 100%;width:82px;height:30px;" onclick="window.open('../meslog/')"></button>	
 								</span8>
 							</p>
