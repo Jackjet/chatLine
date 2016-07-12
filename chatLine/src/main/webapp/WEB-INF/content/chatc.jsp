@@ -111,7 +111,7 @@
 							</div>
 						</div>
 						<div class="span4">
-							<img src="../assets/images/爱德华15_副本.jpg" style="width: 25%; position: absolute;height: 300px;  margin: 24px auto 0 auto;
+							<img src="../assets/images/adward15_fuben.jpg" style="width: 25%; position: absolute;height: 300px;  margin: 24px auto 0 auto;
   padding: 0 20px 0 0;" />
 						</div>
 						<br></br>
@@ -132,7 +132,7 @@
 						</div>
 						</div>
 												<div class="span4">
-							<img src="../assets/images/真广_副本_副本.png" style="width: 25%; position: absolute;height: 150px;  margin: 0 auto 0 auto;
+							<img src="../assets/images/zhenguang_fuben_fuben.png" style="width: 25%; position: absolute;height: 150px;  margin: 0 auto 0 auto;
   padding: 0 20px 0 0;" />
 						</div>
 						
