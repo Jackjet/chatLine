@@ -21,23 +21,10 @@ body {}
 	width: 200px;
 	line-height: 30px;
 	position: fixed;
+	border: 1px solid darkblue;
 	text-align: center;
 	color: darkblue;
-	background-image:url(../images/sea_move.gif);
-	background-size:100% 100%;
-}
-
-#meslog {
-	z-index: 999;
-	display: block;
-	width: 500px;
-	height: 500px;
-	top: 200px;
-	left: 200px;
-	position: absolute;
-	border: 1px solid darkblue;
-	visibility: hidden;
-	background: white;
+	background:darkblue;
 }
 
 

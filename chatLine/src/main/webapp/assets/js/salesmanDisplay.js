@@ -16,21 +16,9 @@ function showAllSalesmen(data){
 	content += "</tbody>";
 	$("#showAllSalesmen").html(content);
 }
-function showChatMesLog(data){
-	var content="<thead><tr><th>ID</th><th>时间</th><th>内容</th></tr></thead><tbody>";
-	for(var i = 0;i < data.length;i++){
-		var str = "<td>"+data[i].id+"</td><td>"+data[i].time+"</td><td>"+data[i].content+"</td>";
-		content = content+"<tr>"+str+"</tr>";
-	}
-	content+="</tbody>";
-	$("#showChatMesLoa").html(content);
-	
-}
+
 function loadAllSalesmen(){
 	$.ajax({url:"findAll",success:function(data){showAllSalesmen(data);},error:function(){alert("无法获取客服列表");}});
-}
-function loadChatMesLog(){
-	$.ajax({url:"findBySidOrDid",success:function(data){showChatMesLog(data);},error:function(){alert("无法获取聊天记录");}});
 }
 function refresh(){
 	loadAllSalesmen();

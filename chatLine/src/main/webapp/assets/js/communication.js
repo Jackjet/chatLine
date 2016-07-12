@@ -1,7 +1,8 @@
 /**
  * 
  */
-var sid = 1;
+var id = 1;
+var eid = -1;
 var did = 1;
 var stompClient = null;
 function connect() {
@@ -9,11 +10,12 @@ function connect() {
     var socket = new SockJS(rootUrl + '/chatMes');
     stompClient = Stomp.over(socket);
     alert("连接中...");
-    stompClient.connect({}, function(frame) {
+    stompClient.connect({"eid":eid}, function(frame) {
         alert("已连接上");
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/cMes/'+sid, function(greeting){
+        stompClient.subscribe('/topic/cMes/'+id, function(greeting){
             var mes = JSON.parse(greeting.body);
+            greeting.ack();
             var secondURL = getSecondURL();
 			if(secondURL=='chats'){
 				showBySales(mes.content);
@@ -21,7 +23,7 @@ function connect() {
 				showByCustomers(mes.content);
 			}
         });
-    });
+    },function(){alert("已断线");});
 }
 
 function disconnect() {
@@ -37,6 +39,6 @@ function sendChatMes(content) {
 		alert("信息长度过长");
 		console.log("信息长度过长");
     }else{
-    	stompClient.send("/app/cMes", {}, JSON.stringify({'content':content,'sid':sid,'did':did}));
+    	stompClient.send("/app/cMes", {}, JSON.stringify({'content':content,'sid':id,'did':did}));
     }
 }

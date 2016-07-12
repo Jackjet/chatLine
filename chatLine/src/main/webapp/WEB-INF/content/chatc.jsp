@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="chrome=1"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-		
 		<title>客户</title>
-		
 		<script type="text/javascript" src="../assets/js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="../assets/js/wysiwyg.js"></script>
 		<script type="text/javascript" src=" ../assets/js/wysiwyg-editor.js"></script>
@@ -42,7 +42,6 @@
 			<div class="container" style="position: relative">
 				<div class="marketing">
 				</div>
-				
 				<br />
 				<div class="row">
 					<div class="span10">
@@ -72,7 +71,6 @@
 					<div id="whale"></div>
 					<script src="../assets/js/whale.js"></script>
 				</div>
-				<div id="meslog"></div>
 				<div class="title">
 					<h4>与客服‘杀老师’对话中</h4>
 					<div>
@@ -128,15 +126,8 @@
 							<p>
 								<button type="button" data-dismiss="modal" class="btn">关闭</button>
 								<button id="btn" type="button" onclick= "send()" class="btn btn-primary">发送</button>
-								<button type="button"  onclick="display()">聊天记录</button>
 							</p>
 							<script type="text/javascript">
-							function display()
-							{
-								var mes= document.getElementById('meslog');
-								mes.style.visibility='visible';
-								this.onload = "loadChatMesLog()";
-								}
 							</script>
 						</div>
 						</div>
@@ -152,7 +143,7 @@
 
 		</div>
 		
-						<div style="text-align:center;clear:both">
+		<div style="text-align:center;clear:both">
 			<script src="gg_bd_ad_720x90.js" type="text/javascript"></script>
 			<script src="follow.js" type="text/javascript"></script>
 		</div>
@@ -163,9 +154,5 @@
 			<div id="editor0" style="padding:5px;border:1px dashed black">
 			</div>
 		</div>
-		
-
-
 	</body>
-
 </html>

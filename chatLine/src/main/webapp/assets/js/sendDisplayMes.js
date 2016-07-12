@@ -25,7 +25,7 @@ function  sendBySales() {
 	var g = $("#editor1").val();
 	h();
 	var i = "<div class='message clearfix'><div class='user-logo'><img src='" + b + "'/>" + "</div>" + "<div class='wrap-text'>" + "<h5 class='clearfix'>杀老师</h5>" + "<div>" + g + "</div>" + "</div>" + "<div class='wrap-ri'>" + "<div class='clearfix'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>" + "</div>";
-	null != g && "" != g ? ($(".mes" + a).append(i), $(".chat01_content").scrollTop($(".mes" + a).height()), message()) : alert("\u8bf7\u8f93\u5165\u804a\u5929\u5185\u5bb9!");
+	null != g && "" != g ? ($(".mes" + a).append(i), $(".chat01_content").scrollTop($(".mes" + a).height())) : alert("\u8bf7\u8f93\u5165\u804a\u5929\u5185\u5bb9!");
 	sendChatMes(g);
 }
 
@@ -56,7 +56,16 @@ function sendByCustomers(){
 	
 }
 
+
 function  showBySales(g){
+	 var audioElement = document.createElement('audio');
+     audioElement.setAttribute('src', '../assets/gun.mp3');
+     audioElement.setAttribute('autoplay', 'autoplay');
+     $.get();
+
+     audioElement.addEventListener("load", function() {
+         audioElement.play();
+     }, true);
 	function h() {
 		-1 != g.indexOf("*#emo_") && (g = g.replace("*#", "<img src='img/").replace("#*", ".gif'/>"), h())
 	}
@@ -66,15 +75,20 @@ function  showBySales(g){
 		d = "用户3";
 	var e = new Date,
 	f = "";
-	f += e.getFullYear() + "-", f += e.getMonth() + 1 + "-", f += e.getDate() + "  ", f += e.getHours() + ":", f += e.getMinutes() + ":", f += e.getSeconds();
-	h();
-	var i = "<div class='message clearfix'><div class='user-logo'><img src='" + c + "'/>" + "</div>" + "<div class='wrap-text'>" + "<h5 class='clearfix'>客户</h5>" + "<div>" + g + "</div>" + "</div>" + "<div class='wrap-ri'>" + "<div class='clearfix'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>" + "</div>";
-	null != g && "" != g ? ($(".mes" + a).append(i), $(".chat01_content").scrollTop($(".mes" + a).height())) : alert("\u8bf7\u8f93\u5165\u804a\u5929\u5185\u5bb9!");
+	
+		f += e.getFullYear() + "-", f += e.getMonth() + 1 + "-", f += e.getDate() + "  ", f += e.getHours() + ":", f += e.getMinutes() + ":", f += e.getSeconds();
+		h();
+		audioElement.play();
+		newM++;
+		var n = "<span class='jquery-accordion-menu-label'>" + newM + "</span></li>";
+		var i = "<div class='message clearfix'><div class='user-logo'><img src='" + c + "'/>" + "</div>" + "<div class='wrap-text'>" + "<h5 class='clearfix'>客户</h5>" + "<div>" + g + "</div>" + "</div>" + "<div class='wrap-ri'>" + "<div class='clearfix'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>" + "</div>";
+		$("#newmes"+a).show()
+		null != g && "" != g ? ($("#newmes"+a).append(n),$(".mes" + a).append(i), $(".chat01_content").scrollTop($(".mes" + a).height())) : alert("\u8bf7\u8f93\u5165\u804a\u5929\u5185\u5bb9!");
 }
 
 function showByCustomers(content){
 	if (content == '') {
-		alert("接收内容为空");
+		alert("接收内容为空");0
 	} else if (content != '') {
 		var today = new Date();
 		var hour = today.getHours();

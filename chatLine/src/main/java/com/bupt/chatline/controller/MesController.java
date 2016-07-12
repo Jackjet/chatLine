@@ -2,8 +2,6 @@ package com.bupt.chatline.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Map;
@@ -15,7 +13,6 @@ import org.springframework.messaging.simp.annotation.SubscribeMapping;
 
 import com.bupt.chatline.service.ChatMesDaoService;
 import com.bupt.chatline.entity.ChatMes;
-import com.bupt.chatline.entity.Salesman;
 import com.bupt.chatline.mes.MesHolder;
 
 @Controller
@@ -44,15 +41,6 @@ public class MesController {
 
 	public void setTemplate(SimpMessagingTemplate template) {
 		this.template = template;
-	}
-	
-	@RequestMapping("/findBySidOrDid")
-	public @ResponseBody List<ChatMes> getMesLog(@RequestBody Map<String,Object> map) throws Exception
-	{
-		int did = Integer.parseInt(map.get("did").toString());
-		List<ChatMes> chatMesList = chatMesDaoService.findBySidOrDid(did);
-		return chatMesList;
-		
 	}
 
 	
