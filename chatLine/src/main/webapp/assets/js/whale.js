@@ -7,7 +7,7 @@ var whale = (function () {
     , easy = 6
     , maxspeed = 150
     , delay = 15
-    , mouse = {x: width/2, y: height/2}
+    , mouse = {x: width/2, y: height/2} 
     , defs
     , parts
   ;

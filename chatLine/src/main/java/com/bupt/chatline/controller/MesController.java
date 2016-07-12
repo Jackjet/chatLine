@@ -3,6 +3,9 @@ package com.bupt.chatline.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Map;
@@ -47,6 +50,19 @@ public class MesController implements ApplicationListener<SessionDisconnectEvent
 
 	public void setTemplate(SimpMessagingTemplate template) {
 		this.template = template;
+	}
+	
+    @RequestMapping("findLog")
+	public @ResponseBody List<ChatMes> findLog(@RequestParam(value="sid",required=true)int sid) throws Exception
+	{
+		List<ChatMes> chatMesList = chatMesDaoService.findBySidOrDid(sid);
+		return chatMesList;
+		
+	}
+    
+    @RequestMapping("meslog")
+	public String indexOfMeslogr(){
+		return "meslog";
 	}
 
 	

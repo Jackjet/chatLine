@@ -77,7 +77,7 @@
                                 id="swf_3140"></embed>
                         </a>
                         <label class="chat02_title_t">
-                            <a href="chat.htm" target="_blank">聊天记录</a></label>
+                            <a href="../meslog/" target="_blank">聊天记录</a></label>
                         <div class="wl_faces_box">
                             <div class="wl_faces_content">
                                 <div class="title">
@@ -206,18 +206,21 @@
                                 </label>
                                 <a href="javascript:;">
                                     <img src=" ../assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户1 </a>
+                            	<div id="newmes1"></div>
                             </li>
                             <li>
                                 <label class="offline">
                                 </label>
                                 <a href="javascript:;">
                                     <img src=" ../assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户2</a>
+                            	<div id="newmes2"></div>
                             </li>
                             <li class="choosed">
                                 <label class="offline">
                                 </label>
                                 <a href="javascript:;">
                                     <img src=" ../assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户3</a>
+                            	<div id="newmes3"></div>
                             </li>
                         </ul>
                     </div>

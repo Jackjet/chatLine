@@ -4,6 +4,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
+	
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
 		<meta http-equiv="X-UA-Compatible" content="chrome=1"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 		<title>客户</title>
@@ -14,7 +19,7 @@
 		<script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../assets/js/lanrenzhijia.js"></script>
 		
-		
+		<script type="text/javascript" src="../assets/js/changetheme.js"></script>
 		<script type="text/javascript" src=" ../assets/js/sendDisplayMes.js"></script>
 		<script type="text/javascript" src=" ../assets/js/chat.js"></script>
 		<script type="text/javascript" src=" ../assets/js/util.js"></script>
@@ -33,6 +38,7 @@
 
 		<!-- github.io delivers wrong content-type - but you may want to include FontAwesome in 'wysiwyg-editor.css' -->
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
+		
 	</head>
 
 	<body onload="connect()">
@@ -47,13 +53,14 @@
 					<div class="span10">
 						<div class="responsive">
 							<div class="text-center">
-								<button class="demo btn btn-primary btn-large" onclick = "show()" id="showbtn" data-toggle="modal" href="#drag">询问客服</button>
+								<button class="demo btn btn-primary btn-large" onclick="show()" data-toggle="modal" href="#drag">询问客服</button>
 							</div>
 						</div>
 						<br />
 					</div>
 				</div>
 			</div>
+
 			<script>
 				function show()
 				{
@@ -62,7 +69,43 @@
 				}
 			</script>
 
+			
+			<script>
+				function hide()
+				{
+					var drag = document.getElementById('drag');
+					drag.style.visibility='hidden';
+				}
+			</script>
+			
+			<script type="text/javascript">
+            function changef(){
+            	var backtheme=document.getElementById("backtheme");
+            	backtheme.style.visibility="hidden";
+            }
+            </script>
+
+
 			<div id="drag" class="modal hide fade" tabindex="-1" data-width="760">
+			<div id="backtheme">
+				<div class="row-fluid">
+					<div style="position:absolute;right: 0;margin: 0 5px 5px 0px;">
+						<h4 onclick="changef()">x</h4>
+					</div>
+				    <div style="position: absolute;left: 0;right: auto;margin: 20px 20px 20px 20px;">
+				    <p>
+				    	<img src="../assets/images/bk1.jpg" style="width: 100px;height: 100px;" onclick="changetheme1()">
+				    	<img src="../assets/images/bk2.jpg" style="width: 100px;height: 100px;" onclick="changetheme2()">
+				    	<img src="../assets/images/bk2-1.jpg" style="width: 100px;height: 100px;" onclick="changetheme3()">
+				    </p>
+				    <p>
+				    	<img src="../assets/images/bk5.jpg" style="width: 100px;height: 100px;" onclick="changetheme4()">
+				    	<img src="../assets/images/bk6-1.jpg" style="width: 100px;height: 100px;" onclick="changetheme5()">
+				    	<img src="../assets/images/bk7-1.jpg" style="width: 100px;height: 100px;" onclick="changetheme6()">
+				    </p>
+				    </div>
+				</div>			
+			</div>
 				<div id="wrap">
 					<div style="clear:both">
 						<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
@@ -111,31 +154,42 @@
 							</div>
 						</div>
 						<div class="span4">
-							<img src="../assets/images/爱德华15_副本.jpg" style="width: 25%; position: absolute;height: 300px;  margin: 24px auto 0 auto;
+							<img src="../assets/images/adward15_fuben.jpg" style="width: 25%; position: absolute;height: 300px;  margin: 24px auto 0 auto;
   padding: 0 20px 0 0;" />
 						</div>
 						<br></br>
 					</div>
 				</div>
 				<div class="row-fluid">
-
 					<div class="footer" style="position: absolute;left:0;width:100%;margin: 42px 0 0 0;">
 						<div class="span8">
 						<div style="width:90%; margin: 0 30px 0;">
 							<textarea id="editor1" name="editor" style="height: 50px;" placeholder="Type your text here..."></textarea>
+
 							<p>
-								<button type="button" data-dismiss="modal" class="btn">关闭</button>
-								<button id="btn" type="button" onclick= "send()" class="btn btn-primary">发送</button>
+								<button type="button" onclick="hide()"
+								 style="background-image: url(../assets/images/bt_1_close.png);background-size: 100% 100%;width:54px;height:30px"></button>
+								<button id="btn" type="button" onclick= "send()" 
+								style="background-image: url(../assets/images/bt_2_send.png);background-size: 100% 100%;width:54px;height:30px" ></button>
+								<span8>
+								<button id="themebtn" type="button" 
+									style="position:relative;right:0;background-image: url(../assets/images/bt_3_purple.png);background-size: 100% 100%;width:82px;height:30px"></button>
+								<button type="button" style="background-image:url(../assets/images/bt_1_1.jpg);background-size:100% 100%;width:82px;height:30px;" onclick="window.open('../meslog/')"></button>	
+								</span8>
 							</p>
-							<script type="text/javascript">
-							</script>
+							<script type="text/javascript">var themebtn = document.getElementById("themebtn");
+themebtn.onclick = function() {
+	var backtheme = document.getElementById("backtheme");
+	backtheme.style.visibility = 'visible';
+}</script>
 						</div>
 						</div>
 												<div class="span4">
-							<img src="../assets/images/真广_副本_副本.png" style="width: 25%; position: absolute;height: 150px;  margin: 0 auto 0 auto;
+							<img src="../assets/images/zhenguang_fuben_fuben.png" style="width: 25%; position: absolute;height: 150px;  margin: 0 auto 0 auto;
   padding: 0 20px 0 0;" />
 						</div>
 						
+					</div>
 					</div>
 				</div>
 

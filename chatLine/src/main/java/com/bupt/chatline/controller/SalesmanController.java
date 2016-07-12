@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.bupt.chatline.service.SalesmanDaoService;
 import com.bupt.chatline.entity.Salesman;
 
+
 @Controller
 @RequestMapping("salesman")
 public class SalesmanController {
@@ -32,10 +33,12 @@ public class SalesmanController {
 		return "salesman";
 	}
     
+    
     @RequestMapping("/logins")
 	public String loginIndex(){
 		return "logins";
 	}
+    
     
     @RequestMapping("/logins/authenticate")
 	public @ResponseBody boolean authenticate(@RequestParam(value="name", required=true)String name,
@@ -89,7 +92,6 @@ public class SalesmanController {
     		s.setPassword(null);
     	}
     	return ls;
-	}
-    
+	}   
 }
 

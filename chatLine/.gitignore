@@ -2,10 +2,10 @@ logs/
 Servers/
 .metadata/
 .recommenders/
-logs/
 Class/
 RemoteSystemsTempFiles/
 chatLine/target/
+chatLine/bin/
 chatLine/.settings/
 chatLine/.classpath
 chatLine/.project
