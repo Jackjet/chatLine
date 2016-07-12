@@ -2,26 +2,32 @@ package com.bupt.chatline.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationListener;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.annotation.SubscribeMapping;
 
 import com.bupt.chatline.service.ChatMesDaoService;
+import com.bupt.chatline.service.UserDaoService;
 import com.bupt.chatline.entity.ChatMes;
+import com.bupt.chatline.entity.User;
 import com.bupt.chatline.mes.MesHolder;
 
 @Controller
-public class MesController {
+public class MesController implements ApplicationListener<SessionDisconnectEvent>{
 	@Autowired
 	ChatMesDaoService chatMesDaoService;
 	@Autowired
 	private SimpMessagingTemplate template;
-	
+	@Autowired
+	private UserDaoService userDaoService;
 
 
 	public ChatMesDaoService getChatMesDaoService() {
@@ -62,5 +68,23 @@ public class MesController {
 			template.convertAndSend(MesHolder.sendToUri + sid, chatMes);
         }
     }
+	@SuppressWarnings({ "rawtypes"})
+	@Override
+	public void onApplicationEvent(SessionDisconnectEvent e) {
+		ConcurrentHashMap mp =  (ConcurrentHashMap) e.getMessage().getHeaders().get("simpSessionAttributes");
+		if(!mp.containsKey("id")){
+		}else{
+			int id = Integer.parseInt(mp.get("id").toString());
+			User u = userDaoService.findById(id);
+			u.setOnLine(false);
+			userDaoService.save(u);
+			List<User> ls = userDaoService.findByDid(u.getId());
+			for(User u2 :ls){
+				template.convertAndSend(MesHolder.sendToUri + u2.getId(), u.getId()+" DISCONNECTED");
+			}
+			template.convertAndSend(MesHolder.sendToUri + u.getDid(), u.getId()+" DISCONNECTED");
+		}
+		
+	}
 
 }

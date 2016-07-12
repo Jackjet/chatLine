@@ -2,6 +2,8 @@ package com.bupt.chatline.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,8 +38,15 @@ public class SalesmanController {
 	}
     
     @RequestMapping("/logins/authenticate")
-	public @ResponseBody Boolean authenticate(@RequestParam(value="name", required=true)String name,@RequestParam(value="password", required=true)String psw){
-		return salesmanDaoService.authenticate(name, psw);
+	public @ResponseBody boolean authenticate(@RequestParam(value="name", required=true)String name,
+			@RequestParam(value="password", required=true)String psw,
+			HttpSession session
+			){
+    	if(salesmanDaoService.authenticate(name, psw)){
+    		session.setAttribute("eid", salesmanDaoService.findByName(name).getId());
+    		return true;
+    	}
+    	return false;
 	}
 
     @RequestMapping("/add")
@@ -80,6 +89,7 @@ public class SalesmanController {
     		s.setPassword(null);
     	}
     	return ls;
-	}    
+	}
+    
 }
 

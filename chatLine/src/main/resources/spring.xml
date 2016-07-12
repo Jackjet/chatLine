@@ -16,6 +16,8 @@
 	<context:component-scan
 		base-package="com.bupt.chatline.listener" />
 	<context:component-scan
+		base-package="com.bupt.chatline.strategy" />
+	<context:component-scan
 		base-package="com.bupt.chatline.dao" />
 	<context:component-scan
 		base-package="com.bupt.chatline.service.impl" />

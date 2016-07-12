@@ -158,7 +158,7 @@ function salesmanLogin(){
 				alert("登录成功");
 				window.location.href="../../chats/"
 			}
-			else if(data=="false"){
+			else {
 				alert("用户名或密码错误");
 			}
 			

@@ -1,22 +1,26 @@
 package com.bupt.chatline.strategy;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.bupt.chatline.entity.User;
 
+@Component
 public class UserSalesmanDistributedFactory {
-	private static UserSalesmanDistributedFactory factory = null;
-	private static UserSalesmanDistributedStrategy strategy = null;
-    public static  UserSalesmanDistributedFactory getInstance(){
-        if(factory==null){
-            synchronized( UserSalesmanDistributedFactory.class){
-                if(factory==null){
-                    factory=new  UserSalesmanDistributedFactory();
-                    strategy = new PollingUserSalesmanDistributedStrategy();
-                }
-            }
-        }
-        return factory;
-    }
-    public int distributed(User u){
-    	return strategy.distributed(u);
+	@Autowired
+	private PollingUserSalesmanDistributedStrategy pollingUserSalesmanDistributedStrategy;
+	
+	
+    public PollingUserSalesmanDistributedStrategy getPollingUserSalesmanDistributedStrategy() {
+		return pollingUserSalesmanDistributedStrategy;
+	}
+
+	public void setPollingUserSalesmanDistributedStrategy(
+			PollingUserSalesmanDistributedStrategy pollingUserSalesmanDistributedStrategy) {
+		this.pollingUserSalesmanDistributedStrategy = pollingUserSalesmanDistributedStrategy;
+	}
+
+	public int distributed(User u){
+    	return pollingUserSalesmanDistributedStrategy.distributed(u);
     }
 }

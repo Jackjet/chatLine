@@ -1,6 +1,14 @@
 /**
  * 
  */
+function onSalesmanLogin(){
+	if(eid==undefined){
+		window.location.href="../salesman/logins/";
+	}else{
+		connect();
+	}
+}
+
 function send(){
 	var secondURL = getSecondURL();
 	if(secondURL=='chats'){

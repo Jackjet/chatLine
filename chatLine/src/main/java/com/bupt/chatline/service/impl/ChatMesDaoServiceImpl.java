@@ -57,4 +57,5 @@ public class ChatMesDaoServiceImpl implements ChatMesDaoService {
 	public List<ChatMes> findBySidOrDid(int sdid){
 		return chatMesRepository.findBySidOrDidOrderByTimeAsc(sdid, sdid);
 	}
+
 }

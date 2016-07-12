@@ -64,4 +64,10 @@ public class UserDaoServiceImpl implements UserDaoService {
 		if(ls.isEmpty())return null;
 		return ls.get(0);
 	}
+
+	@Override
+	public List<User> findByDid(int did) {
+		// TODO Auto-generated method stub
+		return userRepository.findByDid(did);
+	}
 }
