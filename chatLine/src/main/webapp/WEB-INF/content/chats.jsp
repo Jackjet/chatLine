@@ -12,13 +12,14 @@
 <script type="text/javascript" src=" ../assets/js/sendDisplayMes.js"></script>
 <script type="text/javascript" src=" ../assets/js/chat.js"></script>
 <script type="text/javascript" src=" ../assets/js/util.js"></script>
-<script src="http://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
+<script type="text/javascript" src=" ../assets/js/sockjs.min.js"></script>
 <script type="text/javascript" src=" ../assets/js/stomp.js"></script>
 <script type="text/javascript" src=" ../assets/js/communication.js"></script>
 <script type="text/javascript">
 	<%if(request.getSession().getAttribute("eid")!= null){ %>
 		eid = <%=request.getSession().getAttribute("eid")%>
 	<%}%>
+	var mesStore = new Array();
 </script>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
 <link rel="stylesheet" type="text/css" href=" ../assets/css/wysiwyg-editor-s.css" />
@@ -35,31 +36,12 @@
             <div class="chatLeft">
                 <div class="chat01">
                     <div class="chat01_title">
-                        <ul class="talkTo">
-                            <li><a href="javascript:;">用户3</a></li></ul>
+                        <div class="talkTo">
+                          	  <h5 id="talkToTitle" >没有选择用户</h5>
+                        </div>
                         <a class="close_btn" href="javascript:;"></a>
                     </div>
-                    <div class="chat01_content">
-                        <div class="message_box mes1">
-                        </div>
-                        <div class="message_box mes2">
-                        </div>
-                        <div class="message_box mes3" style="display: block;">
-                        </div>
-                        <div class="message_box mes4">
-                        </div>
-                        <div class="message_box mes5">
-                        </div>
-                        <div class="message_box mes6">
-                        </div>
-                        <div class="message_box mes7">
-                        </div>
-                        <div class="message_box mes8">
-                        </div>
-                        <div class="message_box mes9">
-                        </div>
-                        <div class="message_box mes10">
-                        </div>
+                    <div class="chat01_content" id ="chat01_content" >
                     </div>
                 </div>
                 <div class="chat02">
@@ -200,28 +182,7 @@
                         <label class="chat03_title_t"> 联系人</label>
                     </div>
                     <div class="chat03_content">
-                        <ul>
-                            <li>
-                                <label class="online">
-                                </label>
-                                <a href="javascript:;">
-                                    <img src=" ../assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户1 </a>
-                            	<div id="newmes1"></div>
-                            </li>
-                            <li>
-                                <label class="offline">
-                                </label>
-                                <a href="javascript:;">
-                                    <img src=" ../assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户2</a>
-                            	<div id="newmes2"></div>
-                            </li>
-                            <li class="choosed">
-                                <label class="offline">
-                                </label>
-                                <a href="javascript:;">
-                                    <img src=" ../assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户3</a>
-                            	<div id="newmes3"></div>
-                            </li>
+                        <ul id = "chat03_content_ul">
                         </ul>
                     </div>
                 </div>

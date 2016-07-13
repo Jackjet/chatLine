@@ -73,8 +73,6 @@ function showChatMesLog(data){
 	}
 	content+="</tbody>";
 	$("#showChatMesLog").html(content);
-
-	
 }
 
 function loadChatMesLog(){

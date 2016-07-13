@@ -4,11 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-	
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
 		<meta http-equiv="X-UA-Compatible" content="chrome=1"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 		<title>客户</title>
@@ -115,7 +110,7 @@
 					<script src="../assets/js/whale.js"></script>
 				</div>
 				<div class="title">
-					<h4>与客服‘杀老师’对话中</h4>
+					<h4>与客服对话中</h4>
 					<div>
 						<a class="min" href="javascript:;" title="最小化"></a>
 						<a class="max" href="javascript:;" title="最大化"></a>
