@@ -3,7 +3,7 @@
  * 
  */
 function onSalesmanLogin(){
-	if(eid==undefined){
+	if(eid==undefined || eid == -1){
 		window.location.href="../salesman/logins/";
 	}else{
 		connect();
@@ -33,8 +33,8 @@ function  sendBySales() {
 	f += e.getFullYear() + "-", f += e.getMonth() + 1 + "-", f += e.getDate() + "  ", f += e.getHours() + ":", f += e.getMinutes() + ":", f += e.getSeconds();
 	var g = $("#editor1").val();
 	h();
-	var i = "<div class='message clearfix'><div class='user-logo'><img src='" + b + "'/>" + "</div>" + "<div class='wrap-text'>" + "<h5 class='clearfix'>杀老师</h5>" + "<div>" + g + "</div>" + "</div>" + "<div class='wrap-ri'>" + "<div class='clearfix'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>" + "</div>";
-	null != g && "" != g ? ($(".mes" + a).append(i), $(".chat01_content").scrollTop($(".mes" + a).height())) : alert("\u8bf7\u8f93\u5165\u804a\u5929\u5185\u5bb9!");
+	var i = "<div class='message clearfix'><div class='user-logo'><img src='" + b + "'/>" + "</div>" + "<div class='wrap-text'>" + "<h5 class='clearfix'>客服</h5>" + "<div>" + g + "</div>" + "</div>" + "<div class='wrap-ri'>" + "<div class='clearfix'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>" + "</div>";
+	null != g && "" != g ? ($(".mes" + did).append(i), $(".chat01_content").scrollTop($(".mes" + did).height())) : alert("\u8bf7\u8f93\u5165\u804a\u5929\u5185\u5bb9!");
 	sendChatMes(g);
 }
 
@@ -64,25 +64,6 @@ function sendByCustomers(){
 	}
 	
 }
-
-//function  showBySales(g){
-//	function h() {
-//		-1 != g.content.indexOf("*#emo_") && (g.content = g.content.replace("*#", "<img src='img/").replace("#*", ".gif'/>"), h())
-//	}
-//
-//	var 
-//		b = "../assets/images/img/head/1.png",
-//		c = "../assets/images/img/head/2.png",
-//		d = "用户3";
-//	var e = new Date,
-//	f = "";
-//	if(id==g.did){
-//	f += e.getFullYear() + "-", f += e.getMonth() + 1 + "-", f += e.getDate() + "  ", f += e.getHours() + ":", f += e.getMinutes() + ":", f += e.getSeconds();
-//	h();
-//	var i = "<div class='message clearfix'><div class='user-logo'><img src='" + c + "'/>" + "</div>" + "<div class='wrap-text'>" + "<h5 class='clearfix'>客户</h5>" + "<div>" + g.content + "</div>" + "</div>" + "<div class='wrap-ri'>" + "<div class='clearfix'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>" + "</div>";
-//	null != g.content && "" != g.content ? ($(".mes" + a).append(i), $(".chat01_content").scrollTop($(".mes" + a).height()), message()) : alert("\u8bf7\u8f93\u5165\u804a\u5929\u5185\u5bb9!");
-//	}
-//}
 function  showBySales(g){
 	 var audioElement = document.createElement('audio');
      audioElement.setAttribute('src', '../assets/gun.mp3');
@@ -107,8 +88,17 @@ function  showBySales(g){
 		newM++;
 		var n = "<span class='jquery-accordion-menu-label'>" + newM + "</span></li>";
 		var i = "<div class='message clearfix'><div class='user-logo'><img src='" + c + "'/>" + "</div>" + "<div class='wrap-text'>" + "<h5 class='clearfix'>客户</h5>" + "<div>" + g.content + "</div>" + "</div>" + "<div class='wrap-ri'>" + "<div class='clearfix'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>" + "</div>";
-		$("#newmes"+a).show()
-		null != g && "" != g ? ($("#newmes"+a).append(n),$(".mes" + a).append(i), $(".chat01_content").scrollTop($(".mes" + a).height())) : alert("\u8bf7\u8f93\u5165\u804a\u5929\u5185\u5bb9!");
+		if($("#newmes"+g.sid).length == 0){
+			$("#chat03_content_ul").append("<li id='user"+g.sid + "'><input hidden value='" + g.sid + "'></input><label class='online'></label><img src='../assets/images/img//head/2.png'><p class='chat03_name'>用户"+g.sid+"</p><div style='display: block;' id='newmes"+g.sid+"'><span class='jquery-accordion-menu-label'>1</span></div></li>");
+			$("#chat01_content").append("<div class='message_box mes"+g.sid+"'></div>");
+			$("#user"+g.sid).mouseover(function() {
+				$(this).addClass("hover").siblings().removeClass("hover")
+			}).mouseout(function() {
+				$(this).removeClass("hover").siblings().removeClass("hover")
+			}).attr("onclick","clickUser($(this));")
+		}
+		if(did != g.sid){$("#newmes"+g.sid).show();}
+		null != g && "" != g ? ($("#newmes"+g.sid).append(n),$(".mes"+g.sid).append(i), $(".chat01_content").scrollTop($(".mes"+g.sid).height())) : alert("\u8bf7\u8f93\u5165\u804a\u5929\u5185\u5bb9!");
 }}
 
 function showByCustomers(content){

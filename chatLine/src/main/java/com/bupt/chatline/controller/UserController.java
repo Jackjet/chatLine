@@ -90,8 +90,15 @@ public class UserController {
     		u.setOnLine(true);
     		userDaoService.save(u);
     	}
-    	session.setAttribute("id", id);
+    	
     	User u = userDaoService.findById(id);
+    	if(u.getDid() == -1){
+    		int did = factory.distributed(u);
+    		u.setDid(did);
+    		userDaoService.save(u);
+    	}
+    	session.setAttribute("id", id);
+    	session.setAttribute("eid", eid);
 		template.convertAndSend(MesHolder.sendToUri + u.getId(), u.getId()+" CONNECTED");
 		template.convertAndSend(MesHolder.sendToUri + u.getDid(), u.getId()+" CONNECTED");
 		return userDaoService.findById(id);

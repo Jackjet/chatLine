@@ -60,7 +60,7 @@ public class MesController implements ApplicationListener<SessionDisconnectEvent
 		
 	}
     
-    @RequestMapping("meslog")
+    @RequestMapping("*/meslog")
 	public String indexOfMeslogr(){
 		return "meslog";
 	}

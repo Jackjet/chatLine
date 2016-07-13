@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bupt.chatline.service.SalesmanDaoService;
+import com.bupt.chatline.service.UserDaoService;
 import com.bupt.chatline.entity.Salesman;
+import com.bupt.chatline.entity.User;
 
 
 @Controller
@@ -19,6 +21,8 @@ import com.bupt.chatline.entity.Salesman;
 public class SalesmanController {
 	@Autowired
 	private SalesmanDaoService salesmanDaoService;
+	@Autowired
+	private UserDaoService userDaoService;
 
 	public SalesmanDaoService getSalesmanDaoService() {
 		return salesmanDaoService;
@@ -38,7 +42,12 @@ public class SalesmanController {
 	public String loginIndex(){
 		return "logins";
 	}
-    
+    @RequestMapping("/logout")
+	public String logout(HttpSession session){
+    	session.removeAttribute("id");
+    	session.removeAttribute("eid");
+		return "redirect:/salesman/logins/";
+	}
     
     @RequestMapping("/logins/authenticate")
 	public @ResponseBody boolean authenticate(@RequestParam(value="name", required=true)String name,
@@ -61,6 +70,8 @@ public class SalesmanController {
     	}
     	Salesman s = new Salesman(name,password);
     	salesmanDaoService.save(s);
+    	User u = new User(s.getId(),name,false);
+    	userDaoService.save(u);
     	return "success";
 	}
     

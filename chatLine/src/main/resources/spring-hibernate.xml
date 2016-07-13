@@ -15,7 +15,6 @@
 		scope="prototype">
 		<property name="patterns">
 			<list>
-				<value>com.bupt.chatline.service.impl.*</value>
 				<value>com.bupt.chatline.dao.*</value>
 			</list>
 		</property>

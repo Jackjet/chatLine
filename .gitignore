@@ -11,8 +11,4 @@ chatLine/.classpath
 chatLine/.project
 chatLine/.springBeans
 chatLine/.tern-project
-<<<<<<< HEAD
 chatLine/src/main/resources/hibernate.properties
-=======
-chatLine/src/main/resources/hibernate.properties
->>>>>>> remotes/origin/dev
