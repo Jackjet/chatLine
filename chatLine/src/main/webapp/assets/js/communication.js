@@ -31,6 +31,8 @@ function connect() {
 		    alert("连接中...");
 		    stompClient.connect({"id":id},function(frame) {
 		        alert("已连接上");
+		        var but = document.getElementById('btn_c');
+			    but.style.visibility='hidden';
 		        console.log('Connected: ' + frame);
 		        stompClient.subscribe('/topic/cMes/'+id, function(greeting){
 		            var mes = JSON.parse(greeting.body);
@@ -41,7 +43,10 @@ function connect() {
 						showByCustomers(mes);
 					}
 		        });
-		    },function(){alert("已断线");});
+		    },function(){alert("已断线");
+		    var but = document.getElementById('btn_c');
+		    but.style.visibility='visible';
+		    });
 		},
 		error:function(){alert("无法连接到服务器");}
 	});
@@ -86,6 +91,8 @@ function disconnect() {
         stompClient.disconnect();
     }
     alert("已断线");
+    var but = document.getElementById('btn_c');
+    but.style.visibility='visible';
     console.log("Disconnected");
 }
 

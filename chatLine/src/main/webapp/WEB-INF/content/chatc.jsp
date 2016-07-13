@@ -54,6 +54,7 @@
 						<div class="responsive">
 							<div class="text-center">
 								<button class="demo btn btn-primary btn-large" onclick="show()" data-toggle="modal" href="#drag">询问客服</button>
+								<button id="btn_c" style="visibility:hidden" onclick="connect()">断线重连</button>
 							</div>
 						</div>
 						<br />
@@ -75,6 +76,7 @@
 				{
 					var drag = document.getElementById('drag');
 					drag.style.visibility='hidden';
+					disconnect();
 				}
 			</script>
 			
