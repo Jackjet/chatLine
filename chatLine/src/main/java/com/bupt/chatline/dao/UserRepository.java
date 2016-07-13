@@ -11,4 +11,5 @@ import com.bupt.chatline.entity.User;
 @Repository("userRepository")
 public interface UserRepository extends CrudRepository<User,Integer>{
 	List<User> findByEid(int eid);
+	List<User> findByDid(int did);
 }

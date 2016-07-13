@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 
 function showAllSalesmen(data){
 	var content = "<thead><tr><th>ID</th><th>昵称</th><th>操作</th></tr></thead><tbody>";
@@ -17,9 +15,17 @@ function showAllSalesmen(data){
 	$("#showAllSalesmen").html(content);
 }
 
+
+
+
 function loadAllSalesmen(){
 	$.ajax({url:"findAll",success:function(data){showAllSalesmen(data);},error:function(){alert("无法获取客服列表");}});
 }
+
+
+
+
+
 function refresh(){
 	loadAllSalesmen();
 }
@@ -158,7 +164,7 @@ function salesmanLogin(){
 				alert("登录成功");
 				window.location.href="../../chats/"
 			}
-			else if(data=="false"){
+			else {
 				alert("用户名或密码错误");
 			}
 			

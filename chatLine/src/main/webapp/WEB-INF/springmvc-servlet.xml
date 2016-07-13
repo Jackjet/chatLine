@@ -13,14 +13,14 @@
 	
     <mvc:annotation-driven />
 	<context:component-scan base-package="com.bupt.chatline.config" />
-	<context:component-scan base-package="com.bupt.chatline.controller" />
+	<context:component-scan base-package="com.bupt.chatline.controller" ></context:component-scan>
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/content/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 	<mvc:default-servlet-handler/>
-	<mvc:resources mapping="/assets/js/**" location="/assets/js/" />
+	<mvc:resources mapping="/assets/js/**" location="/assets/js/" ></mvc:resources>
 	<mvc:resources mapping="/assets/css/**" location="/assets/css/" />
 	<mvc:resources mapping="/assets/images/**" location="/assets/images/" />
 	<mvc:resources mapping="/assets/images/img/**" location="/assets/images/img/" />

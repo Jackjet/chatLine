@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 			http://www.springframework.org/schema/beans/spring-beans-4.1.xsd		
 			http://www.springframework.org/schema/aop 
@@ -14,9 +15,19 @@
 	<context:component-scan
 		base-package="com.bupt.chatline.config" />
 	<context:component-scan
+		base-package="com.bupt.chatline.advice" />
+	<context:component-scan
 		base-package="com.bupt.chatline.listener" />
 	<context:component-scan
-		base-package="com.bupt.chatline.dao" />
+		base-package="com.bupt.chatline.strategy" />
 	<context:component-scan
 		base-package="com.bupt.chatline.service.impl" />
+	<bean id="generalMesAroundAdvice" class="com.bupt.chatline.advice.GeneralMesAroundAdvice" />
+	
+	<aop:config>
+	    <aop:advisor advice-ref='generalMesAroundAdvice' pointcut="execution(public * com.bupt.chatline.controller.*.*(..))"/>
+	    <aop:advisor advice-ref='generalMesAroundAdvice' pointcut="execution(public * com.bupt.chatline.service.impl.*.*(..))"/>
+	    <aop:advisor advice-ref='generalMesAroundAdvice' pointcut="execution(public * com.bupt.chatline.strategy.*.*(..))"/>
+	</aop:config>
+	
 </beans>

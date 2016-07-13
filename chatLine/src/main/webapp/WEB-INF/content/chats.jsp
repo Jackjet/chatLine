@@ -12,7 +12,7 @@
 <script type="text/javascript" src=" ../assets/js/sendDisplayMes.js"></script>
 <script type="text/javascript" src=" ../assets/js/chat.js"></script>
 <script type="text/javascript" src=" ../assets/js/util.js"></script>
-<script src="http://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
+<script type="text/javascript" src=" ../assets/js/sockjs.min.js"></script>
 <script type="text/javascript" src=" ../assets/js/stomp.js"></script>
 <script type="text/javascript" src=" ../assets/js/communication.js"></script>
 
@@ -20,9 +20,28 @@
 <link rel="stylesheet" type="text/css" href=" ../assets/css/wysiwyg-editor-s.css" />
 <link rel="stylesheet" type="text/css" href=" ../assets/css/wysiwyg-style.css" />
 <link rel="stylesheet" type="text/css" href=" ../assets/css/chat.css" />
+<script type="text/javascript">
+	<%if(request.getSession().getAttribute("eid")!= null){ %>
+		eid = <%=request.getSession().getAttribute("eid")%>
+	<%}%>
+</script>
+<link href="assets/css/bootstrap.css" rel="stylesheet" />
+<!-- FontAwesome Styles-->
+<link href="../assets/css/font-awesome.css" rel="stylesheet" />
+<!-- Morris Chart Styles-->
+<link href="../assets/css/morris-0.4.3.min.css" rel="stylesheet" />
+<!-- Custom Styles-->
+<link href="../assets/css/custom-styles.css" rel="stylesheet" />
+<link href='http://fonts.useso.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
-<body class="keBody" onload="connect()">
-<h1 class="keTitle">欢迎您,客服</h1>
+<body class="keBody" onload="onSalesmanLogin()">
+<div class="keTitle">
+	<h1 style="font-size: 30px">欢迎您~客服~</h1>
+	<div class="dropdown-user" style="height: 100px">
+			<a href="../salesman/"><i class="fa fa-user fa-fw"></i> 客服列表</a>
+			<a href="../salesman/logout/"><i class="fa fa-sign-out fa-fw"></i> 登出</a>
+	</div>
+</div> 
 <div class="kePublic">
 <!--html-->
     <div class="content">
@@ -30,33 +49,15 @@
             <div class="chatLeft">
                 <div class="chat01">
                     <div class="chat01_title">
-                        <ul class="talkTo">
-                            <li><a href="javascript:;">用户3</a></li></ul>
+                        <div class="talkTo">
+                          	  <h5 id="talkToTitle" >没有选择用户</h5>
+                        </div>
                         <a class="close_btn" href="javascript:;"></a>
                     </div>
-                    <div class="chat01_content">
-                        <div class="message_box mes1">
-                        </div>
-                        <div class="message_box mes2">
-                        </div>
-                        <div class="message_box mes3" style="display: block;">
-                        </div>
-                        <div class="message_box mes4">
-                        </div>
-                        <div class="message_box mes5">
-                        </div>
-                        <div class="message_box mes6">
-                        </div>
-                        <div class="message_box mes7">
-                        </div>
-                        <div class="message_box mes8">
-                        </div>
-                        <div class="message_box mes9">
-                        </div>
-                        <div class="message_box mes10">
-                        </div>
+                    <div class="chat01_content" id ="chat01_content" >
                     </div>
                 </div>
+
                     <div class="chat02_content">
                         <!--<textarea id="textarea"></textarea>-->
                         <div style="width:560px; margin: 0px auto;">
@@ -84,6 +85,7 @@
                         <label class="chat03_title_t"> 联系人</label>
                     </div>
                     <div class="chat03_content">
+<<<<<<< HEAD
                         <ul>
                             <li id="user1">
                                 <label class="online">
@@ -106,6 +108,9 @@
                                     <img src=" ../assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户3</a>
                             	<div id="newmes3"></div>
                             </li>
+=======
+                        <ul id = "chat03_content_ul">
+>>>>>>> 0460b7263e8425bde8d855ea6fec8f36ad96bd81
                         </ul>
                     </div>
                 </div>

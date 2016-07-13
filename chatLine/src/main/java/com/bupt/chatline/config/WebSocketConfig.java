@@ -6,8 +6,8 @@ import org.springframework.web.socket.config.annotation.AbstractWebSocketMessage
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketTransportRegistration;
+import org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor;
 
-import com.bupt.chatline.interceptor.HandshakeInterceptor;
 
 @Configuration
 @EnableWebSocketMessageBroker
@@ -26,7 +26,7 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer{
 	
 	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
-		registry.addEndpoint("/chatMes").withSockJS().setInterceptors(new HandshakeInterceptor());
+		registry.addEndpoint("/chatMes").withSockJS().setInterceptors(new HttpSessionHandshakeInterceptor());
 	}
 
 }

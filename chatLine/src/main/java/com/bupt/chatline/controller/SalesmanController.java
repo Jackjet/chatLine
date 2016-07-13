@@ -2,6 +2,8 @@ package com.bupt.chatline.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,13 +11,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bupt.chatline.service.SalesmanDaoService;
+import com.bupt.chatline.service.UserDaoService;
 import com.bupt.chatline.entity.Salesman;
+import com.bupt.chatline.entity.User;
+
 
 @Controller
 @RequestMapping("salesman")
 public class SalesmanController {
 	@Autowired
 	private SalesmanDaoService salesmanDaoService;
+	@Autowired
+	private UserDaoService userDaoService;
 
 	public SalesmanDaoService getSalesmanDaoService() {
 		return salesmanDaoService;
@@ -30,14 +37,28 @@ public class SalesmanController {
 		return "salesman";
 	}
     
+    
     @RequestMapping("/logins")
 	public String loginIndex(){
 		return "logins";
 	}
+    @RequestMapping("/logout")
+	public String logout(HttpSession session){
+    	session.removeAttribute("id");
+    	session.removeAttribute("eid");
+		return "redirect:/salesman/logins/";
+	}
     
     @RequestMapping("/logins/authenticate")
-	public @ResponseBody Boolean authenticate(@RequestParam(value="name", required=true)String name,@RequestParam(value="password", required=true)String psw){
-		return salesmanDaoService.authenticate(name, psw);
+	public @ResponseBody boolean authenticate(@RequestParam(value="name", required=true)String name,
+			@RequestParam(value="password", required=true)String psw,
+			HttpSession session
+			){
+    	if(salesmanDaoService.authenticate(name, psw)){
+    		session.setAttribute("eid", salesmanDaoService.findByName(name).getId());
+    		return true;
+    	}
+    	return false;
 	}
 
     @RequestMapping("/add")
@@ -49,6 +70,8 @@ public class SalesmanController {
     	}
     	Salesman s = new Salesman(name,password);
     	salesmanDaoService.save(s);
+    	User u = new User(s.getId(),name,false);
+    	userDaoService.save(u);
     	return "success";
 	}
     
@@ -80,6 +103,6 @@ public class SalesmanController {
     		s.setPassword(null);
     	}
     	return ls;
-	}    
+	}   
 }
 

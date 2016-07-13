@@ -27,8 +27,9 @@ public class ChatMes implements Serializable{
 	private Timestamp time;
 	
 
-	@Column(nullable=false,length=1024)
+	@Column(nullable=false)
 	private String content;
+
 
 
 	public int getId() {
@@ -78,6 +79,8 @@ public class ChatMes implements Serializable{
 	public void setContent(String content) {
 		this.content = content;
 	}
+
+	
 
 
 	public ChatMes() {
