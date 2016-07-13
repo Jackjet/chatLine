@@ -39,12 +39,16 @@
 </head>
 <body class="keBody" onload="onSalesmanLogin()">
 <div class="keTitle">
-	<h1 style="font-size: 30px">欢迎您~客服~</h1>
-	<div class="dropdown-user" style="height: 100px">
-			<a href="../salesman/"><i class="fa fa-user fa-fw"></i> 客服列表</a>
-			<a href="../salesman/logout/"><i class="fa fa-sign-out fa-fw"></i> 登出</a>
-	</div>
-</div> 
+        <h1 style="font-size: 35px">欢迎您,客服~</h1>
+        <div class="opr" style="height: 100px">
+        <h1 id = "discon" style="font-size: 20px"><i class="fa fa-twitter fa-fw" id="dis2"></i> 离线</a></h1>
+        <h1 id = "con" style="font-size: 20px"><i class="fa fa-tasks fa-fw"></i> 连接</a></h1>
+        </div>
+        <div class="dropdown-user" style="height: 100px">
+        <a href="../salesman/"><i class="fa fa-user fa-fw"></i> 客服列表</a>
+        <a href="../salesman/logout/"><i class="fa fa-sign-out fa-fw"></i> 登出</a>
+        </div>
+        </div>
 <div class="kePublic">
 <!--html-->
     <div class="content">
@@ -209,11 +213,12 @@
     </div>
 <!--html-->
 </div>
-<div class="keBottom">
-<p class="keTxtP">1 <a class="keUrl" href="#" target="_blank">蠢静静和傻凯凯</a></p>
+ <div class="keBottom">
 
-<p class="keTxtP">2
-<a target="_blank" href="#" class="button red" title="1">3</a></p>
-</div>
+        <h1 style="font-size:35px;color='white'" text-align="center">软妹心仪客服系统</h1>
+        <p class="keTxtP">
+
+        <p class="keTxtP">为您提供最萌的服务</p>
+        </div>
 </body>
 </html>
