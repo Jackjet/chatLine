@@ -1,9 +1,9 @@
 
 
 function showAllSalesmen(data){
-	var content = "<thead><tr><th>ID</th><th>昵称</th><th>操作</th></tr></thead><tbody>";
+	var content = "<thead><tr><th>ID</th><th>昵称</th><th>手机</th><th>操作</th></tr></thead><tbody>";
 	for(var i = 0;i < data.length;i++){
-		var str = "<td>"+data[i].id+"</td><td>"+data[i].name+"</td>";
+		var str = "<td>"+data[i].id+"</td><td>"+data[i].name+"</td><td>"+data[i].phone+"</td>";
 		str += "<td> <div class='btn-group'>"
 		str += "<button type='button' class='btn btn-default' onclick='showChangeSalesmanNameDialog("+data[i].id+")' >修改昵称</button>";
 		str += "<button type='button' class='btn btn-default' onclick='showChangeSalesmanPasswordDialog("+data[i].id+")' >重置密码</button>";
@@ -121,6 +121,7 @@ function addNewSalesman(){
 	alert("操作正在进行,请稍后...");
 	var name = $("#newname").val();
 	var password = $("#newpassword").val();
+	var phone = $("#newphone").val();
 	if(password.length == 0 || name.length==0){
 		alert("属性不能为空");
 	}else{
@@ -130,6 +131,7 @@ function addNewSalesman(){
 			data:{
 				"name":name,
 				"password":password,
+				"phone":phone
 			},
 			success:function(){
 				var data = arguments[2].responseText;

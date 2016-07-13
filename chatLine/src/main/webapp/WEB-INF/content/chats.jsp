@@ -24,6 +24,9 @@
 	<%if(request.getSession().getAttribute("eid")!= null){ %>
 		eid = <%=request.getSession().getAttribute("eid")%>
 	<%}%>
+	<%if(request.getSession().getAttribute("id")!= null){ %>
+		id = <%=request.getSession().getAttribute("id")%>
+	<%}%>
 </script>
 <link href="assets/css/bootstrap.css" rel="stylesheet" />
 <!-- FontAwesome Styles-->

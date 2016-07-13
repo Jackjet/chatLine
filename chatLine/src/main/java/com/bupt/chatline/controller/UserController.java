@@ -9,8 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bupt.chatline.entity.Salesman;
 import com.bupt.chatline.entity.User;
 import com.bupt.chatline.mes.MesHolder;
+import com.bupt.chatline.service.PhoneMesSendService;
+import com.bupt.chatline.service.SalesmanDaoService;
 import com.bupt.chatline.service.UserDaoService;
 import com.bupt.chatline.strategy.UserSalesmanDistributedFactory;
 
@@ -23,6 +26,11 @@ public class UserController {
 	private UserSalesmanDistributedFactory factory;
 	@Autowired
 	private SimpMessagingTemplate template;
+	@Autowired
+	private PhoneMesSendService phoneMesSendService;
+	@Autowired
+	private SalesmanDaoService salesmanDaoService;
+
 	
     public UserDaoService getUserDaoService() {
 		return userDaoService;
@@ -42,7 +50,12 @@ public class UserController {
 	public void setTemplate(SimpMessagingTemplate template) {
 		this.template = template;
 	}
-	
+	public PhoneMesSendService getPhoneMesSendService() {
+		return phoneMesSendService;
+	}
+	public void setPhoneMesSendService(PhoneMesSendService phoneMesSendService) {
+		this.phoneMesSendService = phoneMesSendService;
+	}
 	@RequestMapping("/chats")
 	public String indexOfSales(){
 		return "chats";
@@ -85,15 +98,25 @@ public class UserController {
     			}
     			u.setName(name);
     		}
-    		int did = factory.distributed(u);
-    		u.setDid(did);
     		u.setOnLine(true);
     		userDaoService.save(u);
     	}
     	
     	User u = userDaoService.findById(id);
-    	if(u.getDid() == -1){
+    	User didu  = null;
+    	if(u.getDid() == -1 || (didu = userDaoService.findById(u.getDid())) == null || !didu.isOnLine()){
     		int did = factory.distributed(u);
+    		//-2:no salesman is available, try to phone the former salesman
+    		if(did == -2){
+    			if(u.getDid() != -1 && didu != null && didu.getEid() != -1){
+    				Salesman s = salesmanDaoService.findById(didu.getEid());
+    				if(s != null && MesHolder.pattern.matcher(s.getPhone()).matches()){
+    					phoneMesSendService.send(s.getPhone(), "请客服上线");
+    				}
+    			}
+    			u.setDid(-1);
+    			return u;
+    		}
     		u.setDid(did);
     		userDaoService.save(u);
     	}
