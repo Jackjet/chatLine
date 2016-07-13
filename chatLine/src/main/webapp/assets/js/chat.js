@@ -13,7 +13,10 @@ $(document).ready(function() {
 			c = "../assets/img/head/2.png",
 			d = "用户3";
 		$(".close_btn").click(function() {
-			$(".chatBox").hide()		 
+			//$(".chatBox").hide()
+			//$("#user"+a).remove();
+			//$("#user"+(a+1)).addClass("choosed").siblings().removeClass("choosed")
+			//$(".mes" + (a+1)).show().siblings().hide()
 		}), $(".chat03_content li").mouseover(function() {
 			$(this).addClass("hover").siblings().removeClass("hover")
 		}).mouseout(function() {
