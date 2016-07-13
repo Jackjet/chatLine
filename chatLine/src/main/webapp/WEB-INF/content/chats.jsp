@@ -15,19 +15,33 @@
 <script src="http://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
 <script type="text/javascript" src=" ../assets/js/stomp.js"></script>
 <script type="text/javascript" src=" ../assets/js/communication.js"></script>
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href=" ../assets/css/wysiwyg-editor-s.css" />
+<link rel="stylesheet" type="text/css" href=" ../assets/css/wysiwyg-style.css" />
+<link rel="stylesheet" type="text/css" href=" ../assets/css/chat.css" />
 <script type="text/javascript">
 	<%if(request.getSession().getAttribute("eid")!= null){ %>
 		eid = <%=request.getSession().getAttribute("eid")%>
 	<%}%>
 </script>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
-<link rel="stylesheet" type="text/css" href=" ../assets/css/wysiwyg-editor-s.css" />
-<link rel="stylesheet" type="text/css" href=" ../assets/css/wysiwyg-style.css" />
-<link rel="stylesheet" type="text/css" href=" ../assets/css/chat.css" />
+<link href="assets/css/bootstrap.css" rel="stylesheet" />
+<!-- FontAwesome Styles-->
+<link href="../assets/css/font-awesome.css" rel="stylesheet" />
+<!-- Morris Chart Styles-->
+<link href="../assets/css/morris-0.4.3.min.css" rel="stylesheet" />
+<!-- Custom Styles-->
+<link href="../assets/css/custom-styles.css" rel="stylesheet" />
+<link href='http://fonts.useso.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
-
 <body class="keBody" onload="onSalesmanLogin()">
-<h1 class="keTitle">欢迎您,客服</h1>
+<h1 class="keTitle">欢迎您~客服~
+                    <ul class="dropdown-user">
+                        <a href="../salesman/"><i class="fa fa-user fa-fw"></i> 客服列表</a> 
+                         <a href="../salesman/logins/"><i class="fa fa-sign-out fa-fw"></i> 登出</a>
+                     
+                    </ul>
+  </h1> 
 <div class="kePublic">
 <!--html-->
     <div class="content">

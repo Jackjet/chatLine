@@ -64,25 +64,6 @@ function sendByCustomers(){
 	}
 	
 }
-
-//function  showBySales(g){
-//	function h() {
-//		-1 != g.content.indexOf("*#emo_") && (g.content = g.content.replace("*#", "<img src='img/").replace("#*", ".gif'/>"), h())
-//	}
-//
-//	var 
-//		b = "../assets/images/img/head/1.png",
-//		c = "../assets/images/img/head/2.png",
-//		d = "用户3";
-//	var e = new Date,
-//	f = "";
-//	if(id==g.did){
-//	f += e.getFullYear() + "-", f += e.getMonth() + 1 + "-", f += e.getDate() + "  ", f += e.getHours() + ":", f += e.getMinutes() + ":", f += e.getSeconds();
-//	h();
-//	var i = "<div class='message clearfix'><div class='user-logo'><img src='" + c + "'/>" + "</div>" + "<div class='wrap-text'>" + "<h5 class='clearfix'>客户</h5>" + "<div>" + g.content + "</div>" + "</div>" + "<div class='wrap-ri'>" + "<div class='clearfix'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>" + "</div>";
-//	null != g.content && "" != g.content ? ($(".mes" + a).append(i), $(".chat01_content").scrollTop($(".mes" + a).height()), message()) : alert("\u8bf7\u8f93\u5165\u804a\u5929\u5185\u5bb9!");
-//	}
-//}
 function  showBySales(g){
 	 var audioElement = document.createElement('audio');
      audioElement.setAttribute('src', '../assets/gun.mp3');
