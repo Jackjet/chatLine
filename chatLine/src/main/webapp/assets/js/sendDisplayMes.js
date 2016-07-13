@@ -2,6 +2,11 @@
 /**
  * 
  */
+function editorClear(){
+	$(".wysiwyg-editor").text("");
+	$("#editor1").text("");
+}
+
 function onSalesmanLogin(){
 	if(eid==undefined || eid == -1){
 		window.location.href="../salesman/logins/";
@@ -17,6 +22,7 @@ function send(){
 	}else if (secondURL=='chatc'){
 		sendByCustomers();
 	}
+	editorClear();
 }
 
 
@@ -57,7 +63,7 @@ function sendByCustomers(){
 		sendChatMes(txt.value);
 		$('.chat-alll').append("<ul style='text-align: center;'>" + time + '</ul>' + '<ul class="chat-thread"><li>' + txt.value + '</li></ul>');
 		$(".chat-all").scrollTop($(".chat-all")[0].scrollHeight);
-		$(".txt").scrollTop($(".txt")[0].scrollHeight);
+		//$(".txt").scrollTop($(".txt")[0].scrollHeight);
 		//	  							document.getElementById('editor1').value='';
 		//	  							document.getElementById('editor1').focus();
 		//	  							$('#editor1').val('').trigger("focus");
