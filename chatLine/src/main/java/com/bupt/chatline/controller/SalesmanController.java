@@ -42,7 +42,12 @@ public class SalesmanController {
 	public String loginIndex(){
 		return "logins";
 	}
-    
+    @RequestMapping("/logout")
+	public String logout(HttpSession session){
+    	session.removeAttribute("id");
+    	session.removeAttribute("eid");
+		return "redirect:/salesman/logins/";
+	}
     
     @RequestMapping("/logins/authenticate")
 	public @ResponseBody boolean authenticate(@RequestParam(value="name", required=true)String name,

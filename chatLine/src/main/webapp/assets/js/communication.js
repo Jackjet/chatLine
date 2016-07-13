@@ -61,13 +61,15 @@ function showChatMesLog(data){
 			second = '0' + second;
 		}
 		var time = today.toLocaleDateString() + " " + hour + ":" + minute + ":" + second;
+		var othertype = getSecondURL()=='chatc'?"客服":"客户";
+		var mytype = getSecondURL()=='chatc'?"客户":"客服";
 		if(data[i].sid==id)
 			{
-				var str = "<td>客户</td><td>"+time+"</td><td>"+data[i].content+"</td>";
+				var str = "<td>"+mytype + data[i].sid + "</td><td>"+time+"</td><td>"+data[i].content+"</td>";
 			}
 		else
 			{
-			var str = "<td>客服</td><td>"+time+"</td><td>"+data[i].content+"</td>";
+			var str = "<td>"+othertype + data[i].sid + "</td><td>"+time+"</td><td>"+data[i].content+"</td>";
 			}
 		content = content+"<tr>"+str+"</tr>";
 	}
@@ -76,7 +78,7 @@ function showChatMesLog(data){
 }
 
 function loadChatMesLog(){
-	$.ajax({type:"post",url:"../findLog/",data:{"sid":id},success:function(data){showChatMesLog(data);},error:function(){alert("无法获取聊天记录");}});
+	$.ajax({type:"post",url:"../../findLog/",data:{"sid":id},success:function(data){showChatMesLog(data);},error:function(){alert("无法获取聊天记录");}});
 }
 
 function disconnect() {

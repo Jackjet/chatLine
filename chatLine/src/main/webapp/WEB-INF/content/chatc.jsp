@@ -169,7 +169,7 @@
 								<span8>
 								<button id="themebtn" type="button" 
 									style="position:relative;right:0;background-image: url(../assets/images/bt_3_purple.png);background-size: 100% 100%;width:82px;height:30px"></button>
-								<button type="button" style="background-image:url(../assets/images/bt_1_1.jpg);background-size:100% 100%;width:82px;height:30px;" onclick="window.open('../meslog/')"></button>	
+								<button type="button" style="background-image:url(../assets/images/bt_1_1.jpg);background-size:100% 100%;width:82px;height:30px;" onclick="window.open('meslog/')"></button>	
 								</span8>
 							</p>
 							<script type="text/javascript">var themebtn = document.getElementById("themebtn");

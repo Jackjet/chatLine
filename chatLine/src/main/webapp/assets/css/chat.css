@@ -594,6 +594,11 @@ label.offline {
     background: #b9b9b4;
     border-radius: 100%;
 }
+.dropdown-user{
+	position: absolute;
+	right:20px;
+	top:10px;
+}
 
 
 /* 效果CSS结束 */
