@@ -74,6 +74,7 @@
                     <div class="chat02_bar">
                         <ul>
                             <li style="right: 5px; top: 5px;">
+                            <a href="../chatc/meslog">聊天记录</a>
                             <a href="javascript:;"><img src=" ../assets/images/img/send_btn.jpg"/></a></li>
                         </ul>
                     </div>
@@ -85,32 +86,7 @@
                         <label class="chat03_title_t"> 联系人</label>
                     </div>
                     <div class="chat03_content">
-<<<<<<< HEAD
-                        <ul>
-                            <li id="user1">
-                                <label class="online">
-                                </label>
-                                <a href="javascript:;">
-                                    <img src=" ../assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户1 </a>
-                            	<div id="newmes1"></div>
-                            </li>
-                            <li id="user2">
-                                <label class="offline">
-                                </label>
-                                <a href="javascript:;">
-                                    <img src=" ../assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户2</a>
-                            	<div id="newmes2"></div>
-                            </li>
-                            <li  id="user3" class="choosed">
-                                <label class="offline">
-                                </label>
-                                <a href="javascript:;">
-                                    <img src=" ../assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户3</a>
-                            	<div id="newmes3"></div>
-                            </li>
-=======
                         <ul id = "chat03_content_ul">
->>>>>>> 0460b7263e8425bde8d855ea6fec8f36ad96bd81
                         </ul>
                     </div>
                 </div>

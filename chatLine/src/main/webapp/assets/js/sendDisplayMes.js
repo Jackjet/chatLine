@@ -93,7 +93,7 @@ function  showBySales(g){
 		audioElement.play();
 		newM++;
 		var n = "<span class='jquery-accordion-menu-label'>" + newM + "</span></li>";
-		var i = "<div class='message clearfix'><div class='user-logo'><img src='" + c + "'/>" + "</div>" + "<div class='wrap-text'>" + "<h5 class='clearfix'>客户</h5>" + "<div>" + g.content + "</div>" + "</div>" + "<div class='wrap-ri'>" + "<div class='clearfix'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>" + "</div>";
+		var i = "<div class='message clearfix'><div class='user-logo'><img src='" + c + "'/>" + "</div>" + "<div class='wrap-text'>" + "<h5 class='clearfix'>用户</h5>" + "<div>" + g.content + "</div>" + "</div>" + "<div class='wrap-ri'>" + "<div class='clearfix'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>" + "</div>";
 		if($("#newmes"+g.sid).length == 0){
 			$("#chat03_content_ul").append("<li id='user"+g.sid + "'><input hidden value='" + g.sid + "'></input><label class='online'></label><img src='../assets/images/img//head/2.png'><p class='chat03_name'>用户"+g.sid+"</p><div style='display: block;' id='newmes"+g.sid+"'><span class='jquery-accordion-menu-label'>1</span></div></li>");
 			$("#chat01_content").append("<div class='message_box mes"+g.sid+"'></div>");
