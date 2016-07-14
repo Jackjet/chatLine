@@ -6,7 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bupt.chatline.dao.ChatMesRepository;
 import com.bupt.chatline.dao.SalesmanRepository;
+import com.bupt.chatline.dao.UserRepository;
 import com.bupt.chatline.entity.Salesman;
 import com.bupt.chatline.service.SalesmanDaoService;
 
@@ -16,6 +18,8 @@ public class SalesmanDaoServiceImpl implements SalesmanDaoService {
 
 	@Autowired
 	private SalesmanRepository salesmanRepository;
+	@Autowired
+	private UserRepository userRepository;
 	
 	@Override
 	public Integer save(Salesman o) {
@@ -57,6 +61,19 @@ public class SalesmanDaoServiceImpl implements SalesmanDaoService {
 		List<Salesman> ls = salesmanRepository.findByName(name);
 		if(ls.size()==0)return null;
 		return ls.get(0);
+	}
+
+	@Override
+	public List<Salesman> findByOnLine(boolean onLine) {
+		// TODO Auto-generated method stub
+		Iterable<Salesman> ls = salesmanRepository.findAll();
+		List<Salesman> ans = new ArrayList<Salesman>();
+		for(Salesman s:ls){
+			if(userRepository.findByEid(s.getId()).size() > 0 && userRepository.findByEid(s.getId()).get(0).isOnLine() == onLine){
+				ans.add(s);
+			}
+		}
+		return ans;
 	}
 
 }

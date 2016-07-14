@@ -27,7 +27,7 @@ public class PollingUserSalesmanDistributedStrategy extends UserSalesmanDistribu
 
 	@Override
 	public int distributed(User u) {
-		List<Salesman> ls = salesmanDaoService.findAll();
+		List<Salesman> ls = salesmanDaoService.findByOnLine(true);
 		int dsalesmanid = ls.get(u.getId()%ls.size()).getId();
 		int did = -1;
 		if(userDaoService.findByEid(dsalesmanid) != null && (u.getEid() == -1 || salesmanDaoService.findById(u.getEid()) == null)){
