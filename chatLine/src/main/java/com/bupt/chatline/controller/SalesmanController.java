@@ -83,6 +83,7 @@ public class SalesmanController {
     @RequestMapping("/delete")
 	public @ResponseBody String delete(@RequestParam(value="id", required=true)int id){
     	salesmanDaoService.deleteById(id);
+    	userDaoService.deleteById(userDaoService.findByEid(id).getId());
     	return "success";
 	}
     

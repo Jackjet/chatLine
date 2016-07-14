@@ -1,5 +1,7 @@
 package com.bupt.chatline.advice;
 
+import java.lang.reflect.Method;
+
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.apache.log4j.Logger;
@@ -12,14 +14,16 @@ public class GeneralMesAroundAdvice implements MethodInterceptor {
 	 */
 	public Object invoke(MethodInvocation methodInvocation) throws Throwable {
 		long start = System.currentTimeMillis();
+		Method method = methodInvocation.getMethod();
 		Object result = methodInvocation.proceed();
 		long end = System.currentTimeMillis();
 		String mes = methodInvocation.getMethod().toGenericString();
 		String args = "";
+		if(methodInvocation.getArguments()!=null){
 		for(int i = 0;i <  methodInvocation.getArguments().length;i++){
 			if(methodInvocation.getArguments()[i] == null)args += "null ";
 			else args+=methodInvocation.getArguments()[i].toString() + " ";
-		}
+		}}
 		mes += " Parameter: "+ args;
 		if(result!=null)mes += " Return: " + result.toString();
 		else mes += " Return: void ";

@@ -105,6 +105,7 @@ public class UserController {
     	}
     	
     	User u = userDaoService.findById(id);
+
     	User didu  = null;
     	if(u.getDid() == -1 || (didu = userDaoService.findById(u.getDid())) == null || !didu.isOnLine()){
     		int did = factory.distributed(u);

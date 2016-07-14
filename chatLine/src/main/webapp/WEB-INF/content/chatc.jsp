@@ -56,6 +56,7 @@
 						<div class="responsive">
 							<div class="text-center">
 								<button class="demo btn btn-primary btn-large" onclick="show()" data-toggle="modal" href="#drag">询问客服</button>
+								
 							</div>
 						</div>
 						<br />
@@ -168,6 +169,7 @@
 							<textarea id="editor1" name="editor" style="height: 50px;" placeholder="Type your text here..."></textarea>
 
 							<p>
+
 								<button type="button" onclick="hide()" id="closebtn" 
 								 style="background-image: url(../assets/images/btn/bt2_1.jpg);background-size: 100% 100%;width:54px;height:30px"></button>
 								<button id="btn" type="button" onclick= "send()" 

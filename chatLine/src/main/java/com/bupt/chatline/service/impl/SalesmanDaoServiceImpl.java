@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bupt.chatline.dao.ChatMesRepository;
 import com.bupt.chatline.dao.SalesmanRepository;
 import com.bupt.chatline.dao.UserRepository;
 import com.bupt.chatline.entity.Salesman;
@@ -18,6 +19,7 @@ import com.bupt.chatline.service.SalesmanDaoService;
 public class SalesmanDaoServiceImpl implements SalesmanDaoService {
 
 	@Autowired
+
 	private SalesmanRepository salesmanRepository;	
 	@Autowired
 	private UserRepository userRepository;
@@ -66,6 +68,7 @@ public class SalesmanDaoServiceImpl implements SalesmanDaoService {
 
 	@Override
 	public List<Salesman> findByOnLine(boolean onLine) {
+
 		Iterable<Salesman> ls = salesmanRepository.findAll();
 		List<Salesman> ans = new ArrayList<Salesman>();
 		for(Salesman s:ls){

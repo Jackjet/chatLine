@@ -75,7 +75,6 @@ public class MesController implements ApplicationListener<SessionDisconnectEvent
 		int did = Integer.parseInt(map.get("did").toString());
 		ChatMes chatMes = new ChatMes(sid,did,content);
 		int id = chatMesDaoService.save(chatMes);
-		chatMes = chatMesDaoService.findById(id);
         template.convertAndSend(MesHolder.sendToUri + chatMes.getDid(), chatMes);
     }
 	@SubscribeMapping("/init")
@@ -86,8 +85,10 @@ public class MesController implements ApplicationListener<SessionDisconnectEvent
 			template.convertAndSend(MesHolder.sendToUri + sid, chatMes);
         }
     }
+	
 	@SuppressWarnings({ "rawtypes"})
 	@Override
+	@MessageMapping("/interupt")
 	public void onApplicationEvent(SessionDisconnectEvent e) {
 		ConcurrentHashMap mp =  (ConcurrentHashMap) e.getMessage().getHeaders().get("simpSessionAttributes");
 		if(!mp.containsKey("id")){

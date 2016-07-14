@@ -68,14 +68,36 @@ function sendByCustomers(){
 		sendChatMes(txt.value);
 		$('.chat-alll').append("<ul style='text-align: center;'>" + time + '</ul>' + '<ul class="chat-thread"><li>' + txt.value + '</li></ul>');
 		$(".chat-all").scrollTop($(".chat-all")[0].scrollHeight);
-		//$(".txt").scrollTop($(".txt")[0].scrollHeight);
-		//	  							document.getElementById('editor1').value='';
-		//	  							document.getElementById('editor1').focus();
-		//	  							$('#editor1').val('').trigger("focus");
+		// $(".txt").scrollTop($(".txt")[0].scrollHeight);
+		// document.getElementById('editor1').value='';
+		// document.getElementById('editor1').focus();
+		// $('#editor1').val('').trigger("focus");
 	}
 	
 }
-function  showBySales(){
+
+function ifcdis()
+{
+	
+	/*
+	 * var editor1 = document.getElementById("editor1"); editor1.style.disabled =
+	 * "disabled";
+	 * 
+	 * var editor2 = document.getElementByClassName("wysiwyg-editor");
+	 * editor2.style.disabled = "disabled";
+	 */
+	alert("该用户已断线");
+	}
+
+function  showBySales(g){
+	if(g.result =="DISCONNECTED"){
+		$("#clabel"+g.id).removeClass("online");
+		$("#clabel"+g.id).addClass("offline");
+		ifcdis();
+	}
+	else{
+		$("#clabel"+g.id).removeClass("offline");
+		$("#clabel"+g.id).addClass("online");
 	 var audioElement = document.createElement('audio');
      audioElement.setAttribute('src', '../assets/gun.mp3');
      audioElement.setAttribute('autoplay', 'autoplay');
@@ -98,9 +120,9 @@ function  showBySales(){
 		audioElement.play();
 		newM++;
 		var n = "<span class='jquery-accordion-menu-label'>" + newM + "</span></li>";
-		var i = "<div class='message clearfix'><div class='user-logo'><img src='" + c + "'/>" + "</div>" + "<div class='wrap-text'>" + "<h5 class='clearfix'>客户</h5>" + "<div>" + g.content + "</div>" + "</div>" + "<div class='wrap-ri'>" + "<div class='clearfix'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>" + "</div>";
+		var i = "<div class='message clearfix'><div class='user-logo'><img src='" + c + "'/>" + "</div>" + "<div class='wrap-text'>" + "<h5 class='clearfix'>用户</h5>" + "<div>" + g.content + "</div>" + "</div>" + "<div class='wrap-ri'>" + "<div class='clearfix'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>" + "</div>";
 		if($("#newmes"+g.sid).length == 0){
-			$("#chat03_content_ul").append("<li id='user"+g.sid + "'><input hidden value='" + g.sid + "'></input><label class='online'></label><img src='../assets/images/img//head/2.png'><p class='chat03_name'>用户"+g.sid+"</p><div style='display: block;' id='newmes"+g.sid+"'><span class='jquery-accordion-menu-label'>1</span></div></li>");
+			$("#chat03_content_ul").append("<li id='user"+g.sid + "'><input hidden value='" + g.sid + "'></input><label id='clabel"+g.sid+"' class='online'></label><img src='../assets/images/img//head/2.png'><p class='chat03_name'>用户"+g.sid+"</p><div style='display: block;' id='newmes"+g.sid+"'><span class='jquery-accordion-menu-label'>1</span></div></li>");
 			$("#chat01_content").append("<div class='message_box mes"+g.sid+"'></div>");
 			$("#user"+g.sid).mouseover(function() {
 				$(this).addClass("hover").siblings().removeClass("hover")
@@ -110,28 +132,35 @@ function  showBySales(){
 		}
 		if(did != g.sid){$("#newmes"+g.sid).show();}
 		null != g && "" != g ? ($("#newmes"+g.sid).append(n),$(".mes"+g.sid).append(i), $(".chat01_content").scrollTop($(".mes"+g.sid).height())) : alert("\u8bf7\u8f93\u5165\u804a\u5929\u5185\u5bb9!");
-}}
+	}}}
 
 function showByCustomers(content){
-	if (content.content == '') {
-		alert("接收内容为空");
-	} else if (content.content != '') {
-		var today = new Date();
-		var hour = today.getHours();
-		var minute = today.getMinutes();
-		if (minute < 10) {
-			minute = '0' + minute;
+	if(content.result=="CONNECTED"){
+		alert("客服已上线");
+	}else if(content.result=="DISCONNECTED"){
+		alert("客服已离线");
+	}else{
+		if (content.content == '') {
+			alert("接收内容为空");
+		} else if (content.content != '') {
+			var today = new Date();
+			var hour = today.getHours();
+			var minute = today.getMinutes();
+			if (minute < 10) {
+				minute = '0' + minute;
+			}
+			var second = today.getSeconds();
+			if (second < 10) {
+				second = '0' + second;
+			}
+			var time = today.toLocaleDateString() + " " + hour + ":" + minute + ":" + second;
+			$('.chat-alll').append("<ul style='text-align: center;'>" + time + '</ul>' + '<ul class="chat-threadd"><li>' + content.content + '</li></ul>');
+			$(".chat-all").scrollTop($(".chat-all")[0].scrollHeight);
+			// document.getElementById('editor1').value='';
+			// document.getElementById('editor1').focus();
+			// $('#editor1').val('').trigger("focus");
 		}
-		var second = today.getSeconds();
-		if (second < 10) {
-			second = '0' + second;
-		}
-		var time = today.toLocaleDateString() + " " + hour + ":" + minute + ":" + second;
-		$('.chat-alll').append("<ul style='text-align: center;'>" + time + '</ul>' + '<ul class="chat-threadd"><li>' + content.content + '</li></ul>');
-		$(".chat-all").scrollTop($(".chat-all")[0].scrollHeight);
-		//	  							document.getElementById('editor1').value='';
-		//	  							document.getElementById('editor1').focus();
-		//	  							$('#editor1').val('').trigger("focus");
-	}  							$('#editor1').val('').trigger("focus");
+		$('#editor1').val('').trigger("focus");
 	}
+}
 	
