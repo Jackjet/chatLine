@@ -17,7 +17,8 @@ public class GeneralMesAroundAdvice implements MethodInterceptor {
 		String mes = methodInvocation.getMethod().toGenericString();
 		String args = "";
 		for(int i = 0;i <  methodInvocation.getArguments().length;i++){
-			args+=methodInvocation.getArguments()[i].toString() + " ";
+			if(methodInvocation.getArguments()[i] == null)args += "null ";
+			else args+=methodInvocation.getArguments()[i].toString() + " ";
 		}
 		mes += " Parameter: "+ args;
 		if(result!=null)mes += " Return: " + result.toString();

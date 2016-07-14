@@ -2,6 +2,8 @@ package com.bupt.chatline.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
@@ -122,8 +124,16 @@ public class UserController {
     	}
     	session.setAttribute("id", id);
     	session.setAttribute("eid", eid);
-		template.convertAndSend(MesHolder.sendToUri + u.getId(), u.getId()+" CONNECTED");
-		template.convertAndSend(MesHolder.sendToUri + u.getDid(), u.getId()+" CONNECTED");
+    	JSONObject o = new JSONObject();
+    	try {
+        	o.accumulate("id", u.getId());
+			o.accumulate("result", "CONNECTED");
+			template.convertAndSend(MesHolder.sendToUri + u.getId(), o.toString());
+			template.convertAndSend(MesHolder.sendToUri + u.getDid(), o.toString());
+    	} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return userDaoService.findById(id);
 	}
 }

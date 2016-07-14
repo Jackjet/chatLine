@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -95,10 +97,18 @@ public class MesController implements ApplicationListener<SessionDisconnectEvent
 			u.setOnLine(false);
 			userDaoService.save(u);
 			List<User> ls = userDaoService.findByDid(u.getId());
-			for(User u2 :ls){
-				template.convertAndSend(MesHolder.sendToUri + u2.getId(), u.getId()+" DISCONNECTED");
+	    	JSONObject o = new JSONObject();
+	    	try {
+	        	o.accumulate("id", u.getId());
+				o.accumulate("result", "DISCONNECTED");
+				for(User u2 :ls){
+					template.convertAndSend(MesHolder.sendToUri + u2.getId(), o.toString());
+				}
+				template.convertAndSend(MesHolder.sendToUri + u.getDid(), o.toString());
+	    	} catch (JSONException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
 			}
-			template.convertAndSend(MesHolder.sendToUri + u.getDid(), u.getId()+" DISCONNECTED");
 		}
 		
 	}
