@@ -82,7 +82,7 @@
                     <div class="chat02_bar">
                         <ul>
                             <li style="right: 5px; top: 5px;">
-                            <a href="../chatc/meslog">聊天记录</a>
+                            <a href="../chatc/meslog/">聊天记录</a>
                             <a href="javascript:;"><img src=" ../assets/images/img/send_btn.jpg"/></a></li>
                         </ul>
                     </div>

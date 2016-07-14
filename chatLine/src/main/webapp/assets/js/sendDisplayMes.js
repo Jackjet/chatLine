@@ -63,10 +63,10 @@ function sendByCustomers(){
 		sendChatMes(txt.value);
 		$('.chat-alll').append("<ul style='text-align: center;'>" + time + '</ul>' + '<ul class="chat-thread"><li>' + txt.value + '</li></ul>');
 		$(".chat-all").scrollTop($(".chat-all")[0].scrollHeight);
-		//$(".txt").scrollTop($(".txt")[0].scrollHeight);
-		//	  							document.getElementById('editor1').value='';
-		//	  							document.getElementById('editor1').focus();
-		//	  							$('#editor1').val('').trigger("focus");
+		// $(".txt").scrollTop($(".txt")[0].scrollHeight);
+		// document.getElementById('editor1').value='';
+		// document.getElementById('editor1').focus();
+		// $('#editor1').val('').trigger("focus");
 	}
 	
 }
@@ -74,12 +74,13 @@ function sendByCustomers(){
 function ifcdis()
 {
 	
-	/*var editor1 = document.getElementById("editor1");
-	editor1.style.disabled = "disabled";
-	
-	var editor2 = document.getElementByClassName("wysiwyg-editor");
-	editor2.style.disabled = "disabled";
-	*/
+	/*
+	 * var editor1 = document.getElementById("editor1"); editor1.style.disabled =
+	 * "disabled";
+	 * 
+	 * var editor2 = document.getElementByClassName("wysiwyg-editor");
+	 * editor2.style.disabled = "disabled";
+	 */
 	alert("该用户已断线");
 	}
 
@@ -129,25 +130,32 @@ function  showBySales(g){
 	}}}
 
 function showByCustomers(content){
-	if (content.content == '') {
-		alert("接收内容为空");
-	} else if (content.content != '') {
-		var today = new Date();
-		var hour = today.getHours();
-		var minute = today.getMinutes();
-		if (minute < 10) {
-			minute = '0' + minute;
+	if(content.result=="CONNECTED"){
+		alert("客服已上线");
+	}else if(content.result=="DISCONNECTED"){
+		alert("客服已离线");
+	}else{
+		if (content.content == '') {
+			alert("接收内容为空");
+		} else if (content.content != '') {
+			var today = new Date();
+			var hour = today.getHours();
+			var minute = today.getMinutes();
+			if (minute < 10) {
+				minute = '0' + minute;
+			}
+			var second = today.getSeconds();
+			if (second < 10) {
+				second = '0' + second;
+			}
+			var time = today.toLocaleDateString() + " " + hour + ":" + minute + ":" + second;
+			$('.chat-alll').append("<ul style='text-align: center;'>" + time + '</ul>' + '<ul class="chat-threadd"><li>' + content.content + '</li></ul>');
+			$(".chat-all").scrollTop($(".chat-all")[0].scrollHeight);
+			// document.getElementById('editor1').value='';
+			// document.getElementById('editor1').focus();
+			// $('#editor1').val('').trigger("focus");
 		}
-		var second = today.getSeconds();
-		if (second < 10) {
-			second = '0' + second;
-		}
-		var time = today.toLocaleDateString() + " " + hour + ":" + minute + ":" + second;
-		$('.chat-alll').append("<ul style='text-align: center;'>" + time + '</ul>' + '<ul class="chat-threadd"><li>' + content.content + '</li></ul>');
-		$(".chat-all").scrollTop($(".chat-all")[0].scrollHeight);
-		//	  							document.getElementById('editor1').value='';
-		//	  							document.getElementById('editor1').focus();
-		//	  							$('#editor1').val('').trigger("focus");
-	}  							$('#editor1').val('').trigger("focus");
+		$('#editor1').val('').trigger("focus");
 	}
+}
 	
