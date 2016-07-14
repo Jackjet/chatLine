@@ -17,6 +17,8 @@ public class Salesman {
 
 	@Column(nullable = false)
 	private String password;
+	@Column
+	private String phone;
 
 	public int getId() {
 		return id;
@@ -42,6 +44,14 @@ public class Salesman {
 		this.password = password;
 	}
 
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
 	public Salesman() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -52,8 +62,16 @@ public class Salesman {
 		this.password = password;
 	}
 
+	public Salesman(String name, String password, String phone) {
+		super();
+		this.name = name;
+		this.password = password;
+		this.phone = phone;
+	}
+
 	@Override
 	public String toString() {
-		return "Salesman [id=" + id + ", name=" + name + ", password=" + password + "]";
+		return "Salesman [id=" + id + ", name=" + name + ", password=" + password + ", phone=" + phone + "]";
 	}
+
 }

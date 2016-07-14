@@ -10,6 +10,8 @@ import com.bupt.chatline.dao.ChatMesRepository;
 import com.bupt.chatline.dao.SalesmanRepository;
 import com.bupt.chatline.dao.UserRepository;
 import com.bupt.chatline.entity.Salesman;
+import com.bupt.chatline.entity.User;
+import com.bupt.chatline.mes.MesHolder;
 import com.bupt.chatline.service.SalesmanDaoService;
 
 
@@ -17,7 +19,8 @@ import com.bupt.chatline.service.SalesmanDaoService;
 public class SalesmanDaoServiceImpl implements SalesmanDaoService {
 
 	@Autowired
-	private SalesmanRepository salesmanRepository;
+
+	private SalesmanRepository salesmanRepository;	
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -53,7 +56,7 @@ public class SalesmanDaoServiceImpl implements SalesmanDaoService {
 	@Override
 	public boolean authenticate(String name, String psw) {
 		Salesman s = this.findByName(name);
-		return s.getPassword().equals(psw);
+		return s!=null&&s.getPassword().equals(psw);
 	}
 
 	@Override
@@ -65,11 +68,23 @@ public class SalesmanDaoServiceImpl implements SalesmanDaoService {
 
 	@Override
 	public List<Salesman> findByOnLine(boolean onLine) {
-		// TODO Auto-generated method stub
+
 		Iterable<Salesman> ls = salesmanRepository.findAll();
 		List<Salesman> ans = new ArrayList<Salesman>();
 		for(Salesman s:ls){
-			if(userRepository.findByEid(s.getId()).size() > 0 && userRepository.findByEid(s.getId()).get(0).isOnLine() == onLine){
+			List<User> uls = userRepository.findByEid(s.getId());
+			if(uls.size() > 0 && uls.get(0).isOnLine() == onLine){
+				ans.add(s);
+			}
+		}
+		return ans;
+	}
+	@Override
+	public List<Salesman> findByHasPhone() {
+		Iterable<Salesman> ls = salesmanRepository.findAll();
+		List<Salesman> ans = new ArrayList<Salesman>();
+		for(Salesman s:ls){
+			if(s.getPhone()!= null && MesHolder.pattern.matcher(s.getPhone()).matches()){
 				ans.add(s);
 			}
 		}

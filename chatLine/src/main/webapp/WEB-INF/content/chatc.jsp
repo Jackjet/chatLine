@@ -21,7 +21,14 @@
 		<script src="http://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
 		<script type="text/javascript" src=" ../assets/js/stomp.js"></script>
 		<script type="text/javascript" src=" ../assets/js/communication.js"></script>
-		
+		<script type="text/javascript">
+			<%if(request.getSession().getAttribute("eid")!= null){ %>
+				eid = <%=request.getSession().getAttribute("eid")%>
+			<%}%>
+			<%if(request.getSession().getAttribute("id")!= null){ %>
+				id = <%=request.getSession().getAttribute("id")%>
+			<%}%>
+		</script>
 		
 		<link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="../assets/css/style.css" type="text/css" rel="stylesheet" media="screen"/>
@@ -49,7 +56,7 @@
 						<div class="responsive">
 							<div class="text-center">
 								<button class="demo btn btn-primary btn-large" onclick="show()" data-toggle="modal" href="#drag">询问客服</button>
-								<button id="btn_c" style="visibility:hidden" onclick="connect()">断线重连</button>
+								
 							</div>
 						</div>
 						<br />
@@ -71,7 +78,6 @@
 				{
 					var drag = document.getElementById('drag');
 					drag.style.visibility='hidden';
-					disconnect();
 				}
 			</script>
 			
@@ -164,7 +170,8 @@
 							<textarea id="editor1" name="editor" style="height: 50px;" placeholder="Type your text here..."></textarea>
 
 							<p>
-								<button type="button" onclick="hide()"
+								<button type="button" onclick="hide()">关闭</button>
+								<button type="button" onclick="disconnect()"
 								 style="background-image: url(../assets/images/bt_1_close.png);background-size: 100% 100%;width:54px;height:30px"></button>
 								<button id="btn" type="button" onclick= "send()" 
 								style="background-image: url(../assets/images/bt_2_send.png);background-size: 100% 100%;width:54px;height:30px" ></button>
@@ -172,6 +179,7 @@
 								<button id="themebtn" type="button" 
 									style="position:relative;right:0;background-image: url(../assets/images/bt_3_purple.png);background-size: 100% 100%;width:82px;height:30px"></button>
 								<button type="button" style="background-image:url(../assets/images/bt_1_1.jpg);background-size:100% 100%;width:82px;height:30px;" onclick="window.open('meslog/')"></button>	
+								<button type="button" onclick="connect()">断线重连</button>
 								</span8>
 							</p>
 							<script type="text/javascript">var themebtn = document.getElementById("themebtn");

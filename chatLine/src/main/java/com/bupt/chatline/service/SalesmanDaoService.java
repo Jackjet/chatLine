@@ -8,4 +8,5 @@ public interface SalesmanDaoService extends GenericDaoService<Salesman, Integer>
 	public boolean authenticate(String name,String psw);
 	public Salesman findByName(String name);
 	public List<Salesman> findByOnLine(boolean onLine);
+	public List<Salesman> findByHasPhone();
 }
