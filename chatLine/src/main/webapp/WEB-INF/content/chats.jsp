@@ -202,21 +202,21 @@
                     <div class="chat03_content">
                         <ul>
                             <li>
-                                <label class="online">
+                                <label class="online" id="cu1">
                                 </label>
                                 <a href="javascript:;">
                                     <img src=" ../assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户1 </a>
                             	<div id="newmes1"></div>
                             </li>
                             <li>
-                                <label class="offline">
+                                <label class="offline" id="cu2">
                                 </label>
                                 <a href="javascript:;">
                                     <img src=" ../assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户2</a>
                             	<div id="newmes2"></div>
                             </li>
                             <li class="choosed">
-                                <label class="offline">
+                                <label class="offline" id="cu3">
                                 </label>
                                 <a href="javascript:;">
                                     <img src=" ../assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户3</a>

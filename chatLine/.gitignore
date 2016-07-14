@@ -12,3 +12,4 @@ chatLine/.project
 chatLine/.springBeans
 chatLine/.tern-project
 chatLine/src/main/resources/hibernate.properties
+/bin/

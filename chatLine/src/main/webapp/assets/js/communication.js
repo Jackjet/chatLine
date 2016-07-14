@@ -41,7 +41,16 @@ function connect() {
 						showByCustomers(mes);
 					}
 		        });
-		    },function(){alert("已断线");});
+		    },function(){
+		    	alert("已断线");    
+            var secondURL = getSecondURL();
+			if(secondURL=='chats'){
+			    sdisconnect("抱歉，您的客服已断开连接，请稍后……");
+			}else if (secondURL=='chatc'){
+				var cus = document.getElementById("cu3");
+				cus.className = "offline";
+			}
+});
 		},
 		error:function(){alert("无法连接到服务器");}
 	});
@@ -86,7 +95,6 @@ function disconnect() {
         stompClient.disconnect();
     }
     alert("已断线");
-    console.log("Disconnected");
 }
 
 function sendChatMes(content) {
@@ -97,3 +105,4 @@ function sendChatMes(content) {
     	stompClient.send("/app/cMes", {}, JSON.stringify({'content':content,'sid':id,'did':did}));
     }
 }
+
