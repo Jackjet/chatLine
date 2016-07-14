@@ -21,7 +21,14 @@
 		<script src="http://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
 		<script type="text/javascript" src=" ../assets/js/stomp.js"></script>
 		<script type="text/javascript" src=" ../assets/js/communication.js"></script>
-		
+		<script type="text/javascript">
+			<%if(request.getSession().getAttribute("eid")!= null){ %>
+				eid = <%=request.getSession().getAttribute("eid")%>
+			<%}%>
+			<%if(request.getSession().getAttribute("id")!= null){ %>
+				id = <%=request.getSession().getAttribute("id")%>
+			<%}%>
+		</script>
 		
 		<link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="../assets/css/style.css" type="text/css" rel="stylesheet" media="screen"/>
@@ -70,6 +77,7 @@
 				{
 					var drag = document.getElementById('drag');
 					drag.style.visibility='hidden';
+					disconnect();
 				}
 			</script>
 			

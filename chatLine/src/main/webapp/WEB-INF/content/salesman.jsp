@@ -53,6 +53,7 @@
 			<h4><img src=" ../assets/images/icon/add.jpg" width="120px" height="50px" alt="添加客服"/></h4>
 			<label><img src=" ../assets/images/icon/name.jpg" width="60px" height="25px" alt="昵称"/></label><input type="text" name="name" id="newname"/>
 			<label><img src=" ../assets/images/icon/psd.jpg" width="60px" height="25px" alt="密码"/></label><input type="password" name="password" id="newpassword"/>
+			<label>手机</label><input type="text" name="phone" id="newphone"/>
 			<button type="button" autofocus="autofocus" onclick="addNewSalesman()"><img src=" ../assets/images/icon/btn.jpg" width="75px" height="35px" alt="确定"></button>
 		</form>
 	</div> 

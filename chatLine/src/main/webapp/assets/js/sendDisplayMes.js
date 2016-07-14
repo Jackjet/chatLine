@@ -70,7 +70,28 @@ function sendByCustomers(){
 	}
 	
 }
+
+function ifcdis()
+{
+	
+	/*var editor1 = document.getElementById("editor1");
+	editor1.style.disabled = "disabled";
+	
+	var editor2 = document.getElementByClassName("wysiwyg-editor");
+	editor2.style.disabled = "disabled";
+	*/
+	alert("该用户已断线");
+	}
+
 function  showBySales(g){
+	if(g.result =="DISCONNECTED"){
+		$("#clabel"+g.id).removeClass("online");
+		$("#clabel"+g.id).addClass("offline");
+		ifcdis();
+	}
+	else{
+		$("#clabel"+g.id).removeClass("offline");
+		$("#clabel"+g.id).addClass("online");
 	 var audioElement = document.createElement('audio');
      audioElement.setAttribute('src', '../assets/gun.mp3');
      audioElement.setAttribute('autoplay', 'autoplay');
@@ -95,7 +116,7 @@ function  showBySales(g){
 		var n = "<span class='jquery-accordion-menu-label'>" + newM + "</span></li>";
 		var i = "<div class='message clearfix'><div class='user-logo'><img src='" + c + "'/>" + "</div>" + "<div class='wrap-text'>" + "<h5 class='clearfix'>用户</h5>" + "<div>" + g.content + "</div>" + "</div>" + "<div class='wrap-ri'>" + "<div class='clearfix'><span>" + f + "</span></div>" + "</div>" + "<div style='clear:both;'></div>" + "</div>";
 		if($("#newmes"+g.sid).length == 0){
-			$("#chat03_content_ul").append("<li id='user"+g.sid + "'><input hidden value='" + g.sid + "'></input><label class='online'></label><img src='../assets/images/img//head/2.png'><p class='chat03_name'>用户"+g.sid+"</p><div style='display: block;' id='newmes"+g.sid+"'><span class='jquery-accordion-menu-label'>1</span></div></li>");
+			$("#chat03_content_ul").append("<li id='user"+g.sid + "'><input hidden value='" + g.sid + "'></input><label id='clabel"+g.sid+"' class='online'></label><img src='../assets/images/img//head/2.png'><p class='chat03_name'>用户"+g.sid+"</p><div style='display: block;' id='newmes"+g.sid+"'><span class='jquery-accordion-menu-label'>1</span></div></li>");
 			$("#chat01_content").append("<div class='message_box mes"+g.sid+"'></div>");
 			$("#user"+g.sid).mouseover(function() {
 				$(this).addClass("hover").siblings().removeClass("hover")
@@ -105,7 +126,7 @@ function  showBySales(g){
 		}
 		if(did != g.sid){$("#newmes"+g.sid).show();}
 		null != g && "" != g ? ($("#newmes"+g.sid).append(n),$(".mes"+g.sid).append(i), $(".chat01_content").scrollTop($(".mes"+g.sid).height())) : alert("\u8bf7\u8f93\u5165\u804a\u5929\u5185\u5bb9!");
-}}
+	}}}
 
 function showByCustomers(content){
 	if (content.content == '') {

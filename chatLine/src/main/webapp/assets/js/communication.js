@@ -25,23 +25,27 @@ function connect() {
 		success:function(data){
 		    var rootUrl = getRootURL();
 		    var socket = new SockJS(rootUrl + '/chatMes');
+		    var secondURL = getSecondURL();
 			id = data.id;
 			did = data.did;
 			stompClient = Stomp.over(socket);
-		    alert("连接中...");
-		    stompClient.connect({"id":id},function(frame) {
-		        alert("已连接上");
-		        console.log('Connected: ' + frame);
-		        stompClient.subscribe('/topic/cMes/'+id, function(greeting){
-		            var mes = JSON.parse(greeting.body);
-		            var secondURL = getSecondURL();
-					if(secondURL=='chats'){
-						showBySales(mes);
-					}else if (secondURL=='chatc'){
-						showByCustomers(mes);
-					}
-		        });
-		    },function(){alert("已断线");});
+			if(secondURL=="chatc" && did == -1){
+				alert("没有任何客服在线！");
+			}else{
+			    alert("连接中...");
+			    stompClient.connect({"id":id},function(frame) {
+			        alert("已连接上");
+			        console.log('Connected: ' + frame);
+			        stompClient.subscribe('/topic/cMes/'+id, function(greeting){
+			            var mes = JSON.parse(greeting.body);
+						if(secondURL=='chats'){
+							showBySales(mes);
+						}else if (secondURL=='chatc'){
+							showByCustomers(mes);
+						}
+			        });
+			    },function(){alert("已断线");});
+			}
 		},
 		error:function(){alert("无法连接到服务器");}
 	});

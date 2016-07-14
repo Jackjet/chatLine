@@ -26,9 +26,7 @@ $(document).ready(function() {
 		$(".close_btn").click(function() {
 
 			$(".chatBox").hide()
-			//$("#user"+a).remove();
-			//$("#user"+(a+1)).addClass("choosed").siblings().removeClass("choosed")
-			//$(".mes" + (a+1)).show().siblings().hide()
+			
 		}), $(".chat03_content li").mouseover(function() {
 			$(this).addClass("hover").siblings().removeClass("hover")
 		}).mouseout(function() {
@@ -67,8 +65,18 @@ $(document).ready(function() {
 			return this
 		}, $.fn.focusEnd = function() {
 			this.setCursorPosition(this.val().length)
-		}
-	}),
+		   },$("#discon").click(function(){
+		        disconnect()
+		        $(".chatBox").hide()
+		        var i ="<p style='font-size:35px;color=white' id='add'>您已离线，请点击连接继续聊天</p>"
+		        $(".keBottom").append(i)
+		    }),$("#con").click(function(){
+		        connect()
+		        $(".chatBox").show()
+		        $("#add").remove()
+		    })
+		   
+		}),
 	function(a) {
 		a.extend({
 			blinkTitle: {
