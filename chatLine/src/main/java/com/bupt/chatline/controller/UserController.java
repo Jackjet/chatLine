@@ -85,8 +85,9 @@ public class UserController {
     		
     		if(name != null && name.trim().length() > 0){
     			u.setName(name);
-    			userDaoService.save(u);
     		}
+
+			userDaoService.save(u);
     	}else{
     		User u = new User();
     		u.setEid(eid);
