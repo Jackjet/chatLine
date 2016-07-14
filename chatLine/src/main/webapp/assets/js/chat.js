@@ -24,7 +24,17 @@ $(document).ready(function() {
 			c = "../assets/img/head/2.png",
 			d = "用户3";
 		$(".close_btn").click(function() {
-			$(".chatBox").hide()		 
+
+			$(".chatBox").hide()
+			
+		}), $(".chat03_content li").mouseover(function() {
+			$(this).addClass("hover").siblings().removeClass("hover")
+		}).mouseout(function() {
+			$(this).removeClass("hover").siblings().removeClass("hover")
+		}), $(".chat03_content li").click(function() {
+			var b = $(this).index() + 1;
+			newM = 0;
+			a = b, c = "../assets/img/head/2.png", d = $(this).find(".chat03_name").text(), $(".chat01_content").scrollTop(0), $(this).addClass("choosed").siblings().removeClass("choosed"), $(".talkTo a").text($(this).children(".chat03_name").text()), $(".mes" + b).show().siblings().hide(),$("#newmes"+b).hide()
 		}), $(".ctb01").mouseover(function() {
 			$(".wl_faces_box").show()
 		}).mouseout(function() {
@@ -65,6 +75,7 @@ $(document).ready(function() {
 		        $(".chatBox").show()
 		        $("#add").remove()
 		    })
+		   
 		}),
 	function(a) {
 		a.extend({

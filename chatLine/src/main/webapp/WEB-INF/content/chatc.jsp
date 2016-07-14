@@ -78,6 +78,7 @@
 				{
 					var drag = document.getElementById('drag');
 					drag.style.visibility='hidden';
+					disconnect();
 				}
 			</script>
 			

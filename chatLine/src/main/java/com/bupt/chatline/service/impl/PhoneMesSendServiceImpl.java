@@ -28,6 +28,7 @@ public class PhoneMesSendServiceImpl implements PhoneMesSendService {
 			if(client == null){
 				client = new Client();
 //				client.addFilter(new HTTPBasicAuthFilter("api","key-5aa902877daf5d408ba1b242be35a7b5"));
+
 				webResource = client.resource("http://sms-api.luosimao.com/v1/send.json");
 			}
 			MultivaluedMapImpl formData = new MultivaluedMapImpl();
