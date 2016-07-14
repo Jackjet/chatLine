@@ -12,7 +12,6 @@ import com.bupt.chatline.service.UserDaoService;
 
 @Component
 public class PollingUserSalesmanDistributedStrategy extends UserSalesmanDistributedStrategy {
-
 	@Autowired
 	private SalesmanDaoService salesmanDaoService;
 	@Autowired
@@ -28,9 +27,13 @@ public class PollingUserSalesmanDistributedStrategy extends UserSalesmanDistribu
 
 	@Override
 	public int distributed(User u) {
-		List<Salesman> ls = salesmanDaoService.findAll();
+		List<Salesman> ls = salesmanDaoService.findByOnLine(true);
+		if(ls.size() == 0)return -2;
 		int dsalesmanid = ls.get(u.getId()%ls.size()).getId();
-		int did = userDaoService.findByEid(dsalesmanid).getId();
+		int did = -1;
+		if(userDaoService.findByEid(dsalesmanid) != null && (u.getEid() == -1 || salesmanDaoService.findById(u.getEid()) == null)){
+			did = userDaoService.findByEid(dsalesmanid).getId();
+		}
 		return did;
 	}
 

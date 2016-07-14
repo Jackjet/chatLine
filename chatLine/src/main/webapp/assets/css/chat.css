@@ -64,7 +64,7 @@ li {
 
 a {
 	outline-style: none;
-	color: #535353;
+	color: #BBB4BA;
 	text-decoration: none
 }
 
@@ -594,6 +594,20 @@ label.offline {
     background: #b9b9b4;
     border-radius: 100%;
 }
-
+.dropdown-user{
+	position: absolute;
+	right:20px;
+	top:10px;
+}
+.opr{
+    position: absolute;
+    right:20px;
+    top:250px;
+    color: #d6add6;
+    cursor: pointer;
+}
+#discon :hover,#con :hover{
+    color:red;
+}
 
 /* 效果CSS结束 */

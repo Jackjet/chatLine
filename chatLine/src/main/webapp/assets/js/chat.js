@@ -6,6 +6,17 @@ function message() {
 		$.blinkTitle.clear(a)
 	}, 8e3)
 }
+function clickUser(element){
+	did = element.children("input").val();
+	newM = 0;
+	c = "../assets/img/head/2.png";
+	d = element.find(".chat03_name").text();
+	$(".chat01_content").scrollTop(0);
+	element.addClass("choosed").siblings().removeClass("choosed");
+	$("#talkToTitle").text(d);
+	$(".mes" + did).show().siblings().hide();
+	$("#newmes"+did).hide();
+}
 $(document).ready(function() {
 
 		var 
@@ -14,14 +25,6 @@ $(document).ready(function() {
 			d = "用户3";
 		$(".close_btn").click(function() {
 			$(".chatBox").hide()		 
-		}), $(".chat03_content li").mouseover(function() {
-			$(this).addClass("hover").siblings().removeClass("hover")
-		}).mouseout(function() {
-			$(this).removeClass("hover").siblings().removeClass("hover")
-		}), $(".chat03_content li").click(function() {
-			var b = $(this).index() + 1;
-			newM = 0;
-			a = b, c = "../assets/img/head/2.png", d = $(this).find(".chat03_name").text(), $(".chat01_content").scrollTop(0), $(this).addClass("choosed").siblings().removeClass("choosed"), $(".talkTo a").text($(this).children(".chat03_name").text()), $(".mes" + b).show().siblings().hide(),$("#newmes"+b).hide()
 		}), $(".ctb01").mouseover(function() {
 			$(".wl_faces_box").show()
 		}).mouseout(function() {
@@ -52,8 +55,17 @@ $(document).ready(function() {
 			return this
 		}, $.fn.focusEnd = function() {
 			this.setCursorPosition(this.val().length)
-		}
-	}),
+		   },$("#discon").click(function(){
+		        disconnect()
+		        $(".chatBox").hide()
+		        var i ="<p style='font-size:35px;color=white' id='add'>您已离线，请点击连接继续聊天</p>"
+		        $(".keBottom").append(i)
+		    }),$("#con").click(function(){
+		        connect()
+		        $(".chatBox").show()
+		        $("#add").remove()
+		    })
+		}),
 	function(a) {
 		a.extend({
 			blinkTitle: {

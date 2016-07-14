@@ -12,22 +12,43 @@
 <script type="text/javascript" src=" ../assets/js/sendDisplayMes.js"></script>
 <script type="text/javascript" src=" ../assets/js/chat.js"></script>
 <script type="text/javascript" src=" ../assets/js/util.js"></script>
-<script src="http://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
+<script type="text/javascript" src=" ../assets/js/sockjs.min.js"></script>
 <script type="text/javascript" src=" ../assets/js/stomp.js"></script>
 <script type="text/javascript" src=" ../assets/js/communication.js"></script>
-<script type="text/javascript">
-	<%if(request.getSession().getAttribute("eid")!= null){ %>
-		eid = <%=request.getSession().getAttribute("eid")%>
-	<%}%>
-</script>
+
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
 <link rel="stylesheet" type="text/css" href=" ../assets/css/wysiwyg-editor-s.css" />
 <link rel="stylesheet" type="text/css" href=" ../assets/css/wysiwyg-style.css" />
 <link rel="stylesheet" type="text/css" href=" ../assets/css/chat.css" />
+<script type="text/javascript">
+	<%if(request.getSession().getAttribute("eid")!= null){ %>
+		eid = <%=request.getSession().getAttribute("eid")%>
+	<%}%>
+	<%if(request.getSession().getAttribute("id")!= null){ %>
+		id = <%=request.getSession().getAttribute("id")%>
+	<%}%>
+</script>
+<link href="assets/css/bootstrap.css" rel="stylesheet" />
+<!-- FontAwesome Styles-->
+<link href="../assets/css/font-awesome.css" rel="stylesheet" />
+<!-- Morris Chart Styles-->
+<link href="../assets/css/morris-0.4.3.min.css" rel="stylesheet" />
+<!-- Custom Styles-->
+<link href="../assets/css/custom-styles.css" rel="stylesheet" />
+<link href='http://fonts.useso.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
-
 <body class="keBody" onload="onSalesmanLogin()">
-<h1 class="keTitle">欢迎您,客服</h1>
+<div class="keTitle">
+        <h1 style="font-size: 35px">欢迎您,客服~</h1>
+        <div class="opr" style="height: 100px">
+        <h1 id = "discon" style="font-size: 20px"><i class="fa fa-twitter fa-fw" id="dis2"></i> 离线</a></h1>
+        <h1 id = "con" style="font-size: 20px"><i class="fa fa-tasks fa-fw"></i> 连接</a></h1>
+        </div>
+        <div class="dropdown-user" style="height: 100px">
+        <a href="../salesman/"><i class="fa fa-user fa-fw"></i> 客服列表</a>
+        <a href="../salesman/logout/"><i class="fa fa-sign-out fa-fw"></i> 登出</a>
+        </div>
+        </div>
 <div class="kePublic">
 <!--html-->
     <div class="content">
@@ -35,31 +56,12 @@
             <div class="chatLeft">
                 <div class="chat01">
                     <div class="chat01_title">
-                        <ul class="talkTo">
-                            <li><a href="javascript:;">用户3</a></li></ul>
+                        <div class="talkTo">
+                          	  <h5 id="talkToTitle" >没有选择用户</h5>
+                        </div>
                         <a class="close_btn" href="javascript:;"></a>
                     </div>
-                    <div class="chat01_content">
-                        <div class="message_box mes1">
-                        </div>
-                        <div class="message_box mes2">
-                        </div>
-                        <div class="message_box mes3" style="display: block;">
-                        </div>
-                        <div class="message_box mes4">
-                        </div>
-                        <div class="message_box mes5">
-                        </div>
-                        <div class="message_box mes6">
-                        </div>
-                        <div class="message_box mes7">
-                        </div>
-                        <div class="message_box mes8">
-                        </div>
-                        <div class="message_box mes9">
-                        </div>
-                        <div class="message_box mes10">
-                        </div>
+                    <div class="chat01_content" id ="chat01_content" >
                     </div>
                 </div>
                 <div class="chat02">
@@ -77,7 +79,7 @@
                                 id="swf_3140"></embed>
                         </a>
                         <label class="chat02_title_t">
-                            <a href="../meslog/" target="_blank">聊天记录</a></label>
+                            <a href="meslog/" target="_blank">聊天记录</a></label>
                         <div class="wl_faces_box">
                             <div class="wl_faces_content">
                                 <div class="title">
@@ -199,29 +201,8 @@
                     <div class="chat03_title">
                         <label class="chat03_title_t"> 联系人</label>
                     </div>
-                    <div class="chat03_content">
-                        <ul>
-                            <li>
-                                <label class="online" id="cu1">
-                                </label>
-                                <a href="javascript:;">
-                                    <img src=" ../assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户1 </a>
-                            	<div id="newmes1"></div>
-                            </li>
-                            <li>
-                                <label class="offline" id="cu2">
-                                </label>
-                                <a href="javascript:;">
-                                    <img src=" ../assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户2</a>
-                            	<div id="newmes2"></div>
-                            </li>
-                            <li class="choosed">
-                                <label class="offline" id="cu3">
-                                </label>
-                                <a href="javascript:;">
-                                    <img src=" ../assets/images/img//head/2.png"/></a><a href="javascript:;" class="chat03_name">用户3</a>
-                            	<div id="newmes3"></div>
-                            </li>
+                    <div class="chat03_content">                           
+                        <ul id = "chat03_content_ul">
                         </ul>
                     </div>
                 </div>
@@ -232,11 +213,12 @@
     </div>
 <!--html-->
 </div>
-<div class="keBottom">
-<p class="keTxtP">1 <a class="keUrl" href="#" target="_blank">蠢静静和傻凯凯</a></p>
+ <div class="keBottom">
 
-<p class="keTxtP">2
-<a target="_blank" href="#" class="button red" title="1">3</a></p>
-</div>
+        <h1 style="font-size:35px;color='white'" text-align="center">软妹心仪客服系统</h1>
+        <p class="keTxtP">
+
+        <p class="keTxtP">为您提供最萌的服务</p>
+        </div>
 </body>
 </html>

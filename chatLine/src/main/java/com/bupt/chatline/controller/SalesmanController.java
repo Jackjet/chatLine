@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bupt.chatline.service.SalesmanDaoService;
+import com.bupt.chatline.service.UserDaoService;
 import com.bupt.chatline.entity.Salesman;
+import com.bupt.chatline.entity.User;
+import com.bupt.chatline.mes.MesHolder;
 
 
 @Controller
@@ -19,6 +22,8 @@ import com.bupt.chatline.entity.Salesman;
 public class SalesmanController {
 	@Autowired
 	private SalesmanDaoService salesmanDaoService;
+	@Autowired
+	private UserDaoService userDaoService;
 
 	public SalesmanDaoService getSalesmanDaoService() {
 		return salesmanDaoService;
@@ -38,7 +43,12 @@ public class SalesmanController {
 	public String loginIndex(){
 		return "logins";
 	}
-    
+    @RequestMapping("/logout")
+	public String logout(HttpSession session){
+    	session.removeAttribute("id");
+    	session.removeAttribute("eid");
+		return "redirect:/salesman/logins/";
+	}
     
     @RequestMapping("/logins/authenticate")
 	public @ResponseBody boolean authenticate(@RequestParam(value="name", required=true)String name,
@@ -55,12 +65,18 @@ public class SalesmanController {
     @RequestMapping("/add")
 	public @ResponseBody String add(
 			@RequestParam(value="name", required=true)String name,
-			@RequestParam(value="password", required=true)String password){
+			@RequestParam(value="password", required=true)String password,
+			@RequestParam(value="phone", required=false)String phone){
     	if(salesmanDaoService.findByName(name)!=null){
     		return "duplicateName";
     	}
-    	Salesman s = new Salesman(name,password);
+    	if(phone == null || (phone!=null && !MesHolder.pattern.matcher(phone).matches())){
+    		phone = "";
+    	}
+    	Salesman s = new Salesman(name,password,phone);
     	salesmanDaoService.save(s);
+    	User u = new User(s.getId(),name,false);
+    	userDaoService.save(u);
     	return "success";
 	}
     
